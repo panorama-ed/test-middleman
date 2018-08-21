@@ -80,6 +80,7 @@ Backtrace:
 /Users/rayli/.gem/ruby/2.3.4/gems/rack-2.0.5/lib/rack/urlmap.rb:53:in `each'
 /Users/rayli/.gem/ruby/2.3.4/gems/rack-2.0.5/lib/rack/urlmap.rb:53:in `call'
 /Users/rayli/.gem/ruby/2.3.4/gems/middleman-autoprefixer-2.9.0/lib/middleman-autoprefixer/extension.rb:48:in `call'
+/Users/rayli/.gem/ruby/2.3.4/gems/middleman-core-4.2.1/lib/middleman-core/core_extensions/inline_url_rewriter.rb:74:in `call'
 /Users/rayli/.gem/ruby/2.3.4/gems/rack-2.0.5/lib/rack/head.rb:12:in `call'
 /Users/rayli/.gem/ruby/2.3.4/gems/rack-2.0.5/lib/rack/lint.rb:49:in `_call'
 /Users/rayli/.gem/ruby/2.3.4/gems/rack-2.0.5/lib/rack/lint.rb:37:in `call'

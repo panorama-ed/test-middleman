@@ -4716,8 +4716,8 @@ button.close {
   font-family: "icons";
   font-style: normal;
   font-weight: normal;
-  src: url(/assets/fonts/icons.eot?g4uetw);
-  src: url(/assets/fonts/icons.eot?g4uetw#iefix) format("embedded-opentype"), url(/assets/fonts/icons.ttf?g4uetw) format("truetype"), url(/assets/fonts/icons.woff?g4uetw) format("woff"), url(/assets/fonts/icons.svg?g4uetw#icons) format("svg"); }
+  src: url(../assets/fonts/icons.eot?g4uetw);
+  src: url(../assets/fonts/icons.eot?g4uetw#iefix) format("embedded-opentype"), url(../assets/fonts/icons.ttf?g4uetw) format("truetype"), url(../assets/fonts/icons.woff?g4uetw) format("woff"), url(../assets/fonts/icons.svg?g4uetw#icons) format("svg"); }
 body {
   font: normal normal 500 1.3rem "Gotham SSm A", "Gotham SSm B", helvetica, sans-serif;
   -moz-osx-font-smoothing: grayscale;

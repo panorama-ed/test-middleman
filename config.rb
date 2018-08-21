@@ -52,3 +52,8 @@ set :build_dir, 'docs'
 #   activate :minify_css
 #   activate :minify_javascript
 # end
+
+configure :build do
+  activate :relative_assets
+  set :relative_links, true
+end

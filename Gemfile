@@ -7,4 +7,4 @@ gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw]
 
 gem "middleman-livereload", "~> 3.4"
 gem "bootstrap-sass", "~> 3.3.6"
-gem 'middleman-sprockets', '~> 4.1.1'
+gem "middleman-sprockets", "~> 4.1.1"
