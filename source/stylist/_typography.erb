@@ -1,0 +1,205 @@
+<div class="row stylist">
+  <h2>Typography</h2>
+
+  <h3>Gotham</h3>
+  <p>We use <a href="http://www.typography.com/fonts/gotham/overview/" target="_blank">Gotham</a> throughout our data analytics platform. Currently we are not using italics, we must enable them first before using them.</p>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-light;</p>
+    <h1 data-toc-skip class="font-light no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-book;</p>
+    <h1 data-toc-skip class="font-book no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <h1 data-toc-skip class="font-medium no-space">
+      <p class="no-space">font: $font-medium;</p>
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-bold;</p>
+    <h1 data-toc-skip class="font-bold no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+
+  <h3>Font presets for NDS</h3>
+  <p>When picking a font style first try to use an existing one below. If none of these are adequate then add a new style below so that others can see what is available.</p>
+
+  <%= display_example(%Q(
+<h1 data-toc-skip>Titles</h1>
+)) %>
+
+  <%= display_example(%Q(
+<h2 data-toc-skip>Titles – alternative</h2>
+)) %>
+
+  <%= display_example(%Q(
+<h3 data-toc-skip>Subtitles</h3>
+)) %>
+
+  <%= display_example(%Q(
+<h4 data-toc-skip>Section Title</h4>
+)) %>
+
+  <%= display_example(%Q(
+<h5 data-toc-skip>Section Label</h5>
+)) %>
+
+  <%= display_example(%Q(
+<h6 data-toc-skip>Annotation</h6>
+)) %>
+
+  <%= display_example(%Q(
+<p>Paragraph text. Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi </p>
+)) %>
+
+<p>Here is an easy way to remove margin and padding without adding more CSS rules:</p>
+<%= display_example(%Q(
+<h3 data-toc-skip class="no-space">Just add the class .no-space</h3>
+)) %>
+
+  <h2>Icons</h2>
+  <p>Our icons are kept up to date in a font file that we host.</p>
+  <p>Designers primarily update the font file when we want to include new icon(s). The intructions are as follows:</p>
+  <ol>
+    <li>To update the icon font file first go to <a href="http://icomoon.io" target="_blank">icomoon.io</a> and click the "IcoMoon App" button in the upper right of the screen.</li>
+    <li>Then click "Import Icons" in the upper left screen and upload the .svg file from our existing icon font (Note: this must be done so that no icons are lost in the update. When you go to export the new file these existing icons should still have the same characters assigned to them).</li>
+    <li>Once you have uploaded the existing SVG file you should see those icons selected on the screen.</li>
+    <li>Now upload your new icons, these must be in a single black color and there must be a single SVG shape for each one.</li>
+    <li>When ready to export click "Generate Font", on the following screen you must assign new icons to a character that has not been used yet.</li>
+    <li>Download this new font and replace all 4 existing font files.</li>
+  </ol>
+
+  <h3>Miscellaneous</h3>
+  <div>
+    <%
+      {
+        "$icon-arrow-down" => "#",
+        "$icon-arrow-left" => "1",
+        "$icon-arrow-right" => "2",
+        "$icon-change-down" => "j",
+        "$icon-change-flat" => "k",
+        "$icon-change-up" => "l",
+        "$icon-check" => "3",
+        "$icon-dismiss" => "4",
+        "$icon-down" => "8",
+        "$icon-dropdown" => "*",
+        "$icon-edit" => "r",
+        "$icon-menu" => "h",
+        "$icon-plus" => "0",
+        "$icon-question" => "a",
+        "$icon-reload" => "w",
+        "$icon-search" => "5",
+        "$icon-sort-asc" => "t",
+        "$icon-sort-desc" => "q",
+        "$icon-trend-decrease" => "g",
+        "$icon-trend-increase" => "f",
+        "$icon-unsorted" => "y",
+        "$icon-up" => "9"
+      }.to_a.sort.each do |variable, icon| -%>
+      <pre> <%= variable -%></pre>
+      <%= display_example(%Q(
+  <span class="icon">#{icon}</span>
+  )) %>
+    <% end -%>
+  </div>
+
+  <h3>Subjects & Indicator Status</h3>
+  <div>
+    <%
+      {
+        "$icon-ela" => "&",
+        "$icon-math" => "s",
+        "$icon-reading" => "d",
+        "$icon-sel" => "$",
+        "$icon-academics" => "!",
+        "$icon-attendance" => "+",
+        "$icon-behavior" => "@",
+        "$icon-writing" => "%",
+        "$icon-college" => "u",
+        "$icon-graduation" => "i",
+        "$icon-at-risk" => "o",
+        "$icon-critical" => "p"
+      }.to_a.sort.each do |variable, icon| -%>
+      <pre> <%= variable -%></pre>
+      <%= display_example(%Q(
+  <span class="icon">#{icon}</span>
+  )) %>
+    <% end -%>
+  </div>
+
+  <h3>Groups & Support Planning</h3>
+  <div>
+    <%
+      {
+        "$icon-filter" => "e",
+        "$icon-tag-unchecked" => "6",
+        "$icon-tag" => "7",
+        "$icon-flag-empty" => "œ",
+        "$icon-flag-filled" => "x"
+      }.to_a.sort.each do |variable, icon| -%>
+      <pre> <%= variable -%></pre>
+      <%= display_example(%Q(
+  <span class="icon">#{icon}</span>
+  )) %>
+    <% end -%>
+  </div>
+
+  <h3>Reports Icons</h3>
+  <div>
+    <%
+      {
+        "$icon-pdf" => "v",
+        "$icon-bookmark" => ")",
+        "$icon-playbook" => "(",
+        "$icon-projects" => "z",
+        "$icon-reports" => "n",
+        "$icon-download" => "b"
+      }.to_a.sort.each do |variable, icon| -%>
+      <pre> <%= variable -%></pre>
+      <%= display_example(%Q(
+  <span class="icon">#{icon}</span>
+  )) %>
+    <% end -%>
+  </div>
+
+  <h3>Loading Animation</h3>
+  <%= display_example(%Q(
+<div class="loading-wave">
+<div class="rect rect1"></div>
+<div class="rect rect2"></div>
+<div class="rect rect3"></div>
+<div class="rect rect4"></div>
+<div class="rect rect5"></div>
+</div>
+)) %>
+
+  <h3>Helper Classes</h3>
+  <p>
+    Some icons are commonly used as decorators throughout the product. These
+    may have helper classes set up to easily apply them in markup.
+  </p>
+  <%= display_example(%Q(
+<span class="with-collection-icon group">Smart Group description</span>
+)) %>
+  <%= display_example(%Q(
+<span class="with-collection-icon list">Group name</span>
+)) %>
+  <%= display_example(%Q(
+<h4 data-toc-skip class="with-info-icon">Header with explanatory modal</h4>
+)) %>
+</div>

@@ -1,0 +1,95 @@
+.index-page {
+  .page-button {
+    background-color: $white;
+    border: 1px solid $silver;
+    border-radius: $radius-sm;
+    color: $black;
+    display: block;
+    margin: 0 0 $space-sm;
+    padding: $space-lg $space-md;
+
+    &:hover {
+      border-color: $grey;
+    }
+  }
+
+  .admin-button {
+    display: inline-block;
+    font-size: $font-size-xsmall;
+    position: relative;
+
+    &::before {
+      content: $icon-search;
+      font: $font-icon;
+      font-size: $font-size-xsmall;
+      left: -$space-sm;
+      position: relative;
+    }
+  }
+}
+
+.maintenance {
+  img {
+    margin-top: -230px;
+  }
+
+  h1 {
+    margin: $space-xlg auto;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.district-hero {
+  padding-bottom: $inc;
+}
+
+.district-content .school-entry.data-header {
+  margin-top: -($space-xlg + $inc);
+}
+
+.school-entry {
+  @extend .list-entry;
+
+  h4 {
+    font-weight: $weight-bold;
+    padding-left: $space-md;
+  }
+
+  table {
+    margin-top: $space-sm;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .unclickable {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .status-message {
+    color: $grey;
+    font-size: $font-size-xsmall;
+    font-weight: $weight-light;
+
+    &::after {
+      left: 0;
+    }
+  }
+
+  .stale-alert {
+    font-weight: $weight-bold;
+  }
+
+  .school-info {
+    padding-left: $space-sm;
+  }
+}

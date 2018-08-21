@@ -1,0 +1,56 @@
+<div class="row stylist">
+  <h2>Modal Dialogs</h2>
+
+  <p>Standard Modal Dialog</p>
+
+  <% @modal_standard = %Q(
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h2 data-toc-skip>Title</h2>
+        <p>Instructions for the action to take here...</p>
+        <div id="create-list-or-save" class="clearfix">
+          <button type="submit" class="btn btn-success pull-right">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+)
+  %>
+
+  <%= display_example(@modal_standard) %>
+
+   <p>Modal Dialogs with a sidebar should look like this.</p>
+
+  <% @modal_with_sidebar_code = %Q(
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-row-with-sidebar equal-height-cols">
+      <div class="modal-sidebar">
+        Sidebar content
+      </div>
+      <div class="modal-main-body clearfix">
+        <button class="close" data-dismiss="modal"></button>
+        <h2 data-toc-skip>A title describing what's going on.</h2>
+
+        <p>Content</p>
+
+        <div class="pull-right">
+          <button class="btn" data-dismiss="modal">
+            Cancel
+          </button>
+          <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+)
+  %>
+
+  <%= display_example(@modal_with_sidebar_code) %>
+
+</div>
+
+

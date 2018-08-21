@@ -1,0 +1,303 @@
+.group-row {
+  @extend .list-entry;
+  @extend .timing-animation;
+
+  $count-size: $avatar-size-sm;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: $space-xxlg;
+  padding: 0 $space-sm;
+
+  &:hover {
+    @include shadow($silver);
+
+    color: $main-text-color;
+  }
+
+  * {
+    vertical-align: middle;
+  }
+
+  .count {
+    background-color: $gainsboro;
+    font-size: $font-size-xsmall;
+    height: $count-size;
+    line-height: $count-size;
+    margin-top: $space-sm;
+    position: absolute;
+    text-align: center;
+    width: $count-size;
+  }
+
+  .with-collection-icon {
+    margin-left: $count-size + $space-md;
+    padding-top: $space-sm;
+    vertical-align: top;
+
+    &::before {
+      color: $blue;
+    }
+
+    &.list {
+      $extra-indent: 6px;
+
+      margin-left: $count-size + $space-md + $extra-indent;
+      padding-bottom: $space-sm;
+
+      &::before {
+        left: -$extra-indent;
+      }
+    }
+  }
+}
+
+.with-collection-icon {
+  $icon-width: 22px;
+  $icon-padding: $icon-width + $space-md;
+
+  position: relative;
+
+  &:not(.inline) {
+    padding-left: $icon-padding;
+  }
+
+  &::before {
+    font: $font-icon;
+    left: 0;
+    line-height: inherit;
+    position: absolute;
+  }
+
+  &.group::before {
+    content: $icon-filter;
+    font-size: $font-size-medium + 0.3rem;
+  }
+
+  &.list::before {
+    content: $icon-tag;
+    font-size: $font-size-medium;
+  }
+
+  &.inline {
+    &::before {
+      color: inherit;
+      font-size: inherit;
+      margin-right: $space-sm;
+      position: relative;
+      top: 1px;
+    }
+  }
+}
+
+.groups-hero {
+  margin-bottom: $space-lg;
+
+  p {
+    font: $font-book;
+  }
+}
+
+.no-groups-help {
+  .alert {
+    background-color: $main-background-color;
+    padding-bottom: $space-xlg;
+    padding-top: $space-xlg;
+  }
+
+  h3 {
+    color: $blue;
+    font-size: $font-size-medium;
+  }
+
+  p {
+    max-width: 550px;
+  }
+
+  p + p {
+    margin-top: $space-md;
+  }
+}
+
+.student-filter-container {
+  .group-hero {
+    padding-bottom: 75px; // Not a variable; estimate of "delete" button height
+  }
+
+  .with-collection-icon.group {
+    color: $blue;
+    line-height: $space-xxlg;
+  }
+
+  .delete-group {
+    @extend .timing-animation;
+
+    cursor: pointer;
+    display: inline-block;
+    padding: $space-sm 0;
+    text-decoration: underline;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.modal-dialog .saved-list {
+  font-weight: bold;
+  margin-top: $space-lg;
+  padding: 0 0 25px;
+}
+
+.delete-support-modal,
+#delete-group-modal,
+#delete-list-modal,
+.student-lists-modal {
+  .warning {
+    color: $red;
+    font-weight: bold;
+    margin-bottom: $space-xxlg;
+  }
+
+  .filter-boxes {
+    margin-bottom: $space-lg;
+  }
+}
+
+#new-group-modal {
+  h2 {
+    margin: 0 0 $space-xxlg;
+  }
+
+  .filter-boxes {
+    margin-bottom: $space-lg;
+  }
+}
+
+.student-lists-modal {
+  .modal-sidebar {
+    .student-entry {
+      margin: 7px 0 8px;
+      padding: 0;
+      padding-left: $avatar-size-sm + $space-md;
+
+      .avatar {
+        left: 0;
+        position: absolute;
+      }
+
+      .name {
+        min-height: $avatar-size-sm;
+      }
+    }
+
+    p {
+      font-size: $font-size-small;
+
+      &#extra {
+        font-size: $font-size-xsmall;
+        text-align: center;
+      }
+    }
+  }
+
+  .saved-list {
+    margin: 0 0 $space-xlg;
+  }
+
+  .creation-form {
+    button {
+      vertical-align: middle;
+      width: 17%;
+    }
+
+    .form-group {
+      display: inline-block;
+      width: 64%;
+    }
+
+    .form-control {
+      @extend .timing-animation;
+      @include placeholder-color($main-text-color);
+
+      background-color: $gainsboro;
+      border-radius: $radius-sm;
+      color: $main-text-color;
+      padding: $space-xlg $space-md;
+      width: 100%;
+
+      &:hover {
+        color: $blue;
+      }
+
+      &:focus {
+        background-color: $silver;
+        border-color: $light-grey;
+      }
+    }
+  }
+
+  ul {
+    margin: $space-xlg auto;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+
+    label {
+      @extend .timing-animation;
+
+      background-color: $gainsboro;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      display: block;
+      padding: $space-lg;
+
+      &:hover {
+        background-color: $silver;
+
+        div::before {
+          opacity: 1;
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      div {
+        &::before {
+          $size: 20px;
+
+          border: 1px solid $grey;
+          border-radius: $radius-sm;
+          content: "";
+          display: inline-block;
+          float: left;
+          font: $font-icon;
+          font-size: $font-size-med-reg;
+          height: $size;
+          line-height: $font-size-medium;
+          margin: -3px 8px 0 0;
+          opacity: .2;
+          overflow: hidden;
+          padding-left: 1.5px;
+          width: $size;
+        }
+
+        &.half-checked::before {
+          content: $icon-check;
+        }
+      }
+
+      :checked ~ div::before {
+        background-color: $green;
+        border-color: $green;
+        color: $white;
+        content: $icon-check;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,431 @@
+.indicator {
+  &.on-track-for-college-career-readiness {
+    $color: nth($default-indicator-colors, 5);
+    $icon: nth($default-indicator-icons, 5);
+    @include indicator-customizations($color, $icon);
+  }
+
+  &.on-track-for-graduation {
+    $color: nth($default-indicator-colors, 4);
+    $icon: nth($default-indicator-icons, 4);
+    @include indicator-customizations($color, $icon);
+  }
+
+  &.at-risk {
+    $color: nth($default-indicator-colors, 3);
+    $icon: nth($default-indicator-icons, 3);
+    @include indicator-customizations($color, $icon);
+  }
+
+  &.critical {
+    $color: nth($default-indicator-colors, 2);
+    $icon: nth($default-indicator-icons, 2);
+    @include indicator-customizations($color, $icon);
+  }
+
+  &.not-available {
+    $color: nth($default-indicator-colors, 1);
+    $icon: nth($default-indicator-icons, 1);
+    @include indicator-customizations($color, $icon);
+  }
+}
+
+.indicator-summary-container {
+  font-size: 0;
+  padding-left: 0;
+  padding-right: ($space-lg * 2) + $inc;
+  text-align: right;
+}
+
+.indicator-graph-spacing {
+  width: $indicator-graph-spacing;
+
+  &.narrow {
+    width: $indicator-graph-spacing-narrow;
+  }
+
+  &.fade {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
+  }
+}
+
+.parent-indicator-panel {
+  display: inline-block;
+  min-width: $indicator-graph-spacing;
+  position: relative;
+
+  .top-level-selector {
+    left: -6px; // Positioned by hand
+    position: absolute;
+    top: 3px; // Positioned by hand
+    width: 95%;
+
+    .vendor-logo {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  .vendor-logo {
+    height: $space-xlg;
+  }
+
+  &.sibling-expanded {
+    min-width: auto;
+
+    .top-level-selector {
+      display: none;
+    }
+  }
+
+  &.expanded {
+    text-align: left;
+    white-space: nowrap;
+
+    .top-level-selector {
+      display: block;
+      width: $indicator-graph-spacing * 0.95;
+    }
+  }
+}
+
+.indicator-summary {
+  // to ensure animations happen in correct order: prevents indicators
+  // from wrapping to second line and then jumping back to first
+  @include animate-all(.05s); // TODO: slow down this animation and address above in better way
+
+  $graph-height: 225px;
+  $graph-width: 23px;
+  $graph-width-narrow: 14px;
+  $graph-left-margin: 5px;
+  $expander-expanded-width: $graph-width * 1.5;
+  $expander-expanded-left-margin: $graph-left-margin - 0.5 * ($expander-expanded-width - $graph-width);
+
+  display: inline-block;
+  font: $font-medium;
+  padding-top: $space-md;
+  text-align: initial;
+  vertical-align: top;
+
+  h4 {
+    line-height: $space-xlg;
+    overflow: hidden;
+    padding: 0 0 $space-sm;
+    position: relative;
+    text-overflow: ellipsis;
+    top: -2.5px;
+    white-space: nowrap;
+  }
+
+  select.dropdown {
+    margin-bottom: $space-sm;
+  }
+
+  .expander {
+    border: 0;
+    float: left;
+    font: $font-icon;
+    font-size: $font-size-xxsmall;
+    margin: 1px $graph-left-margin;
+    padding: $space-sm;
+    width: $graph-width;
+
+    &:hover {
+      margin-left: $expander-expanded-left-margin;
+      width: $expander-expanded-width;
+    }
+
+    > :first-child,
+    > :last-child {
+      @extend .timing-animation;
+      display: inline-block;
+      width: 50%;
+    }
+
+    > :first-child {
+      text-align: left;
+
+      &::before {
+        content: $icon-arrow-left;
+      }
+    }
+
+    > :last-child {
+      text-align: right;
+
+      &::before {
+        content: $icon-arrow-right;
+      }
+    }
+  }
+
+  &.expanded .expander {
+    margin-left: $expander-expanded-left-margin;
+    width: $expander-expanded-width;
+
+    > :first-child::before {
+      content: $icon-arrow-right;
+    }
+
+    > :last-child::before {
+      content: $icon-arrow-left;
+    }
+
+    &:hover {
+      margin-left: $graph-left-margin;
+      width: $graph-width;
+    }
+  }
+
+  .indicator-summary-panel.fade {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+  }
+
+  .indicator-status-summaries,
+  .indicator-graph-vertical {
+    height: $graph-height;
+  }
+
+  .indicator-graph-vertical {
+    float: left;
+    margin-left: $graph-left-margin;
+    width: $graph-width;
+  }
+
+  .indicator-status-summaries {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &.narrow {
+    h4 {
+      padding-left: $space-sm;
+      padding-right: $space-sm;
+      text-align: center;
+    }
+
+    .indicator-graph-vertical {
+      float: none;
+      margin: 0 auto;
+      width: $graph-width-narrow;
+    }
+
+    .indicator-status-summaries {
+      display: none;
+    }
+  }
+
+  .indicator-status-summary {
+    cursor: pointer;
+    padding-left: $space-md;
+    text-align: left;
+
+    &.invisible {
+      visibility: hidden;
+    }
+
+    &.inactive {
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .name {
+      font-size: $font-size-small;
+      margin-bottom: $space-sm;
+
+      &::before {
+        font-size: $font-size-small;
+        padding-right: $space-sm;
+        position: relative;
+        top: 1px;
+      }
+    }
+
+    .percent {
+      cursor: pointer;
+      display: block;
+      font: $font-bold;
+      font-size: $font-size-med-reg;
+      margin: 0;
+
+      .symbol {
+        font-size: $font-size-large / 2;
+      }
+    }
+
+    .count {
+      color: $gray;
+    }
+
+    .checkbox-display {
+      left: -$checkbox-inset;
+      position: relative;
+      top: $checkbox-inset / 2;
+    }
+
+    .checkbox-with-display:checked ~ .checkbox-display {
+      @extend .with-indicator-background;
+    }
+  }
+
+  .highcharts-container {
+    // Allow tooltips to overflow their container
+    overflow: visible !important;
+
+    // Override to allow the tool tips to float over other content
+    z-index: 10 !important;
+  }
+
+  // Give graphs rounded corners
+  svg {
+    border-radius: $radius-xlg;
+    overflow: hidden;
+  }
+
+  &.has-children svg {
+    border-bottom-left-radius: $radius-sm;
+    border-bottom-right-radius: $radius-sm;
+  }
+
+  .highcharts-tooltip span > div {
+    @include tooltip-content();
+
+    // Override default from highcharts that prohibits wrapping
+    white-space: normal;
+    width: 340px;
+
+    // TODO: continue refactoring shared indicator styles
+    .detail h2::before {
+      font-size: $font-size-medium;
+      padding-right: $space-sm;
+      position: relative;
+      top: 1px;
+    }
+  }
+}
+
+// This dropdown diverges from the stylist because of the HTML used to implement it
+select.dropdown {
+  border-color: $silver;
+  border-radius: 0px;
+  cursor: pointer;
+  font-weight: $weight-book;
+  top: -3px;
+  width: 80px;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.indicators-info {
+  .modal-body {
+    p {
+      margin-bottom: 18px;
+      margin-top: 7px;
+    }
+  }
+
+  .illustration {
+    $arrow-head-width: 20px;
+    $status-height: 102.5px;
+
+    font-size: $font-size-small;
+    font-weight: $weight-bold;
+    margin-bottom: $space-xlg + $space-lg;
+    margin-top: $space-xlg + $space-lg;
+
+    .status-row {
+      height: $status-height;
+      position: relative;
+
+      .sample-detail {
+        padding-top: $space-xlg;
+        position: absolute;
+
+        &.less-top-space {
+          padding-top: $space-sm;
+          top: -15%;
+        }
+      }
+
+      .spine {
+        font-size: 0;
+        height: 100%;
+        line-height: $status-height;
+
+        center {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          width: 100%;
+
+          .bar {
+            height: 100%;
+            width: 30px;
+          }
+        }
+
+        .arrow {
+          display: inline-block;
+          vertical-align: middle;
+
+          &.head {
+            border-bottom-color: transparent;
+            border-style: solid;
+            border-top-color: transparent;
+            border-width: 10px 0;
+          }
+
+          &.shaft {
+            height: 4px;
+            width: 15%;
+          }
+        }
+      }
+
+      &:first-of-type .spine .bar {
+        border-radius: $radius-md $radius-md 0 0;
+      }
+
+      &:last-of-type .spine .bar {
+        border-radius: 0 0 $radius-md $radius-md;
+      }
+
+      &:nth-of-type(odd) {
+        .spine {
+          text-align: left;
+
+          .arrow.head {
+            border-right-width: $arrow-head-width;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      &:nth-of-type(even) {
+        .sample-detail {
+          @extend .col-xs-offset-8;
+        }
+
+        .spine {
+          text-align: right;
+
+          .arrow.head {
+            border-left-width: $arrow-head-width;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

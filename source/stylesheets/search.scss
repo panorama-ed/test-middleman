@@ -1,0 +1,100 @@
+@media (min-width: 768px) {
+  .search-form {
+    width: 300px;
+
+    .form-group,
+    .form-control {
+      border-radius: $radius-sm;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    width: 200px;
+  }
+}
+
+.search-form {
+  $height: 35px;
+
+  border: 0;
+  margin: (($navbar-top-row-content-height - $height) / 2) 0;
+  padding: 0;
+
+  &::before {
+    content: $icon-search;
+    font: $font-icon;
+    font-size: $font-size-regular;
+    line-height: $height;
+    margin-left: 9px;
+    position: absolute;
+  }
+
+  // Bootstrap override
+  textarea,
+  input,
+  .uneditable-input {
+    &:focus {
+      box-shadow: 0 1px 1px rgba($white, 0) inset,
+                  0 0 8px rgba($white, 0) !important;
+    }
+  }
+
+  input {
+    @extend .timing-animation;
+    @include placeholder-color(inherit);
+
+    background-color: $gainsboro;
+    border: 0;
+    border-radius: $radius-sm;
+    box-shadow: 0 1px 1px rgba($white, 0) inset, 0 0 8px rgba($white, 0) !important; // Bootstrap override
+    color: $grey;
+    font-size: $font-size-small;
+    height: $height;
+    padding-left: 31px;
+
+    &::placeholder {
+      font: $font-medium;
+      font-size: $font-size-small;
+      height: $height;
+      vertical-align: middle;
+    }
+
+    &:focus {
+      background-color: $silver;
+      outline: none;
+    }
+  }
+}
+
+.autocomplete-suggestions {
+  @include scroll-bar($grey, $light-grey);
+
+  margin-top: $navbar-top-row-height + 1px;
+  overflow-y: auto;
+  position: fixed !important;
+  top: 0 !important;
+}
+
+.two-row-navbar .autocomplete-suggestions {
+  margin-top: $navbar-two-rows-height + 1px;
+}
+
+.autocomplete-suggestion {
+  background-color: $grey;
+  color: rgba($white, .8);
+  font: $font-book;
+  padding: 12px;
+
+  .matched-part {
+    color: $white;
+    font: $font-bold;
+  }
+}
+
+.autocomplete-selected {
+  background-color: $blue;
+  cursor: pointer;
+}

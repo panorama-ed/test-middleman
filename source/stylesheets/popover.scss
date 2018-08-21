@@ -1,0 +1,215 @@
+.has-popover {
+  // Elements with tooltips should ideally have position set. We could enforce
+  // that here to make things simpler, by setting position: relative. This is a
+  // very low-specificity selector, so it's likely to be overridden by any
+  // position set on the container's other classes and is thus probably safe to
+  // set here, but so far it hasn't been an issue so we're holding off. If we
+  // encounter situations where tooltip positioning is difficult, we may revisit
+
+  &:hover .popover-container {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .popover-container {
+    @extend .timing-animation;
+
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    right: 50%;
+    visibility: hidden;
+    z-index: 10;
+
+    &.left {
+      right: 0;
+      // Because this element is position: absolute, it naturally flows to take
+      // up minimal horizontal space. Setting this large width allows the
+      // tooltip content to expand horizontally based on content width, without
+      // impacting the rest of the page. Note, this is only safe for .left
+      // tooltips; tooltips expanding to the right would stretch the document
+      // to the right off-screen, adding scrollbars and lots of blank space
+      width: 1000px;
+
+      &.side {
+        right: 100%;
+        top: 0;
+      }
+
+      .popover-content {
+        float: right;
+        right: initial;
+      }
+    }
+
+    .popover-content {
+      @include tooltip-content();
+
+      color: $main-text-color;
+      position: relative;
+      right: -50%;
+
+      h3 {
+        background-color: $blue;
+        color: $white;
+        margin: (-$space-xlg) (-$space-xlg) $space-lg;
+        padding: $space-lg $space-xlg;
+      }
+    }
+  }
+
+  // Indicator bubble use case
+  &.bubble {
+    .popover-content {
+      margin-top: $indicator-bubble-size + $space-sm;
+      width: 340px;
+    }
+  }
+
+  // Trend bubble use case
+  &.trend-container {
+    .popover-content {
+      color: $grey;
+      margin-top: $indicator-bubble-size + $space-sm;
+      width: 340px;
+
+      h4 {
+        font-size: $font-size-regular;
+
+        span {
+          font-weight: $weight-bold;
+        }
+      }
+    }
+  }
+
+  // Student birthday logo popover use case
+  &.student-birthday-logo {
+    font: $font-medium;
+    font-size: $font-size-xsmall;
+
+    .popover-content {
+      right: calc(-100% - 20px);
+      width: 250px;
+    }
+  }
+
+  // Student Attendance Brick use case
+  &.day {
+    .popover-container {
+      font: $font-medium;
+      font-size: $font-size-xsmall;
+      top: 0;
+    }
+
+    .popover-content {
+      margin-top: 25px + $space-sm;
+      width: 340px;
+
+      .data-value {
+        font-size: $font-size-small;
+        margin-top: $space-lg;
+
+        &.absence-count-detail {
+          color: $red;
+        }
+
+        &.tardy-count-detail {
+          color: $purple;
+        }
+      }
+
+      table {
+        margin-bottom: 0;
+      }
+
+      td {
+        border: 0;
+        color: $grey;
+
+        &:last-of-type {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.assessment-tooltip {
+  .body {
+    border-radius: $radius-md;
+    color: $white;
+    font: $font-bold;
+    font-size: $font-size-regular;
+    line-height: 100%;
+    padding: ($space-sm * 3 / 2) $space-md $space-sm;
+    text-align: center;
+
+    small {
+      display: block;
+      font-size: $font-size-xxsmall;
+      font-weight: $weight-book;
+
+      &:not(:last-of-type) {
+        margin-bottom: $space-sm * 3 / 2;
+      }
+    }
+  }
+
+  .arrow {
+    $width: 16px;
+
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-style: solid;
+    margin: 0 auto;
+    width: $width;
+
+    &.above {
+      border-width: ($width / 2) ($width / 2) 0;
+    }
+
+    &.below {
+      border-width: 0 ($width / 2) ($width / 2);
+    }
+  }
+}
+
+.intervention-tooltip {
+  font-size: $font-size-small;
+  margin-top: $space-sm;
+  width: 340px;
+
+  h2 {
+    color: $grey;
+    font-weight: $weight-light;
+
+    &.with-intervention-icon::before {
+      position: relative;
+      top: -2px;
+    }
+  }
+}
+
+.support-plan-tooltip {
+  max-width: 400px;
+  min-width: 250px;
+  padding: $space-md $space-lg !important;
+
+  .support-plan-icon {
+    vertical-align: middle;
+    width: 30px;
+  }
+
+  h2 {
+    color: $purple;
+  }
+
+  section {
+    margin-bottom: $space-lg;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

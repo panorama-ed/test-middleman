@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Success Styleguide</title>
+    <!-- Use the title from a page's frontmatter if it has one -->
+<!--     <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/site.js"></script> -->
+
+    <link href="https://cloud.typography.com/6382374/631688/css/fonts.css" rel="stylesheet" media="all" />
+    <link href="/stylesheets/stylist.css" rel="stylesheet" media="all" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/javascripts/application.js"></script>
+    <!--For documentation see https://afeld.github.io/bootstrap-toc/ -->
+    <!-- add after bootstrap.min.css -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
+    <!-- add after bootstrap.min.js -->
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+  </head>
+
+  <body data-spy="scroll" data-target="#toc">
+    <div class="container">
+  <div class="row">
+
+    <div class="col-sm-3">
+      <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+    </div>
+
+    <div class="col-sm-9">
+      <h1>Panorama Style Guide</h1>
+
+      <h2>Introduction</h2>
+      <p>As Panorama continues to grow into new product areas one challenge we are faced with is learning how to refine the Panorama brand identity and apply it cohesively to each of our products. We created this styleguide to act as a central location where we house a live inventory of UI components, brand guidelines, brand assets, code snippets, and developer guidelines.</p>
+      <p>This guide is currently tied to the NDS work, but it also contains styles that we use in our reports product.</p>
+      <p>The only way we can keep this guide relevant and useful is if all members stay familiar with this styleguide and help ensure that it is kept up-to-date.</p>
+
+      <h3>Guiding Principles</h3>
+      <ol>
+        <li>Squad members stay familiar with this guide and have the agency to keep it up to date.</li>
+        <li>Engineers try to reuse elements before creating new elements.</li>
+        <li>Designers try to reuse elements before creating new elements.</li>
+        <li>Squad members recognize the style guide must evolve and change to meet the requirements of an evolving product.</li>
+      </ol>
+
+      <div class="row stylist">
+  <h2>Typography</h2>
+
+  <h3>Gotham</h3>
+  <p>We use <a href="http://www.typography.com/fonts/gotham/overview/" target="_blank">Gotham</a> throughout our data analytics platform. Currently we are not using italics, we must enable them first before using them.</p>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-light;</p>
+    <h1 data-toc-skip class="font-light no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-book;</p>
+    <h1 data-toc-skip class="font-book no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <h1 data-toc-skip class="font-medium no-space">
+      <p class="no-space">font: $font-medium;</p>
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+  <div class="well font-weights">
+    <p class="no-space">font: $font-bold;</p>
+    <h1 data-toc-skip class="font-bold no-space">
+      ABCDEFGHIJKLMNOPQRSTVWXYZ</br>
+      abcdefghijklmnopqrstuvwxyz</br>
+      1234567890</br>
+    </h1>
+  </div>
+
+  <h3>Font presets for NDS</h3>
+  <p>When picking a font style first try to use an existing one below. If none of these are adequate then add a new style below so that others can see what is available.</p>
+
+  <pre>&lt;h1&gt;Titles&lt;&#x2F;h1&gt;</pre><div class="well">
+<h1 data-toc-skip>Titles</h1>
+</div>
+
+  <pre>&lt;h2&gt;Titles – alternative&lt;&#x2F;h2&gt;</pre><div class="well">
+<h2 data-toc-skip>Titles – alternative</h2>
+</div>
+
+  <pre>&lt;h3&gt;Subtitles&lt;&#x2F;h3&gt;</pre><div class="well">
+<h3 data-toc-skip>Subtitles</h3>
+</div>
+
+  <pre>&lt;h4&gt;Section Title&lt;&#x2F;h4&gt;</pre><div class="well">
+<h4 data-toc-skip>Section Title</h4>
+</div>
+
+  <pre>&lt;h5&gt;Section Label&lt;&#x2F;h5&gt;</pre><div class="well">
+<h5 data-toc-skip>Section Label</h5>
+</div>
+
+  <pre>&lt;h6&gt;Annotation&lt;&#x2F;h6&gt;</pre><div class="well">
+<h6 data-toc-skip>Annotation</h6>
+</div>
+
+  <pre>&lt;p&gt;Paragraph text. Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi &lt;&#x2F;p&gt;</pre><div class="well">
+<p>Paragraph text. Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi </p>
+</div>
+
+<p>Here is an easy way to remove margin and padding without adding more CSS rules:</p>
+<pre>&lt;h3 class=&quot;no-space&quot;&gt;Just add the class .no-space&lt;&#x2F;h3&gt;</pre><div class="well">
+<h3 data-toc-skip class="no-space">Just add the class .no-space</h3>
+</div>
+
+  <h2>Icons</h2>
+  <p>Our icons are kept up to date in a font file that we host.</p>
+  <p>Designers primarily update the font file when we want to include new icon(s). The intructions are as follows:</p>
+  <ol>
+    <li>To update the icon font file first go to <a href="http://icomoon.io" target="_blank">icomoon.io</a> and click the "IcoMoon App" button in the upper right of the screen.</li>
+    <li>Then click "Import Icons" in the upper left screen and upload the .svg file from our existing icon font (Note: this must be done so that no icons are lost in the update. When you go to export the new file these existing icons should still have the same characters assigned to them).</li>
+    <li>Once you have uploaded the existing SVG file you should see those icons selected on the screen.</li>
+    <li>Now upload your new icons, these must be in a single black color and there must be a single SVG shape for each one.</li>
+    <li>When ready to export click "Generate Font", on the following screen you must assign new icons to a character that has not been used yet.</li>
+    <li>Download this new font and replace all 4 existing font files.</li>
+  </ol>
+
+  <h3>Miscellaneous</h3>
+  <div>
+      <pre> $icon-arrow-down</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;#&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">#</span>
+  </div>
+      <pre> $icon-arrow-left</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;1&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">1</span>
+  </div>
+      <pre> $icon-arrow-right</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;2&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">2</span>
+  </div>
+      <pre> $icon-change-down</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;j&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">j</span>
+  </div>
+      <pre> $icon-change-flat</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;k&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">k</span>
+  </div>
+      <pre> $icon-change-up</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;l&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">l</span>
+  </div>
+      <pre> $icon-check</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;3&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">3</span>
+  </div>
+      <pre> $icon-dismiss</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;4&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">4</span>
+  </div>
+      <pre> $icon-down</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;8&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">8</span>
+  </div>
+      <pre> $icon-dropdown</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;*&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">*</span>
+  </div>
+      <pre> $icon-edit</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;r&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">r</span>
+  </div>
+      <pre> $icon-menu</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;h&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">h</span>
+  </div>
+      <pre> $icon-plus</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;0&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">0</span>
+  </div>
+      <pre> $icon-question</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;a&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">a</span>
+  </div>
+      <pre> $icon-reload</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;w&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">w</span>
+  </div>
+      <pre> $icon-search</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;5&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">5</span>
+  </div>
+      <pre> $icon-sort-asc</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;t&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">t</span>
+  </div>
+      <pre> $icon-sort-desc</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;q&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">q</span>
+  </div>
+      <pre> $icon-trend-decrease</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;g&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">g</span>
+  </div>
+      <pre> $icon-trend-increase</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;f&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">f</span>
+  </div>
+      <pre> $icon-unsorted</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;y&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">y</span>
+  </div>
+      <pre> $icon-up</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;9&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">9</span>
+  </div>
+  </div>
+
+  <h3>Subjects & Indicator Status</h3>
+  <div>
+      <pre> $icon-academics</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;!&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">!</span>
+  </div>
+      <pre> $icon-at-risk</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;o&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">o</span>
+  </div>
+      <pre> $icon-attendance</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;+&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">+</span>
+  </div>
+      <pre> $icon-behavior</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;@&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">@</span>
+  </div>
+      <pre> $icon-college</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;u&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">u</span>
+  </div>
+      <pre> $icon-critical</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;p&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">p</span>
+  </div>
+      <pre> $icon-ela</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;&amp;&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">&</span>
+  </div>
+      <pre> $icon-graduation</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;i&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">i</span>
+  </div>
+      <pre> $icon-math</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;s&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">s</span>
+  </div>
+      <pre> $icon-reading</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;d&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">d</span>
+  </div>
+      <pre> $icon-sel</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;$&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">$</span>
+  </div>
+      <pre> $icon-writing</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;%&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">%</span>
+  </div>
+  </div>
+
+  <h3>Groups & Support Planning</h3>
+  <div>
+      <pre> $icon-filter</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;e&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">e</span>
+  </div>
+      <pre> $icon-flag-empty</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;œ&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">œ</span>
+  </div>
+      <pre> $icon-flag-filled</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;x&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">x</span>
+  </div>
+      <pre> $icon-tag</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;7&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">7</span>
+  </div>
+      <pre> $icon-tag-unchecked</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;6&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">6</span>
+  </div>
+  </div>
+
+  <h3>Reports Icons</h3>
+  <div>
+      <pre> $icon-bookmark</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;)&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">)</span>
+  </div>
+      <pre> $icon-download</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;b&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">b</span>
+  </div>
+      <pre> $icon-pdf</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;v&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">v</span>
+  </div>
+      <pre> $icon-playbook</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;(&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">(</span>
+  </div>
+      <pre> $icon-projects</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;z&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">z</span>
+  </div>
+      <pre> $icon-reports</pre>
+      <pre>&lt;span class=&quot;icon&quot;&gt;n&lt;&#x2F;span&gt;</pre><div class="well">
+  <span class="icon">n</span>
+  </div>
+  </div>
+
+  <h3>Loading Animation</h3>
+  <pre>&lt;div class=&quot;loading-wave&quot;&gt;
+&lt;div class=&quot;rect rect1&quot;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;rect rect2&quot;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;rect rect3&quot;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;rect rect4&quot;&gt;&lt;&#x2F;div&gt;
+&lt;div class=&quot;rect rect5&quot;&gt;&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;</pre><div class="well">
+<div class="loading-wave">
+<div class="rect rect1"></div>
+<div class="rect rect2"></div>
+<div class="rect rect3"></div>
+<div class="rect rect4"></div>
+<div class="rect rect5"></div>
+</div>
+</div>
+
+  <h3>Helper Classes</h3>
+  <p>
+    Some icons are commonly used as decorators throughout the product. These
+    may have helper classes set up to easily apply them in markup.
+  </p>
+  <pre>&lt;span class=&quot;with-collection-icon group&quot;&gt;Smart Group description&lt;&#x2F;span&gt;</pre><div class="well">
+<span class="with-collection-icon group">Smart Group description</span>
+</div>
+  <pre>&lt;span class=&quot;with-collection-icon list&quot;&gt;Group name&lt;&#x2F;span&gt;</pre><div class="well">
+<span class="with-collection-icon list">Group name</span>
+</div>
+  <pre>&lt;h4 class=&quot;with-info-icon&quot;&gt;Header with explanatory modal&lt;&#x2F;h4&gt;</pre><div class="well">
+<h4 data-toc-skip class="with-info-icon">Header with explanatory modal</h4>
+</div>
+</div>
+
+
+      <div class="row stylist color-sheet">
+  <h2>Color</h2>
+  <h3>Primary colors</h3>
+  <div class="well">
+
+    <div class="color-block">
+      <div class="color green-light">#79cc60 ($green-light)</div>
+      <div class="color green">#5abd3c ($green)</div>
+      <div class="color green-dark">#428b2c ($green-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color blue-light">#008de3 ($blue-light)</div>
+      <div class="color blue">#006db0 ($blue)</div>
+      <div class="color blue-dark">#004d7d ($blue-dark)</div>
+    </div>
+  </div>
+
+  <h3>Secondary colors</h3>
+  <div class="well">
+
+    <div class="color-block">
+      <div class="color light-blue-light">#6ccff0 ($light-blue-light)</div>
+      <div class="color light-blue">#34bdeb ($light-blue)</div>
+      <div class="color light-blue-dark">#149bc9 ($light-blue-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color teal-light">#48d79c ($teal-light)</div>
+      <div class="color teal">#2ac283 ($teal)</div>
+      <div class="color teal-dark">#219867 ($teal-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color yellow-light">#ffd150 ($yellow-light)</div>
+      <div class="color yellow">#ffc31d ($yellow)</div>
+      <div class="color yellow-dark">#e9ab00 ($yellow-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color orange-light">#f2684b ($orange-light)</div>
+      <div class="color orange">#ef401b ($orange)</div>
+      <div class="color orange-dark">#c92f0e ($orange-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color red-light">#f35573 ($red-light)</div>
+      <div class="color red">#ef1740 ($red)</div>
+      <div class="color red-dark">#b70d2d ($red-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color purple-light">#8a7fe0 ($purple-light)</div>
+      <div class="color purple">#6456d6 ($purple)</div>
+      <div class="color purple-dark">#4131c8 ($purple-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color white">#ffffff ($white)</div>
+      <div class="color white-smoke">#f9f9f9 ($white-smoke)</div>
+      <div class="color gainsboro">#f0f0f0 ($gainsboro)</div>
+      <div class="color silver">#dddddd ($silver)</div>
+      <div class="color light-grey">#9b9b9b ($light-grey)</div>
+      <div class="color grey">#4a4a4a ($grey)</div>
+      <div class="color black">#141414 ($black)</div>
+    </div>
+  </div>
+
+  <h3>Indicator status helpers</h3>
+  <p>
+    Since indicator colors and icons vary by status and client, it's often impractical
+    to hard-code specific classes in views. To simplify this situation, a container
+    can get the <b>indicator</b> class and a specific status class, and children will
+    get colors applied with these additional helpers.
+  </p>
+  <pre>&lt;div class=&quot;indicator on-track-for-graduation&quot;&gt;
+  &lt;h4 class=&quot;with-indicator-color&quot;&gt;Status foreground color&lt;&#x2F;h4&gt;
+  &lt;h4 class=&quot;with-indicator-icon&quot;&gt;Status icon decoration&lt;&#x2F;h4&gt;
+  &lt;h4 class=&quot;with-indicator-border&quot; style=&quot;border-width: 1px; border-style: solid;&quot;&gt;
+    Status border color
+  &lt;&#x2F;h4&gt;
+  &lt;h4 class=&quot;with-indicator-background&quot;&gt;Status background color&lt;&#x2F;h4&gt;
+  &lt;h4 class=&quot;with-indicator-color with-indicator-icon&quot;&gt;Combining several helpers&lt;&#x2F;h4&gt;
+&lt;&#x2F;div&gt;</pre><div class="well">
+<div class="indicator on-track-for-graduation">
+  <h4 class="with-indicator-color">Status foreground color</h4>
+  <h4 class="with-indicator-icon">Status icon decoration</h4>
+  <h4 class="with-indicator-border" style="border-width: 1px; border-style: solid;">
+    Status border color
+  </h4>
+  <h4 class="with-indicator-background">Status background color</h4>
+  <h4 class="with-indicator-color with-indicator-icon">Combining several helpers</h4>
+</div></div>
+</div>
+
+      <div class="row stylist">
+  <h2>Standard Measures</h2>
+
+  <h3>Border Radius</h3>
+  <p>Smaller elements have a smaller radius, larger elements like modals have a larger radius. Round elements like student profile images use the radius circle.</p>
+
+  <div class="well">
+    <div class="radius radius-sm">$radius-sm</div>
+    <div class="radius radius-md">$radius-md</div>
+    <div class="radius radius-lg">$radius-lg</div>
+    <div class="radius radius-circle">$radius-circle</div>
+  </div>
+
+  <h3>Spacers</h3>
+  <p>Spacers are used with margins, padding and core elements.</p>
+
+  <div class="well">
+    <div class="spacer">
+      <div class="space-sm"></div>
+      <h3 data-toc-skip>$space-sm</h3>
+      <p>5px</p>
+    </div>
+    <div class="spacer">
+      <div class="space-md"></div>
+      <h3 data-toc-skip>$space-md</h3>
+      <p>10px</p>
+    </div>
+    <div class="spacer">
+      <div class="space-lg"></div>
+      <h3 data-toc-skip>$space-lg</h3>
+      <p>15px</p>
+    </div>
+    <div class="spacer">
+      <div class="space-xlg"></div>
+      <h3 data-toc-skip>$space-xlg</h3>
+      <p>20px</p>
+    </div>
+    <div class="spacer">
+      <div class="space-xxlg"></div>
+      <h3 data-toc-skip>$space-xxlg</h3>
+      <p>40px</p>
+    </div>
+    <div class="spacer">
+      <div class="inc"></div>
+      <h3 data-toc-skip>$inc</h3>
+      <p>50px</p>
+    </div>
+  </div>
+
+</div>
+
+      <div class="row stylist">
+  <h2>Buttons & Links</h2>
+
+  <h3>Basic Links</h3>
+  <pre>&lt;a&gt;A link&lt;&#x2F;a&gt;</pre><div class="well"><a>A link</a></div>
+
+  <pre>&lt;a class=&quot;with-info-icon&quot;&gt;How to understand this graph&lt;&#x2F;a&gt;</pre><div class="well"><a class="with-info-icon">How to understand this graph</a></div>
+
+  <h3>Button Colors have Meaning</h3>
+
+  <p><b>Default Button</b> is primarily implemented in modals and the login page. Used when there is already a primary button being used for a more important action. If there are multiple high importance actions, only use secondary buttons.</p>
+
+  <pre>&lt;button class=&quot;btn&quot;&gt;Default Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn">Default Button</button></div>
+
+  <p><b>Primary Button</b> are used primarily in modals and the login page. Used when we want to direct the user to take a suggested action. Reserve only one primary button in view at a time.</p>
+
+  <pre>&lt;button class=&quot;btn btn-primary&quot;&gt;Primary Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn btn-primary">Primary Button</button>
+</div>
+
+  <p><b>White Button</b> are primarily used in toggles and in the Summary page in the Reports platform.</p>
+
+  <pre>&lt;button class=&quot;btn btn-white&quot;&gt;White Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn btn-white">White Button</button></div>
+
+  <p><b>Warning Button</b> are used primarily in modals. The warning button has the same rules as the primary button except that it is used to warn the user they are about to take an action that cannot be reversed.</p>
+
+  <pre>&lt;button class=&quot;btn btn-warning&quot;&gt;Warning Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn btn-warning">Warning Button</button></div>
+
+  <h3>Button Icon Indicates Action</h3>
+
+  <h3></h3>
+  <p><b>Action Buttons</b> are used primarily for creating groups from filters or adding a student to a list. You can add an icon to this button using a Sass mixin (button-create($icon-type: "e");) and referring to the typography.scss file for glyphs.</p>
+
+  <pre>&lt;button class=&quot;btn add-icon&quot;&gt;Action Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn add-icon">Action Button</button></div>
+
+  <h3>Loaders Indicate Interaction</h3>
+  <p><b>Use a Loader</b> when something does not happen instantaneously. It is always safer to add this in case performance slows down as we scale.</p>
+
+  <pre>&lt;button class=&quot;btn&quot;&gt;Large Button
+  &lt;div class=&quot;loading-wave&quot;&gt;
+  &lt;div class=&quot;rect rect1&quot;&gt;&lt;&#x2F;div&gt;
+  &lt;div class=&quot;rect rect2&quot;&gt;&lt;&#x2F;div&gt;
+  &lt;div class=&quot;rect rect3&quot;&gt;&lt;&#x2F;div&gt;
+  &lt;div class=&quot;rect rect4&quot;&gt;&lt;&#x2F;div&gt;
+  &lt;div class=&quot;rect rect5&quot;&gt;&lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;&lt;&#x2F;button&gt;</pre><div class="well">
+  <button class="btn">Large Button
+  <div class="loading-wave">
+  <div class="rect rect1"></div>
+  <div class="rect rect2"></div>
+  <div class="rect rect3"></div>
+  <div class="rect rect4"></div>
+  <div class="rect rect5"></div>
+  </div></button></div>
+
+  <h3>Button Size Indicates Importance</h3>
+  <p><b>Large buttons</b> are used in modals and in situations when the user must use the button to do a single action on the page. <b>Small buttons</b> are used when there are multiple user actions on a page so they don't need to call as much attention to themselves.</p>
+
+  <pre>&lt;button class=&quot;btn&quot;&gt;Large Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn">Large Button</button></div>
+
+  <pre>&lt;button class=&quot;btn btn-small&quot;&gt;Small Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn btn-small">Small Button</button></div>
+
+  <pre>&lt;button class=&quot;btn btn-xsmall&quot;&gt;Extra Small Button&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn btn-xsmall">Extra Small Button</button></div>
+
+  <h3>Toggle Buttons Change/Select Data</h3>
+  <p><b>Toggle buttons</b> are used primarily when toggling between marking periods and school years.
+
+  <pre>&lt;button class=&quot;btn-toggle&quot;&gt;Q1&lt;&#x2F;button&gt;
+&lt;button class=&quot;btn-toggle&quot;&gt;Q2&lt;&#x2F;button&gt;
+&lt;button class=&quot;btn-toggle active&quot;&gt;Q3 (current)&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn-toggle">Q1</button>
+<button class="btn-toggle">Q2</button>
+<button class="btn-toggle active">Q3 (current)</button></div>
+
+  <p><b>Toggle buttons</b> can also be used to select multiple pieces of information. Use these instead of checkboxes when the information should be very prominent.</p>
+   <pre>&lt;button class=&quot;btn-toggle&quot;&gt;2x10 relationship building&lt;&#x2F;button&gt;
+  &lt;button class=&quot;btn-toggle active&quot;&gt;Organization session&lt;&#x2F;button&gt;
+  &lt;button class=&quot;btn-toggle active&quot;&gt;Homework club&lt;&#x2F;button&gt;
+  &lt;button class=&quot;btn-toggle&quot;&gt;Buddy student&lt;&#x2F;button&gt;</pre><div class="well">
+  <button class="btn-toggle">2x10 relationship building</button>
+  <button class="btn-toggle active">Organization session</button>
+  <button class="btn-toggle active">Homework club</button>
+  <button class="btn-toggle">Buddy student</button></div>
+
+</div>
+
+
+      <div class="row stylist">
+  <h2>Modal Dialogs</h2>
+
+  <p>Standard Modal Dialog</p>
+
+
+  <pre>&lt;div class=&quot;modal-dialog&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&lt;&#x2F;span&gt;&lt;&#x2F;button&gt;
+        &lt;h2&gt;Title&lt;&#x2F;h2&gt;
+        &lt;p&gt;Instructions for the action to take here...&lt;&#x2F;p&gt;
+        &lt;div id=&quot;create-list-or-save&quot; class=&quot;clearfix&quot;&gt;
+          &lt;button type=&quot;submit&quot; class=&quot;btn btn-success pull-right&quot;&gt;Save&lt;&#x2F;button&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;</pre><div class="well">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+        <h2 data-toc-skip>Title</h2>
+        <p>Instructions for the action to take here...</p>
+        <div id="create-list-or-save" class="clearfix">
+          <button type="submit" class="btn btn-success pull-right">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <p>Modal Dialogs with a sidebar should look like this.</p>
+
+
+  <pre>&lt;div class=&quot;modal-dialog modal-lg&quot;&gt;
+  &lt;div class=&quot;modal-content&quot;&gt;
+    &lt;div class=&quot;modal-row-with-sidebar equal-height-cols&quot;&gt;
+      &lt;div class=&quot;modal-sidebar&quot;&gt;
+        Sidebar content
+      &lt;&#x2F;div&gt;
+      &lt;div class=&quot;modal-main-body clearfix&quot;&gt;
+        &lt;button class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;&lt;&#x2F;button&gt;
+        &lt;h2&gt;A title describing what&#x27;s going on.&lt;&#x2F;h2&gt;
+
+        &lt;p&gt;Content&lt;&#x2F;p&gt;
+
+        &lt;div class=&quot;pull-right&quot;&gt;
+          &lt;button class=&quot;btn&quot; data-dismiss=&quot;modal&quot;&gt;
+            Cancel
+          &lt;&#x2F;button&gt;
+          &lt;input type=&quot;submit&quot; value=&quot;Save&quot; class=&quot;btn btn-success&quot; &#x2F;&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+   &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;</pre><div class="well">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-row-with-sidebar equal-height-cols">
+      <div class="modal-sidebar">
+        Sidebar content
+      </div>
+      <div class="modal-main-body clearfix">
+        <button class="close" data-dismiss="modal"></button>
+        <h2 data-toc-skip>A title describing what's going on.</h2>
+
+        <p>Content</p>
+
+        <div class="pull-right">
+          <button class="btn" data-dismiss="modal">
+            Cancel
+          </button>
+          <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+      <div class="row stylist">
+  <h2>Standardized Elements</h2>
+
+  <h3>Filters</h3>
+  <p>These have a dismiss button because they can be removed</p>
+
+  <pre>&lt;div class=&quot;filter-boxes&quot;&gt;
+    &lt;div class=&quot;filter-box&quot;&gt;
+      &lt;a class=&quot;remove&quot; data-attribute=&quot;grade_level&quot;&gt;×&lt;&#x2F;a&gt;
+      &lt;h6&gt;Grade Level&lt;&#x2F;h6&gt;
+      &lt;h4&gt;10th&lt;&#x2F;h4&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;</pre><div class="well">
+  <div class="filter-boxes">
+    <div class="filter-box">
+      <a class="remove" data-attribute="grade_level">×</a>
+      <h6>Grade Level</h6>
+      <h4>10th</h4>
+    </div>
+  </div>
+  </div>
+
+  <h3>Attributes</h3>
+  <p>These are currently used on the student profile</p>
+
+  <pre>&lt;div class=&quot;student-attributes&quot;&gt;
+    &lt;div class=&quot;student-attribute&quot;&gt;
+      &lt;h6&gt;First Name&lt;&#x2F;h6&gt;
+      &lt;h4&gt;George&lt;&#x2F;h4&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;</pre><div class="well">
+  <div class="student-attributes">
+    <div class="student-attribute">
+      <h6>First Name</h6>
+      <h4>George</h4>
+    </div>
+  </div>
+  </div>
+
+  <h3>Basic sortable table</h3>
+  <p>
+    This styling applies to tables that use the simple Sortable library, such
+    as the School Dashboard tables and the course tables on student profiles.
+    Sorting icons appear when a column heading is clicked or hovered over.
+  </p>
+
+  <pre>&lt;table class=&quot;table&quot; data-sortable&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th data-sortable=&quot;false&quot;&gt;Header 1&lt;&#x2F;th&gt;
+          &lt;th class=&quot;initial-sort&quot;&gt;Header 2&lt;&#x2F;th&gt;
+          &lt;th&gt;Header 3&lt;&#x2F;th&gt;
+        &lt;&#x2F;tr&gt;
+      &lt;&#x2F;thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Some&lt;&#x2F;td&gt;
+          &lt;td&gt;Test&lt;&#x2F;td&gt;
+          &lt;td&gt;Data&lt;&#x2F;td&gt;
+        &lt;&#x2F;tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Even&lt;&#x2F;td&gt;
+          &lt;td&gt;More&lt;&#x2F;td&gt;
+          &lt;td&gt;Data!&lt;&#x2F;td&gt;
+        &lt;&#x2F;tr&gt;
+      &lt;&#x2F;tbody&gt;
+    &lt;&#x2F;table&gt;</pre><div class="well">
+    <table class="table" data-sortable>
+      <thead>
+        <tr>
+          <th data-sortable="false">Header 1</th>
+          <th class="initial-sort">Header 2</th>
+          <th>Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Some</td>
+          <td>Test</td>
+          <td>Data</td>
+        </tr>
+        <tr>
+          <td>Even</td>
+          <td>More</td>
+          <td>Data!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Expanding Table</h3>
+  <p>Sometimes tables have expanding rows that reveal additional information. The content in the rows is fully customizable.</p>
+
+  <pre>&lt;div class=&quot;expandable-row-table&quot; id=&quot;sel-scores&quot;&gt;
+    &lt;div class=&quot;panel&quot;&gt;
+      &lt;div class=&quot;row header&quot;&gt;
+        &lt;div class=&quot;col-xs-6&quot;&gt;
+          &lt;h4 class=&quot;no-space with-info-icon&quot; data-toggle=&quot;modal&quot; data-target=&quot;#sel-topics-help&quot;&gt;Topics&lt;&#x2F;h4&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;col-xs-6&quot;&gt;
+          &lt;h4 class=&quot;no-space with-info-icon&quot; data-toggle=&quot;modal&quot; data-target=&quot;#sel-results-help&quot;&gt;
+                Student
+            said ...&lt;&#x2F;h4&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+
+      &lt;div class=&quot;row expandable-row center-align-children collapsed &quot; role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#sel-scores&quot; data-target=&quot;#topic514114689829100818-suggestion&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;topic514114689829100818-suggestion&quot;&gt;
+        &lt;div class=&quot;expander-icon&quot;&gt;
+          &lt;span class=&quot;plus&quot;&gt;+&lt;&#x2F;span&gt;
+          &lt;span class=&quot;minus&quot;&gt;–&lt;&#x2F;span&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;col-xs-6 topic-info&quot;&gt;
+          &lt;div class=&quot;topic-image&quot; style=&quot;background-image: url(&#x2F;&#x2F;d1er3jjluu1w22.cloudfront.net&#x2F;assets&#x2F;sel&#x2F;skill-growth-mindset-ae26dae7a46117c193901970c57d9a59904a63a715f65b06f0b54090e4af5b5a.svg);&quot;&gt;&lt;&#x2F;div&gt;
+          &lt;h4 class=&quot;no-space&quot;&gt;Growth Mindset&lt;&#x2F;h4&gt;
+            &lt;p class=&quot;topic-description&quot;&gt;Students with a growth mindset know that if they work hard they can learn anything.&lt;&#x2F;p&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;col-xs-6 graph&quot; data-scores=&quot;[{&amp;quot;score&amp;quot;:2.7,&amp;quot;project_name&amp;quot;:&amp;quot;January&amp;quot;,&amp;quot;strength&amp;quot;:false,&amp;quot;status_class&amp;quot;:null},{&amp;quot;score&amp;quot;:3.2,&amp;quot;project_name&amp;quot;:&amp;quot;March&amp;quot;,&amp;quot;strength&amp;quot;:false,&amp;quot;status_class&amp;quot;:null},{&amp;quot;score&amp;quot;:null},{&amp;quot;score&amp;quot;:null}]&quot; data-highcharts-chart=&quot;16&quot;&gt;&lt;div id=&quot;highcharts-5j3j61v-68&quot; class=&quot;highcharts-container &quot; style=&quot;position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);&quot;&gt;&lt;svg version=&quot;1.1&quot; class=&quot;highcharts-root&quot; style=&quot;font-family:&amp;quot;Lucida Grande&amp;quot;, &amp;quot;Lucida Sans Unicode&amp;quot;, Arial, Helvetica, sans-serif;font-size:12px;&quot; xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;426&quot; height=&quot;90&quot; viewBox=&quot;0 0 426 90&quot;&gt;&lt;desc&gt;Created with Highstock 6.0.1&lt;&#x2F;desc&gt;&lt;defs&gt;&lt;clipPath id=&quot;highcharts-5j3j61v-69&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;385&quot; height=&quot;60&quot; fill=&quot;none&quot;&gt;&lt;&#x2F;rect&gt;&lt;&#x2F;clipPath&gt;&lt;clipPath id=&quot;highcharts-5j3j61v-71&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;385&quot; height=&quot;60&quot; fill=&quot;none&quot;&gt;&lt;&#x2F;rect&gt;&lt;&#x2F;clipPath&gt;&lt;&#x2F;defs&gt;&lt;rect fill=&quot;transparent&quot; class=&quot;highcharts-background&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;426&quot; height=&quot;90&quot; rx=&quot;0&quot; ry=&quot;0&quot;&gt;&lt;&#x2F;rect&gt;&lt;rect fill=&quot;none&quot; class=&quot;highcharts-plot-background&quot; x=&quot;16&quot; y=&quot;15&quot; width=&quot;385&quot; height=&quot;60&quot;&gt;&lt;&#x2F;rect&gt;&lt;g class=&quot;highcharts-grid highcharts-yaxis-grid &quot;&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 75.5 L 401 75.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 60.5 L 401 60.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 45.5 L 401 45.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 30.5 L 401 30.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 14.5 L 401 14.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;rect fill=&quot;none&quot; class=&quot;highcharts-plot-border&quot; x=&quot;16&quot; y=&quot;15&quot; width=&quot;385&quot; height=&quot;60&quot;&gt;&lt;&#x2F;rect&gt;&lt;g class=&quot;highcharts-axis highcharts-yaxis &quot;&gt;&lt;path fill=&quot;none&quot; class=&quot;highcharts-axis-line&quot; d=&quot;M 26 15 L 26 75&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-series-group&quot;&gt;&lt;g class=&quot;highcharts-series highcharts-series-0 highcharts-area-series &quot; transform=&quot;translate(16,15) scale(1 1)&quot; clip-path=&quot;url(#highcharts-5j3j61v-71)&quot;&gt;&lt;path fill=&quot;rgba(100, 100, 100, 0.2)&quot; d=&quot;M 20.625 34.5 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60&quot; class=&quot;highcharts-area&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; d=&quot;M 20.625 34.5 L 135.20833333333 27&quot; class=&quot;highcharts-graph&quot; stroke=&quot;#1d8cd0&quot; stroke-width=&quot;1&quot; stroke-linejoin=&quot;round&quot; stroke-linecap=&quot;round&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; d=&quot;M 10.625 34.5 L 20.625 34.5 L 135.20833333333 27 L 145.20833333333 27&quot; stroke-linejoin=&quot;round&quot; visibility=&quot;visible&quot; stroke=&quot;rgba(192,192,192,0.0001)&quot; stroke-width=&quot;21&quot; class=&quot;highcharts-tracker&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker&quot; transform=&quot;translate(16,15) scale(1 1)&quot;&gt;&lt;path fill=&quot;#1d8cd0&quot; d=&quot;M 24 34.5 A 4 4 0 1 1 23.99999800000017 34.49600000066666 Z&quot; class=&quot;highcharts-point&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;#1d8cd0&quot; d=&quot;M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z&quot; class=&quot;highcharts-point&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-data-labels highcharts-series-0 highcharts-area-series &quot; transform=&quot;translate(16,15) scale(1 1)&quot; opacity=&quot;1&quot; visibility=&quot;visible&quot;&gt;&lt;g class=&quot;highcharts-label highcharts-data-label highcharts-data-label-color-undefined &quot; style=&quot;text-shadow:none;&quot; transform=&quot;translate(138,16)&quot;&gt;&lt;text x=&quot;5&quot; style=&quot;font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);&quot; y=&quot;16&quot;&gt;&lt;tspan x=&quot;5&quot; y=&quot;16&quot; class=&quot;highcharts-text-outline&quot; fill=&quot;#FFFFFF&quot; stroke=&quot;#FFFFFF&quot; stroke-width=&quot;2px&quot; stroke-linejoin=&quot;round&quot; style=&quot;&quot;&gt;3.2&lt;&#x2F;tspan&gt;&lt;tspan x=&quot;5&quot; y=&quot;16&quot;&gt;3.2&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;&#x2F;g&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-axis-labels highcharts-yaxis-labels &quot;&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;78&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;1&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;63&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;2&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;48&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;3&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;33&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;4&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;18&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;5&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;&#x2F;g&gt;&lt;&#x2F;svg&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+
+        &lt;div id=&quot;topic514114689829100818-suggestion&quot; class=&quot;collapse&quot;&gt;
+          &lt;div class=&quot;row expandable-row-detail&quot;&gt;
+            &lt;div class=&quot;col-xs-12&quot;&gt;
+              &lt;h4&gt;
+                Suggestion for how
+                  &lt;span class=&quot;fs-hide&quot;&gt;Meggan&lt;&#x2F;span&gt;
+                can improve:
+              &lt;&#x2F;h4&gt;
+              &lt;p&gt;
+                  &lt;span&gt;View hard tasks as great chances to learn. When you hear yourself say “This is hard!” remind yourself that the harder something is, the more you can grow by doing it. &lt;&#x2F;span&gt;
+              &lt;&#x2F;p&gt;
+            &lt;&#x2F;div&gt;
+          &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class=&quot;row expandable-row center-align-children collapsed &quot; role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#sel-scores&quot; data-target=&quot;#topic2652760373381471466-suggestion&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;topic2652760373381471466-suggestion&quot;&gt;
+          &lt;div class=&quot;expander-icon&quot;&gt;
+            &lt;span class=&quot;plus&quot;&gt;+&lt;&#x2F;span&gt;
+            &lt;span class=&quot;minus&quot;&gt;–&lt;&#x2F;span&gt;
+          &lt;&#x2F;div&gt;
+          &lt;div class=&quot;col-xs-6 topic-info&quot;&gt;
+            &lt;div class=&quot;topic-image&quot; style=&quot;background-image: url(&#x2F;&#x2F;d1er3jjluu1w22.cloudfront.net&#x2F;assets&#x2F;sel&#x2F;skill-self-efficacy-fda42a541bda029393d2ee491805ba0be853c1fd9075a029f119dc458ec4f9ef.svg);&quot;&gt;&lt;&#x2F;div&gt;
+            &lt;h4 class=&quot;no-space&quot;&gt;Self-Efficacy&lt;&#x2F;h4&gt;
+              &lt;p class=&quot;topic-description&quot;&gt;Students with strong self-efficacy believe they can do a good job on their work.&lt;&#x2F;p&gt;
+          &lt;&#x2F;div&gt;
+          &lt;div class=&quot;col-xs-6 graph&quot; data-scores=&quot;[{&amp;quot;score&amp;quot;:3.0,&amp;quot;project_name&amp;quot;:&amp;quot;January&amp;quot;,&amp;quot;strength&amp;quot;:false,&amp;quot;status_class&amp;quot;:null},{&amp;quot;score&amp;quot;:3.2,&amp;quot;project_name&amp;quot;:&amp;quot;March&amp;quot;,&amp;quot;strength&amp;quot;:false,&amp;quot;status_class&amp;quot;:null},{&amp;quot;score&amp;quot;:null},{&amp;quot;score&amp;quot;:null}]&quot; data-highcharts-chart=&quot;17&quot;&gt;&lt;div id=&quot;highcharts-5j3j61v-72&quot; class=&quot;highcharts-container &quot; style=&quot;position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);&quot;&gt;&lt;svg version=&quot;1.1&quot; class=&quot;highcharts-root&quot; style=&quot;font-family:&amp;quot;Lucida Grande&amp;quot;, &amp;quot;Lucida Sans Unicode&amp;quot;, Arial, Helvetica, sans-serif;font-size:12px;&quot; xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;426&quot; height=&quot;90&quot; viewBox=&quot;0 0 426 90&quot;&gt;&lt;desc&gt;Created with Highstock 6.0.1&lt;&#x2F;desc&gt;&lt;defs&gt;&lt;clipPath id=&quot;highcharts-5j3j61v-73&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;385&quot; height=&quot;60&quot; fill=&quot;none&quot;&gt;&lt;&#x2F;rect&gt;&lt;&#x2F;clipPath&gt;&lt;clipPath id=&quot;highcharts-5j3j61v-75&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;385&quot; height=&quot;60&quot; fill=&quot;none&quot;&gt;&lt;&#x2F;rect&gt;&lt;&#x2F;clipPath&gt;&lt;&#x2F;defs&gt;&lt;rect fill=&quot;transparent&quot; class=&quot;highcharts-background&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;426&quot; height=&quot;90&quot; rx=&quot;0&quot; ry=&quot;0&quot;&gt;&lt;&#x2F;rect&gt;&lt;rect fill=&quot;none&quot; class=&quot;highcharts-plot-background&quot; x=&quot;16&quot; y=&quot;15&quot; width=&quot;385&quot; height=&quot;60&quot;&gt;&lt;&#x2F;rect&gt;&lt;g class=&quot;highcharts-grid highcharts-yaxis-grid &quot;&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 75.5 L 401 75.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 60.5 L 401 60.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 45.5 L 401 45.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 30.5 L 401 30.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; stroke=&quot;#e6e6e6&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;1,1&quot; class=&quot;highcharts-grid-line&quot; d=&quot;M 16 14.5 L 401 14.5&quot; opacity=&quot;1&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;rect fill=&quot;none&quot; class=&quot;highcharts-plot-border&quot; x=&quot;16&quot; y=&quot;15&quot; width=&quot;385&quot; height=&quot;60&quot;&gt;&lt;&#x2F;rect&gt;&lt;g class=&quot;highcharts-axis highcharts-yaxis &quot;&gt;&lt;path fill=&quot;none&quot; class=&quot;highcharts-axis-line&quot; d=&quot;M 26 15 L 26 75&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-series-group&quot;&gt;&lt;g class=&quot;highcharts-series highcharts-series-0 highcharts-area-series &quot; transform=&quot;translate(16,15) scale(1 1)&quot; clip-path=&quot;url(#highcharts-5j3j61v-75)&quot;&gt;&lt;path fill=&quot;rgba(100, 100, 100, 0.2)&quot; d=&quot;M 20.625 30 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60&quot; class=&quot;highcharts-area&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; d=&quot;M 20.625 30 L 135.20833333333 27&quot; class=&quot;highcharts-graph&quot; stroke=&quot;#1d8cd0&quot; stroke-width=&quot;1&quot; stroke-linejoin=&quot;round&quot; stroke-linecap=&quot;round&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;none&quot; d=&quot;M 10.625 30 L 20.625 30 L 135.20833333333 27 L 145.20833333333 27&quot; stroke-linejoin=&quot;round&quot; visibility=&quot;visible&quot; stroke=&quot;rgba(192,192,192,0.0001)&quot; stroke-width=&quot;21&quot; class=&quot;highcharts-tracker&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker&quot; transform=&quot;translate(16,15) scale(1 1)&quot;&gt;&lt;path fill=&quot;#1d8cd0&quot; d=&quot;M 24 30 A 4 4 0 1 1 23.99999800000017 29.996000000666665 Z&quot; class=&quot;highcharts-point&quot;&gt;&lt;&#x2F;path&gt;&lt;path fill=&quot;#1d8cd0&quot; d=&quot;M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z&quot; class=&quot;highcharts-point&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;g&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-data-labels highcharts-series-0 highcharts-area-series &quot; transform=&quot;translate(16,15) scale(1 1)&quot; opacity=&quot;1&quot; visibility=&quot;visible&quot;&gt;&lt;g class=&quot;highcharts-label highcharts-data-label highcharts-data-label-color-undefined &quot; style=&quot;text-shadow:none;&quot; transform=&quot;translate(138,16)&quot;&gt;&lt;text x=&quot;5&quot; style=&quot;font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);&quot; y=&quot;16&quot;&gt;&lt;tspan x=&quot;5&quot; y=&quot;16&quot; class=&quot;highcharts-text-outline&quot; fill=&quot;#FFFFFF&quot; stroke=&quot;#FFFFFF&quot; stroke-width=&quot;2px&quot; stroke-linejoin=&quot;round&quot; style=&quot;&quot;&gt;3.2&lt;&#x2F;tspan&gt;&lt;tspan x=&quot;5&quot; y=&quot;16&quot;&gt;3.2&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;&#x2F;g&gt;&lt;&#x2F;g&gt;&lt;g class=&quot;highcharts-axis-labels highcharts-yaxis-labels &quot;&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;78&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;1&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;63&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;2&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;48&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;3&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;33&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;4&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;text x=&quot;11&quot; style=&quot;color:#666666;cursor:default;font-size:11px;fill:#666666;&quot; text-anchor=&quot;end&quot; transform=&quot;translate(0,0)&quot; y=&quot;18&quot; opacity=&quot;1&quot;&gt;&lt;tspan&gt;5&lt;&#x2F;tspan&gt;&lt;&#x2F;text&gt;&lt;&#x2F;g&gt;&lt;&#x2F;svg&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+
+        &lt;div id=&quot;topic2652760373381471466-suggestion&quot; class=&quot;collapse&quot;&gt;
+          &lt;div class=&quot;row expandable-row-detail&quot;&gt;
+            &lt;div class=&quot;col-xs-12&quot;&gt;
+              &lt;h4&gt;
+                Suggestion for how
+                  &lt;span class=&quot;fs-hide&quot;&gt;Meggan&lt;&#x2F;span&gt;
+                can improve:
+              &lt;&#x2F;h4&gt;
+              &lt;p&gt;
+                  When you have a hard task to do, think about another time that you did a great job on something that was hard. Remember how you felt at the beginning, what you did to succeed, and how you felt after you had finished.
+              &lt;&#x2F;p&gt;
+            &lt;&#x2F;div&gt;
+          &lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;</pre><div class="well">
+  <div class="expandable-row-table" id="sel-scores">
+    <div class="panel">
+      <div class="row header">
+        <div class="col-xs-6">
+          <h4 class="no-space with-info-icon" data-toggle="modal" data-target="#sel-topics-help">Topics</h4>
+        </div>
+        <div class="col-xs-6">
+          <h4 class="no-space with-info-icon" data-toggle="modal" data-target="#sel-results-help">
+                Student
+            said ...</h4>
+        </div>
+      </div>
+
+      <div class="row expandable-row center-align-children collapsed " role="button" data-toggle="collapse" data-parent="#sel-scores" data-target="#topic514114689829100818-suggestion" aria-expanded="false" aria-controls="topic514114689829100818-suggestion">
+        <div class="expander-icon">
+          <span class="plus">+</span>
+          <span class="minus">–</span>
+        </div>
+        <div class="col-xs-6 topic-info">
+          <div class="topic-image" style="background-image: url(//d1er3jjluu1w22.cloudfront.net/assets/sel/skill-growth-mindset-ae26dae7a46117c193901970c57d9a59904a63a715f65b06f0b54090e4af5b5a.svg);"></div>
+          <h4 class="no-space">Growth Mindset</h4>
+            <p class="topic-description">Students with a growth mindset know that if they work hard they can learn anything.</p>
+        </div>
+        <div class="col-xs-6 graph" data-scores="[{&quot;score&quot;:2.7,&quot;project_name&quot;:&quot;January&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:3.2,&quot;project_name&quot;:&quot;March&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:null},{&quot;score&quot;:null}]" data-highcharts-chart="16"><div id="highcharts-5j3j61v-68" class="highcharts-container " style="position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="426" height="90" viewBox="0 0 426 90"><desc>Created with Highstock 6.0.1</desc><defs><clipPath id="highcharts-5j3j61v-69"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath><clipPath id="highcharts-5j3j61v-71"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath></defs><rect fill="transparent" class="highcharts-background" x="0" y="0" width="426" height="90" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="16" y="15" width="385" height="60"></rect><g class="highcharts-grid highcharts-yaxis-grid "><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 75.5 L 401 75.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 60.5 L 401 60.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 45.5 L 401 45.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 30.5 L 401 30.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 14.5 L 401 14.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" x="16" y="15" width="385" height="60"></rect><g class="highcharts-axis highcharts-yaxis "><path fill="none" class="highcharts-axis-line" d="M 26 15 L 26 75"></path></g><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" clip-path="url(#highcharts-5j3j61v-71)"><path fill="rgba(100, 100, 100, 0.2)" d="M 20.625 34.5 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60" class="highcharts-area"></path><path fill="none" d="M 20.625 34.5 L 135.20833333333 27" class="highcharts-graph" stroke="#1d8cd0" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10.625 34.5 L 20.625 34.5 L 135.20833333333 27 L 145.20833333333 27" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path></g><g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(16,15) scale(1 1)"><path fill="#1d8cd0" d="M 24 34.5 A 4 4 0 1 1 23.99999800000017 34.49600000066666 Z" class="highcharts-point"></path><path fill="#1d8cd0" d="M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z" class="highcharts-point"></path></g></g><g class="highcharts-data-labels highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" opacity="1" visibility="visible"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined " style="text-shadow:none;" transform="translate(138,16)"><text x="5" style="font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">3.2</tspan><tspan x="5" y="16">3.2</tspan></text></g></g><g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="78" opacity="1"><tspan>1</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="63" opacity="1"><tspan>2</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="48" opacity="1"><tspan>3</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="33" opacity="1"><tspan>4</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="18" opacity="1"><tspan>5</tspan></text></g></svg></div></div>
+        </div>
+
+        <div id="topic514114689829100818-suggestion" class="collapse">
+          <div class="row expandable-row-detail">
+            <div class="col-xs-12">
+              <h4>
+                Suggestion for how
+                  <span class="fs-hide">Meggan</span>
+                can improve:
+              </h4>
+              <p>
+                  <span>View hard tasks as great chances to learn. When you hear yourself say “This is hard!” remind yourself that the harder something is, the more you can grow by doing it. </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row expandable-row center-align-children collapsed " role="button" data-toggle="collapse" data-parent="#sel-scores" data-target="#topic2652760373381471466-suggestion" aria-expanded="false" aria-controls="topic2652760373381471466-suggestion">
+          <div class="expander-icon">
+            <span class="plus">+</span>
+            <span class="minus">–</span>
+          </div>
+          <div class="col-xs-6 topic-info">
+            <div class="topic-image" style="background-image: url(//d1er3jjluu1w22.cloudfront.net/assets/sel/skill-self-efficacy-fda42a541bda029393d2ee491805ba0be853c1fd9075a029f119dc458ec4f9ef.svg);"></div>
+            <h4 class="no-space">Self-Efficacy</h4>
+              <p class="topic-description">Students with strong self-efficacy believe they can do a good job on their work.</p>
+          </div>
+          <div class="col-xs-6 graph" data-scores="[{&quot;score&quot;:3.0,&quot;project_name&quot;:&quot;January&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:3.2,&quot;project_name&quot;:&quot;March&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:null},{&quot;score&quot;:null}]" data-highcharts-chart="17"><div id="highcharts-5j3j61v-72" class="highcharts-container " style="position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="426" height="90" viewBox="0 0 426 90"><desc>Created with Highstock 6.0.1</desc><defs><clipPath id="highcharts-5j3j61v-73"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath><clipPath id="highcharts-5j3j61v-75"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath></defs><rect fill="transparent" class="highcharts-background" x="0" y="0" width="426" height="90" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="16" y="15" width="385" height="60"></rect><g class="highcharts-grid highcharts-yaxis-grid "><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 75.5 L 401 75.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 60.5 L 401 60.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 45.5 L 401 45.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 30.5 L 401 30.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 14.5 L 401 14.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" x="16" y="15" width="385" height="60"></rect><g class="highcharts-axis highcharts-yaxis "><path fill="none" class="highcharts-axis-line" d="M 26 15 L 26 75"></path></g><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" clip-path="url(#highcharts-5j3j61v-75)"><path fill="rgba(100, 100, 100, 0.2)" d="M 20.625 30 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60" class="highcharts-area"></path><path fill="none" d="M 20.625 30 L 135.20833333333 27" class="highcharts-graph" stroke="#1d8cd0" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10.625 30 L 20.625 30 L 135.20833333333 27 L 145.20833333333 27" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path></g><g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(16,15) scale(1 1)"><path fill="#1d8cd0" d="M 24 30 A 4 4 0 1 1 23.99999800000017 29.996000000666665 Z" class="highcharts-point"></path><path fill="#1d8cd0" d="M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z" class="highcharts-point"></path></g></g><g class="highcharts-data-labels highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" opacity="1" visibility="visible"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined " style="text-shadow:none;" transform="translate(138,16)"><text x="5" style="font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">3.2</tspan><tspan x="5" y="16">3.2</tspan></text></g></g><g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="78" opacity="1"><tspan>1</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="63" opacity="1"><tspan>2</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="48" opacity="1"><tspan>3</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="33" opacity="1"><tspan>4</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="18" opacity="1"><tspan>5</tspan></text></g></svg></div></div>
+        </div>
+
+        <div id="topic2652760373381471466-suggestion" class="collapse">
+          <div class="row expandable-row-detail">
+            <div class="col-xs-12">
+              <h4>
+                Suggestion for how
+                  <span class="fs-hide">Meggan</span>
+                can improve:
+              </h4>
+              <p>
+                  When you have a hard task to do, think about another time that you did a great job on something that was hard. Remember how you felt at the beginning, what you did to succeed, and how you felt after you had finished.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Dropdowns</h3>
+  <p>Dropdowns have a consistent look and they come in two sizes.</p>
+
+  <p><b>Regular dropdowns</b>, just include the .dropdown class.</h4>
+  <pre>&lt;div class=&quot;dropdown&quot;&gt;
+      &lt;ul class=&quot;selection&quot; data-toggle=&quot;dropdown&quot;&gt;
+        &lt;li&gt;Coursework&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li class=&quot;active&quot;&gt;Coursework&lt;&#x2F;li&gt;
+        &lt;li&gt;Math&lt;&#x2F;li&gt;
+        &lt;li&gt;English&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+    &lt;&#x2F;div&gt;</pre><div class="well">
+    <div class="dropdown">
+      <ul class="selection" data-toggle="dropdown">
+        <li>Coursework</li>
+      </ul>
+      <ul class="dropdown-menu">
+        <li class="active">Coursework</li>
+        <li>Math</li>
+        <li>English</li>
+      </ul>
+    </div>
+  </div>
+
+  <p><b>Large dropdowns</b>, just include the .dropdown and .dropdown-lg class.</h4>
+  <pre>&lt;div class=&quot;dropdown dropdown-lg&quot;&gt;
+      &lt;ul class=&quot;selection&quot; data-toggle=&quot;dropdown&quot;&gt;
+        &lt;li&gt;Panorama School District&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;h6 class=&quot;dropdown-header&quot;&gt;District 1&lt;&#x2F;h6&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:false&quot;&gt;client250&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;&#x2F;div&gt;
+        &lt;h6 class=&quot;dropdown-header&quot;&gt;District 2&lt;&#x2F;h6&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:false&quot;&gt;client5000&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+        &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;&#x2F;div&gt;
+        &lt;h6 class=&quot;dropdown-header&quot;&gt;District 3&lt;&#x2F;h6&gt;
+        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;javascript:false&quot;&gt;Panorama School District&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+      &lt;&#x2F;ul&gt;
+    &lt;&#x2F;div&gt;</pre><div class="well">
+    <div class="dropdown dropdown-lg">
+      <ul class="selection" data-toggle="dropdown">
+        <li>Panorama School District</li>
+      </ul>
+      <ul class="dropdown-menu">
+        <h6 class="dropdown-header">District 1</h6>
+        <li><a href="javascript:false">client250</a></li>
+        <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">District 2</h6>
+        <li><a href="javascript:false">client5000</a></li>
+        <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">District 3</h6>
+        <li class="active"><a href="javascript:false">Panorama School District</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Student Lists</h3>
+  <p></p>
+
+  <pre>&lt;div class=&quot;row&quot; style=&quot;background: rgb(240,240,240); padding: 5px&quot;&gt;
+    &lt;div class=&quot;student-entry&quot;&gt;
+      &lt;table&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td class=&quot;avatar-container&quot;&gt;
+              &lt;div style=&quot;background-image: url(&#x2F;assets&#x2F;avatars&#x2F;face69-f438c429463c90f0b30c90b804715881a01b73a1e1535647e23c605ca110f280.png);&quot; class=&quot;avatar fs-hide selectable&quot;&gt;
+                &lt;div style=&quot;background-image: url();&quot; class=&quot;avatar-image fs-hide&quot;&gt;&lt;&#x2F;div&gt;
+                &lt;div class=&quot;selectable-checkbox&quot;&gt;&lt;div&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;
+                &lt;div class=&quot;student-birthday-logo has-popover list&quot; style=&quot;background-image: url(&#x2F;assets&#x2F;party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)&quot;&gt;
+                  &lt;div class=&quot;popover-container&quot;&gt;
+                    &lt;div class=&quot;popover-content&quot;&gt;
+                      Today is &lt;strong&gt;Roger&#x27;s&lt;&#x2F;strong&gt; 18th birthday!
+                    &lt;&#x2F;div&gt;
+                  &lt;&#x2F;div&gt;
+                &lt;&#x2F;div&gt;
+              &lt;&#x2F;div&gt;
+            &lt;&#x2F;td&gt;
+            &lt;td&gt;
+              &lt;a class=&quot;fs-hide name&quot; href=&quot;#&quot;&gt;
+                &lt;span&gt;Roger Zhu&lt;&#x2F;span&gt;
+              &lt;&#x2F;a&gt;
+            &lt;&#x2F;td&gt;
+          &lt;&#x2F;tr&gt;
+        &lt;&#x2F;tbody&gt;
+      &lt;&#x2F;table&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;student-entry&quot;&gt;
+      &lt;table&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td class=&quot;avatar-container&quot;&gt;
+              &lt;div style=&quot;background-image: url(&#x2F;&#x2F;d3c7n2rp95e49v.cloudfront.net&#x2F;assets&#x2F;avatars&#x2F;face37-c34e8f6be5a51c6edde04b1bcf30b8048d7322cb4ca32b29f2d3095fc820e927.png);&quot; class=&quot;avatar fs-hide selectable&quot;&gt;
+                &lt;div style=&quot;background-image: url();&quot; class=&quot;avatar-image fs-hide&quot;&gt;&lt;&#x2F;div&gt;
+                &lt;div class=&quot;selectable-checkbox&quot;&gt;&lt;div&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;
+                &lt;div class=&quot;student-birthday-logo has-popover list&quot; style=&quot;background-image: url(&#x2F;assets&#x2F;party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)&quot;&gt;
+                  &lt;div class=&quot;popover-container&quot;&gt;
+                    &lt;div class=&quot;popover-content&quot;&gt;
+                      Today is &lt;strong&gt;Terrence&#x27;s&lt;&#x2F;strong&gt; 18th birthday!
+                    &lt;&#x2F;div&gt;
+                  &lt;&#x2F;div&gt;
+                &lt;&#x2F;div&gt;
+              &lt;&#x2F;div&gt;
+            &lt;&#x2F;td&gt;
+            &lt;td&gt;
+              &lt;a class=&quot;fs-hide name&quot; href=&quot;#&quot;&gt;
+                &lt;span&gt;Terrence Fradet&lt;&#x2F;span&gt;
+              &lt;&#x2F;a&gt;
+            &lt;&#x2F;td&gt;
+          &lt;&#x2F;tr&gt;
+        &lt;&#x2F;tbody&gt;
+      &lt;&#x2F;table&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;</pre><div class="well">
+  <div class="row" style="background: rgb(240,240,240); padding: 5px">
+    <div class="student-entry">
+      <table>
+        <tbody>
+          <tr>
+            <td class="avatar-container">
+              <div style="background-image: url(/assets/avatars/face69-f438c429463c90f0b30c90b804715881a01b73a1e1535647e23c605ca110f280.png);" class="avatar fs-hide selectable">
+                <div style="background-image: url();" class="avatar-image fs-hide"></div>
+                <div class="selectable-checkbox"><div></div></div>
+                <div class="student-birthday-logo has-popover list" style="background-image: url(/assets/party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)">
+                  <div class="popover-container">
+                    <div class="popover-content">
+                      Today is <strong>Roger's</strong> 18th birthday!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="fs-hide name" href="#">
+                <span>Roger Zhu</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="student-entry">
+      <table>
+        <tbody>
+          <tr>
+            <td class="avatar-container">
+              <div style="background-image: url(//d3c7n2rp95e49v.cloudfront.net/assets/avatars/face37-c34e8f6be5a51c6edde04b1bcf30b8048d7322cb4ca32b29f2d3095fc820e927.png);" class="avatar fs-hide selectable">
+                <div style="background-image: url();" class="avatar-image fs-hide"></div>
+                <div class="selectable-checkbox"><div></div></div>
+                <div class="student-birthday-logo has-popover list" style="background-image: url(/assets/party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)">
+                  <div class="popover-container">
+                    <div class="popover-content">
+                      Today is <strong>Terrence's</strong> 18th birthday!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="fs-hide name" href="#">
+                <span>Terrence Fradet</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+      <div class="row stylist">
+  <h2>Copy Style Guidelines</h2>
+
+  <h3>Capitalization</h3>
+
+  <p><strong>Headlines</strong></p>
+  <p>Title Case, no punctuation.
+    <pre>&lt;h1&gt;My Groups&lt;&#x2F;h1&gt;</pre><div class="well">
+<h1 data-toc-skip>My Groups</h1>
+</div>
+
+  <p><strong>Subtitles</strong></p>
+  <p>Sentence case, no punctuation.
+    <pre>&lt;h4&gt;Viewing all 2,020 students in this group&lt;&#x2F;h4&gt;</pre><div class="well">
+<h4 data-toc-skip>Viewing all 2,020 students in this group</h4>
+</div>
+
+  <p><strong>Buttons</strong></p>
+  <p>Title Case, no punctuation.</p>
+  <pre>&lt;button class=&quot;btn&quot;&gt;Save as a Group&lt;&#x2F;button&gt;</pre><div class="well">
+<button class="btn">Save as a Group</button>
+</div>
+
+  <h3>Hyphens and Dashes</h3>
+
+  <p><strong>en-dash</strong> <small>(U+2013: "–")</small></p>
+  <p>Mac shortcut: option/alt + hyphen/minus sign.</p>
+  <p>Used between numbers, e.g. 1–2 incidents.</p>
+  <br/>
+
+  <p><strong>em-dash</strong> <small>(U+2014: "—")</small></p>
+  <p>Mac shortcut: option/alt + shift + hyphen/minus sign.</p>
+  <p>We don’t have a use for them in our product yet.</p>
+  <br/>
+
+  <p><strong>hyphen</strong> <small>(U+002D: "-")</small></p>
+  <p>This is the normal hyphen/minus sign on keyboards.</p>
+  <p>
+    Never use a hyphen in place of an en dash or an em dash.
+    Never use a hyphen in the phrase “At risk”.
+    Always use a hyphen when writing “Social-emotional learning”.
+  </p>
+  <br/>
+
+  <h3>Gender-neutral language</h3>
+
+  <p>
+    We only use gender neutral language. Do not say “his” and “her”, instead say
+    “their”. We don’t ever want to assume a gender for a student even if we have
+    their demographic gender attribute, as it may not be self-reported.
+  </p>
+  <br/>
+
+  <h3>Number formatting</h3>
+
+  <p>Always use comma for digit grouping, e.g. 10,000,000.</p>
+  <br/>
+
+  <h3>Possessive pronouns: "Your" vs "My"</h3>
+
+  <p><strong>Student access</strong></p>
+  <p>
+    For student access to the platform, we use <em>first person</em> for
+    questions we will answer (e.g. "What is <em>my</em> daily attendance?") and
+    <em>second person</em> for the answers (e.g. "<em>Your</em> daily attendance
+    is not available").
+  </p>
+  <br/>
+
+  <p><strong>Educator access</strong></p>
+  <p>
+    For educator access to the platform, we use the 3rd person plural pronoun,
+    e.g. “What is <em>their</em> daily attendance?”
+    (see <em>Gender-neutral language</em> above).
+  </p>
+
+</div>
+
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

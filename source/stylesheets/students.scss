@@ -1,0 +1,1961 @@
+.warn-mobile-modal {
+  // By default, we don't show the mobile warning modal, we only show when
+  // media query triggers
+  display: none;
+}
+
+@media (max-device-width: 767px) {
+  .warn-mobile-modal {
+    display: inherit;
+
+    .modal-content {
+      margin-left: 5%;
+      width: 90%;
+
+      .school-name {
+        padding-top: $space-md;
+      }
+    }
+
+    .logo {
+      display: inline;
+      margin-bottom: 0;
+      margin-top: -$space-sm;
+      width: 80px;
+    }
+  }
+}
+
+.student-filter-container {
+  vertical-align: top;
+}
+
+body[data-controller="home"] {
+  $diameter-plus-margin: 60px;
+  padding-top: $navbar-top-row-height;
+
+  .navbar {
+    height: $navbar-top-row-height;
+    min-height: $navbar-top-row-height;
+
+    #logout ul {
+      margin-top: $navbar-top-row-height - $diameter-plus-margin;
+    }
+  }
+}
+
+.student-navbar {
+  // By default, this sticky navbar isn't visible --
+  // We want the bottom a bit above the top of the screen so the bottom shadow
+  // isn't visible when it's offscreen.
+  min-height: $navbar-top-row-height;
+  top: -$navbar-top-row-height - $space-xlg;
+
+  &.animated {
+    transition: top 200ms ease;
+  }
+
+  @mixin navbarvertcenter() {
+    position: relative;
+    top: ($navbar-top-row-height / 2);
+    transform: translateY(-50%);
+  }
+
+  .student-profile {
+    @include navbarvertcenter();
+    cursor: pointer;
+  }
+
+  .vert-center {
+    @include navbarvertcenter();
+  }
+
+  .marking-period-label {
+    display: table-cell;
+    font: $font-book;
+    font-size: $font-size-xxsmall;
+    font-weight: $weight-bold;
+    padding-right: $space-md;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  .profile-bar-indicator-bubble {
+    cursor: pointer;
+    display: table-cell;
+    margin-right: $space-md;
+    padding-right: $space-md;
+    position: relative;
+    user-select: none;
+    vertical-align: middle;
+
+    &.animated .indicator-level {
+      $animation-time-unit: 150ms;
+      transition: padding-right $animation-time-unit ease;
+
+      &.active {
+        transition: padding-right $animation-time-unit ease;
+      }
+    }
+
+    .profile-bar-indicator-label {
+      font-weight: normal;
+      left: 45px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: none;
+
+      &.with-trend-spacing {
+        left: 72px;
+      }
+    }
+
+    &.active {
+      opacity: 1;
+
+      .profile-bar-indicator-label {
+        opacity: 1;
+      }
+
+      .indicator-level {
+        background-color: $main-background-color;
+        border-radius: $radius-xlg;
+      }
+    }
+  }
+}
+
+.student-birthday-logo {
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+
+  &.list {
+    height: 35px;
+    left: 9px;
+    top: -18px;
+    width: 24px;
+  }
+
+  &.profile {
+    height: 45px;
+    left: 22px;
+    top: -23px;
+    width: 29px;
+  }
+}
+
+.student-entry {
+  @extend .list-entry;
+
+  line-height: $avatar-size-sm;
+  padding-right: 0;
+
+  .profile-bar-indicator-bubble,
+  .indicator-graph-spacing {
+    .indicator-level {
+      @include indicator-bubble($indicator-bubble-size);
+
+      display: inline-block;
+      vertical-align: middle;
+
+      .bubble {
+        border-width: 0;
+      }
+    }
+
+    &.narrow .indicator-level {
+      @include indicator-bubble($indicator-bubble-size-sm);
+
+      .bubble {
+        border-style: solid;
+        border-width: 1px;
+      }
+
+      .trend-container .trend::before {
+        font-size: $font-size-xxxsmall;
+      }
+    }
+  }
+}
+
+.coursework-table {
+  border-collapse: initial;
+  border-spacing: $space-sm;
+  color: $gray;
+  font: $font-book;
+  margin-bottom: $space-lg;
+  width: 100%;
+
+  .focus-column {
+    font-weight: bold;
+  }
+
+  td,
+  th {
+    border: 0;
+
+    &.text-right {
+      text-align: right;
+    }
+  }
+
+  td {
+    padding: $space-md $space-sm;
+
+    &.count {
+      font-weight: bold;
+    }
+
+    &.present {
+      color: $grey;
+    }
+
+    &.absences {
+      color: $red;
+    }
+
+    &.tardies {
+      color: $purple;
+    }
+  }
+
+  th {
+    cursor: pointer;
+    font-weight: $weight-book;
+    padding: $space-sm;
+  }
+
+  tbody tr {
+    border-radius: $radius-sm;
+    box-shadow: inset 0 0 1px $light-grey;
+  }
+}
+
+.data-boxes {
+  margin-top: $space-lg;
+}
+
+.data-box {
+  @include shadow();
+
+  background-color: $white;
+  border-radius: $radius-lg;
+  margin-bottom: $space-xlg;
+  padding: $space-xlg + $space-sm;
+
+  // Overall section title
+  > h1 {
+    margin-bottom: $space-sm;
+    margin-top: 0;
+  }
+
+  // Section subheadings
+  > h2,
+  .section-subheading {
+    font-weight: $weight-book;
+    margin-top: $space-xlg;
+  }
+
+  .indicator-marker {
+    font-size: $font-size-medium;
+    margin-bottom: $space-xlg;
+
+    &.with-indicator-icon::before {
+      font-size: $font-size-medium;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  // This pads boxes that overflow to second line
+  .summary-data-container:nth-child(n+5) {
+    padding-top: $space-xlg;
+  }
+
+  .data-box-chunk {
+    font-size: $font-size-regular;
+    padding: 0 $space-sm;
+
+    .data-value {
+      font-size: $font-size-xlarge / 2;
+      font-weight: $weight-bold;
+      margin-bottom: $space-sm;
+
+      .number-part {
+        font-size: $font-size-xlarge;
+        line-height: $font-size-xlarge;
+      }
+    }
+
+    .data-detail {
+      color: $grey;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    &.not-available .data-detail {
+      color: $silver;
+    }
+  }
+
+  .expandable-row-table {
+    font: $font-book;
+    margin: $space-lg;
+    margin-bottom: $space-xxlg;
+  }
+}
+
+.bottom-button-box {
+  margin-top: $space-xlg;
+}
+
+.save-filter {
+  @include button-create("e");
+
+  &.button {
+    float: left;
+  }
+
+  &:not(.button) {
+    background-color: inherit;
+    border: 0;
+    color: $blue;
+    font-size: $font-size-medium;
+    line-height: $font-size-medium * 1.5;
+    padding-left: 0;
+    padding-right: 0;
+
+    &::before {
+      color: $blue-light;
+      font-size: $font-size-medium;
+    }
+
+    &:hover {
+      background-color: inherit;
+      border-bottom: 0;
+    }
+  }
+}
+
+.student-profile {
+  .avatar {
+    margin-right: $space-lg;
+  }
+
+  h3 {
+    font: $font-bold;
+    font-size: $font-size-medium;
+  }
+
+  > div {
+    margin-top: $space-xlg + $space-md;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+.student-attribute,
+.filter-box {
+  border: 1px solid $gainsboro;
+  border-radius: $radius-sm;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: normal;
+  margin: 0 $space-sm $space-sm 0;
+  padding: $space-sm ($space-sm + 1px);
+  vertical-align: middle;
+
+  h6 {
+    color: $grey;
+    display: block;
+    margin: 0;
+    padding-right: $space-xlg;
+  }
+
+  h4 {
+    color: lighten($grey, 20%);
+    margin: 2px 0 0;
+
+    span {
+      &::after {
+        content: " or ";
+        opacity: 0.5;
+      }
+
+      &:last-of-type::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.student-attributes {
+  font-size: 0;
+}
+
+.filter-boxes {
+  font-size: 0;
+  line-height: $space-xxlg;
+
+  &.lists {
+    margin: $space-md 0;
+  }
+
+  .filter-box {
+    .remove {
+      color: $grey;
+      cursor: pointer;
+      float: right;
+      font-size: $font-size-regular;
+      height: 12px;
+      line-height: 12px;
+      margin: -4px -1px 0 0;
+    }
+
+    span {
+      display: inline;
+    }
+  }
+}
+
+.student-groups button {
+  @include button-create($icon-edit);
+}
+
+.saved-list {
+  @extend .save-filter;
+  @include button-create($icon-tag);
+
+  &,
+  &::before {
+    color: $blue !important;
+  }
+}
+
+.profile-bar-indicator-bubble,
+.student .indicators {
+  h3 {
+    font: $font-book;
+  }
+
+  @mixin indicator-interstitial-gradient-from($colors, $from-index) {
+    $start-color: nth($colors, $from-index);
+
+    + .indicator-level-interstitial.on-track-for-college-career-readiness div {
+      $to-color: nth($colors, 5);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    + .indicator-level-interstitial.on-track-for-graduation div {
+      $to-color: nth($colors, 4);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    + .indicator-level-interstitial.at-risk div {
+      $to-color: nth($colors, 3);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    + .indicator-level-interstitial.critical div {
+      $to-color: nth($colors, 2);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    + .indicator-level-interstitial.not-available div {
+      $to-color: nth($colors, 1);
+      @include indicator-interstitial-gradient($to-color, $to-color);
+    }
+  }
+
+  .indicator-row,
+  .marking-periods {
+    border-radius: $radius-sm;
+    color: $grey;
+    display: block;
+    margin-right: 0;
+    padding: $space-md 0;
+
+    table {
+      width: 100%;
+    }
+  }
+
+  .marking-periods {
+    padding-bottom: 0;
+  }
+
+  .indicator-row {
+    &:hover {
+      @include well();
+      background-color: $gainsboro;
+    }
+
+    > h3 {
+      color: $grey;
+      line-height: $indicator-bubble-size;
+      text-align: right;
+    }
+  }
+
+  .indicator-level-interstitial {
+    div {
+      background-color: nth($default-indicator-colors, 1);
+      height: 1px;
+    }
+
+    &.not-available {
+      div {
+        $color: nth($default-indicator-colors, 1);
+        @include indicator-interstitial-gradient($color, $color);
+      }
+    }
+  }
+
+  .indicator-level {
+    @include indicator-bubble($indicator-bubble-size);
+    width: $indicator-bubble-size;
+
+    &.on-track-for-college-career-readiness {
+      @include indicator-interstitial-gradient-from($default-indicator-colors, 5);
+    }
+
+    &.on-track-for-graduation {
+      @include indicator-interstitial-gradient-from($default-indicator-colors, 4);
+    }
+
+    &.at-risk {
+      @include indicator-interstitial-gradient-from($default-indicator-colors, 3);
+    }
+
+    &.critical {
+      @include indicator-interstitial-gradient-from($default-indicator-colors, 2);
+    }
+  }
+
+  .marking-period-label {
+    @extend .pull-right;
+
+    font: $font-book;
+    font-size: $font-size-xxsmall;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: $indicator-bubble-size;
+
+    &.current {
+      font-weight: $weight-bold;
+    }
+
+    > div {
+      position: absolute;
+      right: 50%;
+
+      > div {
+        position: relative;
+        right: -50%;
+        width: 100px;
+      }
+    }
+  }
+
+  .years {
+    margin-bottom: $space-xlg;
+  }
+}
+
+.more-students-button {
+  @extend .btn;
+
+  cursor: pointer;
+  display: inline-block;
+  margin-top: $space-xlg;
+  padding-left: $space-xlg * 2;
+  padding-right: $space-xlg * 2;
+  white-space: nowrap;
+
+  .loading-wave {
+    margin-top: 3px;
+    position: absolute;
+
+    .rect {
+      background-color: $white;
+    }
+  }
+}
+
+.course-btns {
+  padding-bottom: $space-md;
+  padding-top: 0;
+
+  .btn {
+    @extend .btn;
+
+    background-color: $white;
+    border: solid $grey 1px;
+    border-radius: 0;
+    color: $grey;
+    cursor: default;
+    font: $font-medium;
+    margin-right: -5px;
+    padding: $space-sm $space-md;
+
+    &.year {
+      border-radius: $radius-sm;
+      padding: ($space-sm * 1.75) ($space-md * 1.75);
+    }
+
+    &.selected {
+      background-color: $grey;
+      color: $white;
+    }
+  }
+}
+
+.attendance-calendar {
+  $cell-size: 25px;
+
+  color: $grey;
+  font-size: $font-size-xsmall;
+
+  .month {
+    margin-bottom: $space-xlg;
+    min-width: 177px;
+    padding: 0;
+
+    > table {
+      border: 0;
+      border-collapse: separate;
+      border-spacing: 1px;
+
+      > thead > tr,
+      > tbody > tr {
+        > td,
+        > th {
+          box-sizing: border-box;
+          color: $silver;
+          text-align: center;
+          width: $cell-size;
+        }
+
+        > td:first-of-type,
+        > th {
+          font-weight: $weight-book;
+        }
+
+        .weekday {
+          height: $space-xlg;
+        }
+
+        > th > h4 {
+          text-align: center;
+        }
+
+        .day {
+          border-radius: $radius-x-sm;
+          font-size: 0;
+          height: $cell-size;
+          position: relative;
+
+          &.with-popover {
+            &:hover {
+              @include shadow($grey);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.no-sections {
+    padding-top: $space-sm;
+
+    .month {
+      width: 20%;
+    }
+  }
+
+  .dot {
+    border-radius: $radius-circle;
+    display: inline-block;
+    height: 5px;
+    margin: 1px;
+    vertical-align: middle;
+    width: 5px;
+  }
+
+  .legend {
+    @extend .clearfix;
+
+    clear: both;
+    margin-left: $cell-size + 1px;
+
+    h4 {
+      font: $font-medium;
+    }
+
+    table {
+      border: 0;
+      border-collapse: collapse;
+      max-width: ($cell-size + 1px) * 6 * 3;
+      width: 100%;
+
+      td {
+        font-weight: $weight-book;
+        padding: 0 $space-sm $space-sm 0;
+
+        span {
+          display: inline-block;
+          height: 15px;
+          vertical-align: text-bottom;
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  .ok {
+    background-color: $silver;
+  }
+
+  .future {
+    background-color: $gainsboro;
+  }
+
+  .no-school {
+    border: 2px $silver solid;
+  }
+
+  .absent {
+    background-color: $red;
+  }
+
+  .tardy {
+    background-color: $purple;
+  }
+}
+
+.expandable-row-table {
+  // Override visible Bootstrap styles for the panel element we don't
+  // want, but need due to a bug in Bootstrap accordions
+  > .panel {
+    background-color: initial;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  .center-align-children {
+    align-items: center;
+    display: flex;
+  }
+
+  .header {
+    border: 1px solid transparent;
+    border-bottom-color: $silver;
+    color: $grey;
+    font: $font-book;
+    margin: 0 (-$space-lg) $space-lg;
+    padding: $space-sm $space-lg;
+
+    &.full-width {
+      padding-left: 0;
+      padding-right: 0;
+
+      div {
+        padding: 0;
+      }
+    }
+
+    &.sub-header {
+      border-bottom-color: transparent;
+      font: $font-book;
+      font-size: $font-size-xxsmall;
+      margin-bottom: $space-sm;
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  .table-controls {
+    margin-top: $space-xlg;
+  }
+
+  .show-more {
+    &::before {
+      content: "Show Less";
+      display: block;
+    }
+
+    &.collapsed::before {
+      content: "Show More";
+    }
+  }
+
+  .expandable-row {
+    color: $grey;
+    margin-top: $space-md;
+
+    &.collapsed {
+      background-color: initial;
+    }
+  }
+
+  .expandable-row-detail {
+    color: $grey;
+    padding: $space-xlg $space-lg $space-md;
+
+    h3,
+    h4 {
+      font: $font-medium;
+      margin: $space-sm 0;
+    }
+
+    .sbg-expanded-summary {
+      margin-left: $space-lg;
+      margin-right: $space-lg;
+    }
+  }
+
+  .focus-column {
+    font-weight: bold;
+  }
+
+  .change-row {
+    margin: 0;
+    padding: 0;
+  }
+
+  .current-grade {
+    display: inline-block;
+    text-align: center;
+
+    &::before {
+      @extend .icon;
+
+      color: $light-grey;
+      font-size: $font-size-xxsmall;
+      font-weight: $weight-book;
+      margin-left: -$space-lg;
+      margin-top: 2px;
+      position: absolute;
+      width: $space-md;
+    }
+
+    &.increasing::before {
+      content: $icon-change-up;
+    }
+
+    &.decreasing::before {
+      content: $icon-change-down;
+    }
+
+    &.indicator {
+      font-weight: $weight-bold;
+    }
+  }
+
+  .fraction {
+    display: inline-block;
+    font-size: $font-size-small;
+    font-weight: $weight-medium;
+    position: relative;
+    width: $space-lg * 2;
+
+    .numerator,
+    .denominator {
+      position: absolute;
+    }
+
+    .numerator {
+      margin-top: -$space-sm;
+      right: 65%;
+    }
+
+    .denominator {
+      left: 65%;
+      margin-top: $space-sm;
+    }
+  }
+
+  .row-content {
+    margin-left: -$space-xlg - $space-sm;
+    margin-right: -$space-xlg - $space-md;
+  }
+
+  .sbg-row-content {
+    margin-left: -$space-xxlg;
+    margin-right: -2 * $space-lg;
+  }
+}
+
+.behavior-data {
+  .actions,
+  .outcomes {
+    .data-box-chunk {
+      .data-value {
+        display: inline-block;
+
+        .number-part {
+          font-size: $font-size-large;
+        }
+      }
+
+      .data-detail {
+        color: inherit;
+      }
+    }
+  }
+
+  .outcomes {
+    border-left: 1px solid $silver;
+    margin-left: -$space-md;
+    padding-left: 15px + $space-md;
+  }
+
+  &.colorize {
+    .positive {
+      color: $teal;
+    }
+
+    .negative {
+      color: $red;
+    }
+  }
+
+  .infractions {
+    font-weight: $weight-bold;
+  }
+
+  .entry {
+    padding: $space-sm 0;
+  }
+
+  .expandable-row-table {
+    margin-top: 0;
+
+    &.incidents {
+      margin-top: $space-md;
+    }
+  }
+}
+
+.sel-data {
+  .expandable-row {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .topic-name {
+    margin: 0;
+  }
+
+  .topic-description {
+    margin: $space-md 0 0 0;
+  }
+
+  .topic-info {
+    padding: $space-lg 35px $space-lg 65px;
+    position: relative;
+
+    h4 {
+      font-weight: $weight-bold;
+    }
+
+    .topic-image {
+      background: center no-repeat;
+      height: 100%;
+      left: $space-sm;
+      position: absolute;
+      top: 0;
+      width: $inc;
+    }
+  }
+
+  .sub-header > .multiple-administrations {
+    padding-left: 28px; // 15px + ~16px Y axis labels +/- fudge
+    padding-right: 42px; // 15px + 25px graph right spacing +/- fudge
+    white-space: nowrap;
+
+    > div {
+      height: $font-size-small;
+      margin: 0 6%; // == X axis min/maxPadding 0.06
+      position: relative;
+    }
+
+    .administration-name {
+      position: absolute;
+    }
+  }
+
+  .administration-name {
+    text-align: center;
+    top: 0;
+
+    > div {
+      left: -50%;
+      overflow: hidden;
+      position: relative;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .highcharts-container {
+    overflow: visible !important;
+
+    .assessment-tooltip {
+      .body {
+        background-color: rgba($grey, 0.8);
+      }
+
+      .arrow {
+        border-color: rgba($grey, 0.8);
+        display: none;
+      }
+
+      &.above .arrow.above,
+      &.below .arrow.below {
+        display: block;
+      }
+    }
+  }
+
+  svg {
+    .highcharts-data-labels tspan {
+      font-family: $font-family-default;
+      font-size: $font-size-med-reg;
+      font-weight: $weight-bold;
+    }
+
+    .highcharts-yaxis-labels tspan {
+      fill: $light-grey;
+      font-size: $font-size-xxsmall;
+    }
+  }
+
+  .single-administration {
+    text-align: center;
+
+    h1 {
+      color: $grey;
+      margin-bottom: $space-sm;
+    }
+
+    .dot {
+      // This is only used here, so not in colors.scss for now
+      $color: #1d8cd0;
+      $size: 15px;
+
+      border: 1px solid $color;
+      border-radius: $radius-circle;
+      display: inline-block;
+      height: $size;
+      overflow: hidden;
+      text-align: left;
+      width: $size;
+
+      > div,
+      &.filled {
+        background-color: $color;
+      }
+
+      > div {
+        height: $size;
+      }
+    }
+  }
+}
+
+.assessments {
+  .assessment {
+    padding-top: 25px;
+
+    h2 {
+      color: $grey;
+      font-weight: $weight-light;
+    }
+
+    .vendor-logo {
+      float: right;
+      margin-top: 2px;
+      max-height: $indicator-bubble-size-sm;
+      max-width: 100%;
+    }
+  }
+
+  .chart-help {
+    text-align: right;
+  }
+  .highcharts-container {
+    overflow: visible !important;
+
+    .assessment-tooltip {
+      &.above .arrow.above,
+      &.below .arrow.below {
+        display: block;
+      }
+    }
+  }
+
+  .expandable-row {
+    .expander-icon {
+      margin-top: 60px;
+    }
+  }
+
+  .expandable-row-detail,
+  .assessment-info {
+    h3 {
+      color: $grey;
+      text-align: center;
+    }
+
+    .assessment-name {
+      text-align: left;
+    }
+
+    .assessment-primary-rank {
+      font-weight: $weight-light;
+      text-align: left;
+    }
+
+    .indicator {
+      padding: ($space-lg * 2) $space-sm $space-lg;
+      text-align: center;
+    }
+
+    .marker {
+      $size: 25px;
+
+      border-radius: $radius-circle;
+      height: $size;
+      width: $size;
+    }
+
+    .status-name {
+      margin: $space-sm 0 0;
+    }
+
+    .status-range {
+      font-weight: $weight-book;
+    }
+  }
+}
+
+.intervention-icon {
+  display: inline-block;
+  margin: $space-sm / 2;
+  position: relative;
+
+  &.with-intervention-icon::before {
+    padding-right: 0;
+  }
+}
+
+.with-intervention-icon {
+  &::before {
+    $size: 25px;
+
+    box-sizing: content-box;
+    display: inline-block;
+    font: $font-icon;
+    font-size: $font-size-large;
+    height: $size;
+    padding-right: $space-sm;
+    text-align: center;
+    vertical-align: middle;
+    width: $size;
+  }
+
+  // We are currently supporting both "Mathematics" and "Math" as subject areas,
+  // but are moving towards centralizing on "Mathematics".
+  &.math::before,
+  &.mathematics::before {
+    content: $icon-math;
+  }
+
+  &.reading::before,
+  &.ela::before {
+    content: $icon-reading;
+  }
+
+  &.skills::before {
+    content: $icon-sel;
+  }
+
+  &.behavior::before {
+    content: $icon-behavior;
+  }
+
+  &.academics::before {
+    content: $icon-academics;
+  }
+
+  &.attendance::before {
+    content: $icon-attendance;
+  }
+
+  &.support_team::before {
+    content: $icon-ela;
+  }
+
+  &.intervention::before {
+    content: $icon-attendance;
+  }
+
+  &.tier-2::before {
+    color: $light-grey;
+  }
+
+  &.tier-3::before {
+    color: $grey;
+  }
+
+  &.interactive:hover {
+    &.tier-2::before {
+      color: darken($light-grey, 10%);
+    }
+
+    &.tier-3::before {
+      color: darken($grey, 10%);
+    }
+  }
+
+  &.current {
+    &.tier-2::before {
+      color: $light-blue-light;
+    }
+
+    &.tier-3::before {
+      color: $light-blue-dark;
+    }
+
+    &.interactive:hover {
+      &.tier-2::before {
+        color: darken($light-blue-light, 10%);
+      }
+
+      &.tier-3::before {
+        color: darken($light-blue-dark, 10%);
+      }
+    }
+  }
+}
+
+.student-interventions {
+  font-size: $font-size-regular;
+  font-weight: $weight-light;
+
+  h5 {
+    font-size: $font-size-small;
+    font-weight: $weight-light;
+    margin-bottom: $space-md;
+    margin-top: $space-xlg + $space-sm;
+
+    &:first-of-type {
+      margin-top: $space-xlg;
+    }
+
+    &.with-intervention-icon::before {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  .staff-name {
+    font-size: $font-size-small;
+    font-style: italic;
+    margin-top: $space-sm;
+  }
+}
+
+.section-sbg-summary {
+  margin-bottom: $space-lg;
+  table-layout: fixed;
+
+  tbody > tr > td {
+    padding: 4px;
+    vertical-align: middle;
+
+    &.standard-grade {
+      width: 45px;
+    }
+
+    &.standard-name {
+      color: $blue;
+    }
+  }
+
+  .standard-name > h3 {
+    color: $blue;
+    margin: 0;
+  }
+
+  .standard-grade {
+    font-size: $font-size-med-reg;
+    font-weight: $weight-bold;
+  }
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+  border: 0;
+}
+
+.sbg-data {
+  .section-summary-container {
+    .course-info {
+      h2 {
+        margin-bottom: $space-sm;
+      }
+
+      p {
+        margin-bottom: $space-md;
+        margin-top: $space-sm;
+      }
+    }
+  }
+
+  .sbg-table-container {
+    margin-left: -$space-md;
+    padding: 0;
+  }
+
+  .sbg-table {
+    width: 100%;
+
+    td, th {
+      cursor: auto;
+      font-weight: $weight-book;
+      padding: $space-md $space-sm;
+
+      &.grade {
+        // This width works well for 4 grade slots (all of our current SBG
+        // clients) [RL 5/8/2018]
+        width: 76px;
+        text-align: center;
+      }
+
+      &:first-child {
+        padding-left: 0;
+        padding-right: $space-xlg;
+        text-align: right;
+      }
+    }
+
+    td:first-child {
+      font-size: $font-size-xsmall;
+    }
+
+    th:nth-child(2) {
+      padding-left: $space-lg;
+    }
+
+    thead tr {
+      box-shadow: none;
+
+      th:not(:first-child) {
+        border-bottom: 1px solid $silver;
+      }
+    }
+
+    tbody tr {
+      box-shadow: none;
+
+      td:not(:first-child) {
+        border-bottom: 1px solid $silver;
+        border-top: 1px solid $silver;
+      }
+    }
+
+    .strand td {
+      font-weight: $weight-bold;
+
+      &.grade {
+        font-size: $font-size-small;
+        font-weight: $weight-medium;
+      }
+
+      &:first-child {
+        width: 110px;
+      }
+
+      &:not(:first-child) {
+        background-color: $white-smoke;
+      }
+
+      &:nth-child(2) {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.coursework-data {
+  .grade-status {
+    font-size: $font-size-small;
+    font-weight: $weight-bold;
+  }
+
+  .course-indicator-info {
+    border-left: 1px solid $silver;
+    margin-top: $space-md;
+    min-height: 45px;
+  }
+
+  // This class can be combined with a style of width: xx% to create a custom
+  // column class that behaves like bootstrap's col-xs-<number>
+  .col-custom {
+    float: left;
+    min-height: 1px;
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+  }
+}
+
+.academics-content {
+  font: $font-book;
+  margin: $space-lg;
+  margin-bottom: $space-xxlg;
+
+  .grade-headers .no-space {
+    padding: 0;
+  }
+
+  .section {
+    @include shadow($silver);
+
+    border: 1px solid $silver;
+    margin-top: $space-md;
+    padding: $space-md $space-lg;
+
+    .summary-grades {
+      padding-left: 0;
+
+      table {
+        width: 80%;
+      }
+
+      td {
+        padding-left: 0;
+      }
+
+      .current {
+        font-weight: $weight-bold;
+      }
+    }
+
+    .grade-slots {
+      margin-top: $space-md;
+      min-height: 45px;
+    }
+  }
+
+  .cot-graph {
+    height: 200px;
+    width: 100%;
+
+    .cot-headers {
+      margin-bottom: $space-xxlg;
+      margin-left: 2%;
+      margin-top: $space-xlg;
+      width: 95%;
+
+      .current {
+        font-weight: $weight-bold;
+      }
+    }
+  }
+
+  .cot-graph-container {
+    margin-left: $space-md;
+    margin-right: $space-md;
+    margin-top: $space-xlg + $space-sm;
+  }
+}
+
+.support-plans {
+  h1 {
+    color: $purple;
+    padding-left: $space-xlg + $space-sm;
+  }
+
+  .support-plan {
+    @include shadow($light-grey);
+
+    border: 0;
+    margin-bottom: $space-md;
+    padding: 3px;
+
+    &:hover {
+      @include shadow($grey, 0.4);
+    }
+
+    .support-header {
+      @include well($silver);
+
+      background-color: $gainsboro;
+      border-radius: $radius-md;
+      cursor: pointer;
+      padding: $space-lg;
+      padding-left: $inc + $space-sm;
+      position: relative;
+
+      &.with-support-plan-icon::before {
+        font-size: $space-xxlg;
+        left: $space-xlg;
+        position: absolute;
+      }
+
+      > .row {
+        align-items: center;
+        display: flex;
+      }
+    }
+
+    .support-details > div {
+      padding: $space-xlg;
+    }
+
+    .supports {
+      margin-bottom: $space-xlg;
+
+      .tooltip {
+        z-index: 10;
+
+        .tooltip-arrow {
+          border-top-color: $grey;
+        }
+
+        .tooltip-inner {
+          background-color: $grey;
+          padding: $space-md;
+          text-align: left;
+        }
+      }
+
+      .btn-checkbox {
+        display: inline-block;
+        margin-right: $space-sm;
+        margin-top: $space-sm;
+        padding-left: 33px;
+        position: relative;
+        text-decoration: none;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        &.saving {
+          opacity: 0.5;
+          pointer-events: none;
+
+          &::before {
+            display: none;
+          }
+
+          .loading-wave {
+            left: 2px;
+            position: absolute;
+            top: 10px;
+          }
+        }
+
+        // TODO: [RL] We should port over rainbow mixin styles to swap out
+        // common icon stylesd
+        &::before {
+          $size: 15px;
+
+          border: 1px $white solid;
+          border-radius: $radius-sm;
+          content: " ";
+          font: $font-icon;
+          font-size: $font-size-xxsmall;
+          height: $size;
+          left: 12px;
+          line-height: $size;
+          position: absolute;
+          text-align: center;
+          width: $size;
+        }
+
+        &:hover:not(:focus)::before {
+          content: $icon-check;
+        }
+
+        &.completed::before {
+          content: $icon-check;
+        }
+
+        &.completed:hover:not(:focus)::before {
+          content: " ";
+        }
+      }
+
+      span {
+        color: $purple;
+        display: inline-block;
+        margin: $space-sm 0;
+        margin-right: $space-lg;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        &.completed::before {
+          content: $icon-check;
+          font: $font-icon;
+          font-weight: $weight-bold;
+          margin-right: $space-sm;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+
+    .notes {
+      textarea {
+        @include placeholder-color($light-grey);
+
+        background-color: $gainsboro;
+        border: 1px $silver solid;
+        border-radius: $radius-sm;
+        box-sizing: content-box;
+        padding: $space-md;
+        resize: none;
+        width: 95%;
+
+        &:focus,
+        &:active {
+          @include shadow-inset($purple-dark);
+
+          border-color: $purple-dark;
+        }
+      }
+
+      .edit-button {
+        border: 0;
+        color: $white;
+        cursor: pointer;
+        margin-right: $space-md;
+        position: relative;
+        top: -17px;
+
+        &:not(.edited) {
+          background-color: $light-grey;
+        }
+
+        .loading-wave {
+          margin-top: -1px;
+        }
+      }
+
+      .update-notes.saving {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+
+    .delete-link {
+      text-decoration: underline;
+    }
+
+    .complete-title {
+      display: none;
+    }
+
+    &:not(.completed) .post-support-notes {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    &.completed {
+      .in-progress-title {
+        display: none;
+      }
+
+      .complete-title {
+        display: block;
+      }
+
+      .with-support-plan-icon {
+        @extend .completed;
+      }
+    }
+  }
+}
+
+#sidebar.support-planning-sidebar {
+  padding-bottom: 96px;
+}
+
+.support-planning-form {
+  font-size: $font-size-xsmall;
+
+  &.loading {
+    cursor: progress;
+    opacity: 0.5;
+  }
+
+  h2 {
+    color: $purple;
+  }
+
+  h3 {
+    font-size: $font-size-xsmall;
+  }
+
+  .btn-toggle.active {
+    &,
+    &:hover {
+      @include shadow-inset($purple-dark, 0.8);
+
+      background-color: $purple;
+      border: 1px solid $purple-dark;
+      color: $white;
+    }
+  }
+
+  textarea {
+    @include placeholder-color($light-grey);
+
+    background-color: $white;
+    border: 1px solid $silver;
+    border-radius: $radius-sm;
+    color: $grey;
+    font-size: $font-size-xsmall;
+    overflow: hidden;
+    padding: ($space-md - 2px) $space-md;
+    resize: none;
+    width: 100%;
+
+    &:focus {
+      @include shadow-inset($purple-dark);
+
+      border-color: $purple-dark;
+    }
+
+    &.selected {
+      @include shadow-inset($purple-dark, 1);
+
+      background-color: $purple;
+      color: $white;
+    }
+  }
+
+  #custom-support-actions {
+    padding: $space-md 0;
+
+    textarea {
+      margin-bottom: $space-sm;
+    }
+  }
+
+  .footnote {
+    margin-top: $space-md;
+    text-align: center;
+  }
+
+  .support-form-btns {
+    background-color: $white-smoke;
+    bottom: 0;
+    left: 0;
+    padding: $space-md;
+    position: fixed;
+    width: $sidebar-width;
+
+    input,
+    button {
+      width: 48%;
+    }
+
+    .btn-clear:hover {
+      background-color: lighten($blue, 5%);
+    }
+  }
+
+  .action {
+    input {
+      display: none;
+
+      &:checked ~ .btn {
+        @extend .active;
+      }
+    }
+  }
+
+  [type=submit]:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.support-action {
+  border: 1px $purple solid;
+  border-radius: $radius-sm;
+  color: $purple;
+  display: inline-block;
+  margin: $space-sm;
+  margin-left: 0;
+  padding: 2px $space-sm;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &.completed::before {
+    content: $icon-check;
+    font: $font-icon;
+    font-weight: $weight-bold;
+    margin-right: $space-sm;
+    position: relative;
+    top: 2px;
+  }
+}
+
+#sbg-strand-score-info {
+  .modal-dialog {
+    width: 650px;
+  }
+
+  td {
+    padding: $space-md;
+  }
+
+  .diagram {
+    font-weight: $weight-book;
+    margin: 30px;
+
+    div {
+      padding: 0;
+
+      &:first-child {
+        margin-top: -$space-md;
+        text-align: right;
+      }
+
+      &:nth-child(2) {
+        text-align: center;
+      }
+
+      &:last-child {
+        margin-top: $space-xlg;
+      }
+    }
+  }
+
+  .indicator-label {
+    min-width: 110px;
+    text-align: right;
+  }
+
+  .indicator-block {
+    border-radius: $radius-md;
+    height: $space-xlg;
+    width: $space-xlg;
+  }
+
+  .status-description {
+    font-weight: $weight-book;
+  }
+}
+
+.subject-area-hero,
+.overview-hero {
+  .top-row {
+    border-bottom: 1px $gainsboro solid;
+    padding-bottom: $space-lg;
+
+    .hero-header {
+      display: inline-block;
+      margin-left: 15px;
+    }
+
+    .filter-boxes {
+      display: inline-block;
+      padding-left: 0;
+
+      &:not(.mutable) .filter-box {
+        background-color: $white-smoke;
+      }
+    }
+
+    .student-count-container {
+      display: inline-block;
+      padding-left: 20px;
+      width: 43%;
+    }
+
+    .group-container {
+      display: inline-block;
+      float: right;
+      margin-right: 15px;
+      text-align: right;
+
+      .group-data {
+        margin-top: 0;
+
+        .delete-group {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .saved-list {
+      color: $grey !important;
+      display: inline-block;
+      font-weight: $weight-bold;
+      margin-left: 20px;
+
+      &::before {
+        color: $grey !important;
+        font-size: 1.6rem;
+      }
+    }
+
+    .with-collection-icon {
+      &::before {
+        color: $grey;
+        font-size: 1.6rem;
+        left: 10px;
+      }
+    }
+
+    .reset-sidebar-filters {
+      color: $grey;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  .timeframes {
+    margin-bottom: -30px;
+  }
+
+  .marking-period-filters {
+    .with-info-icon {
+      background-color: $white;
+      margin-left: -10px;
+      top: -25px;
+    }
+
+    form {
+      top: -15px;
+    }
+  }
+}

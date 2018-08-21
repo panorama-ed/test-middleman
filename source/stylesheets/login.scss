@@ -1,0 +1,75 @@
+.background-art {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  .artwork {
+    height: auto;
+    position: fixed;
+    width: 110%;
+  }
+}
+
+.row.login-row {
+  padding: 0 $space-lg $space-lg;
+}
+
+.login {
+  padding: $space-lg $space-lg * 2 $space-lg * 2;
+  position: relative;
+
+  .form {
+    h3 {
+      margin: $space-xlg auto;
+      text-align: center;
+    }
+
+    .alert {
+      border-radius: $radius-sm;
+    }
+
+    input {
+      border-radius: $radius-sm;
+      font-size: $font-size-regular;
+      margin-bottom: $space-md;
+      padding: $space-lg;
+      width: 100%;
+
+      &.btn {
+        margin-top: $space-lg;
+      }
+
+      &[type=submit] {
+        margin-bottom: 0;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      box-shadow: 0 0 0 1000px $gainsboro inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .field input {
+      @include placeholder-color($main-text-color);
+
+      background-color: $gainsboro;
+      border: 1px solid darken($gainsboro, 5%);
+    }
+  }
+
+  .background {
+    @include shadow();
+
+    background-color: rgba($white, .95);
+    border-radius: 0 0 $radius-md $radius-md;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+}

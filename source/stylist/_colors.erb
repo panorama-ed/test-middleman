@@ -1,0 +1,87 @@
+<div class="row stylist color-sheet">
+  <h2>Color</h2>
+  <h3>Primary colors</h3>
+  <div class="well">
+
+    <div class="color-block">
+      <div class="color green-light">#79cc60 ($green-light)</div>
+      <div class="color green">#5abd3c ($green)</div>
+      <div class="color green-dark">#428b2c ($green-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color blue-light">#008de3 ($blue-light)</div>
+      <div class="color blue">#006db0 ($blue)</div>
+      <div class="color blue-dark">#004d7d ($blue-dark)</div>
+    </div>
+  </div>
+
+  <h3>Secondary colors</h3>
+  <div class="well">
+
+    <div class="color-block">
+      <div class="color light-blue-light">#6ccff0 ($light-blue-light)</div>
+      <div class="color light-blue">#34bdeb ($light-blue)</div>
+      <div class="color light-blue-dark">#149bc9 ($light-blue-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color teal-light">#48d79c ($teal-light)</div>
+      <div class="color teal">#2ac283 ($teal)</div>
+      <div class="color teal-dark">#219867 ($teal-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color yellow-light">#ffd150 ($yellow-light)</div>
+      <div class="color yellow">#ffc31d ($yellow)</div>
+      <div class="color yellow-dark">#e9ab00 ($yellow-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color orange-light">#f2684b ($orange-light)</div>
+      <div class="color orange">#ef401b ($orange)</div>
+      <div class="color orange-dark">#c92f0e ($orange-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color red-light">#f35573 ($red-light)</div>
+      <div class="color red">#ef1740 ($red)</div>
+      <div class="color red-dark">#b70d2d ($red-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color purple-light">#8a7fe0 ($purple-light)</div>
+      <div class="color purple">#6456d6 ($purple)</div>
+      <div class="color purple-dark">#4131c8 ($purple-dark)</div>
+    </div>
+
+    <div class="color-block">
+      <div class="color white">#ffffff ($white)</div>
+      <div class="color white-smoke">#f9f9f9 ($white-smoke)</div>
+      <div class="color gainsboro">#f0f0f0 ($gainsboro)</div>
+      <div class="color silver">#dddddd ($silver)</div>
+      <div class="color light-grey">#9b9b9b ($light-grey)</div>
+      <div class="color grey">#4a4a4a ($grey)</div>
+      <div class="color black">#141414 ($black)</div>
+    </div>
+  </div>
+
+  <h3>Indicator status helpers</h3>
+  <p>
+    Since indicator colors and icons vary by status and client, it's often impractical
+    to hard-code specific classes in views. To simplify this situation, a container
+    can get the <b>indicator</b> class and a specific status class, and children will
+    get colors applied with these additional helpers.
+  </p>
+  <%= display_example(%Q(
+<div class="indicator on-track-for-graduation">
+  <h4 class="with-indicator-color">Status foreground color</h4>
+  <h4 class="with-indicator-icon">Status icon decoration</h4>
+  <h4 class="with-indicator-border" style="border-width: 1px; border-style: solid;">
+    Status border color
+  </h4>
+  <h4 class="with-indicator-background">Status background color</h4>
+  <h4 class="with-indicator-color with-indicator-icon">Combining several helpers</h4>
+</div>)
+      ) %>
+</div>

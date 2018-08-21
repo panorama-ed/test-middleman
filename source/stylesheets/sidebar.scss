@@ -1,0 +1,491 @@
+#sidebar {
+  @extend .timing-animation;
+
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: $navbar-top-row-height + 1px; // Add in the thin green top nav border
+  position: fixed;
+  top: 0;
+  width: $sidebar-width;
+
+  @media (max-width: 800px) {
+    width: $sidebar-width-sm;
+  }
+
+  .sidebar-content {
+    @include scroll-bar(rgba($white, 0), rgba($white, 0));
+
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: ($space-md * 2) $space-lg;
+
+    @media (max-width: 800px) {
+      padding-left: $space-md;
+      padding-right: $space-md;
+    }
+
+    &:hover {
+      @include scroll-bar();
+    }
+  }
+}
+
+.two-row-navbar #sidebar {
+  padding-top: $navbar-two-rows-height + 1px;
+}
+
+.sidebar-content {
+  section {
+    margin-bottom: $space-lg;
+
+    h4,
+    h5 {
+      font-size: $font-size-small;
+      padding-left: 4px;
+    }
+
+    h4 {
+      color: $grey;
+      font-weight: $weight-book;
+      letter-spacing: 1.1px;
+      margin-top: 0;
+    }
+
+    h5 {
+      font: $font-book;
+      font-weight: $weight-light;
+      margin: $space-lg 0 $space-sm;
+
+      &.filter-section {
+        @extend .filter-title-gradient;
+
+        color: $blue;
+        font-weight: $weight-bold;
+        margin: 0 (-$space-md) 1px $space-sm;
+        padding: 7px $space-md;
+        position: relative;
+      }
+    }
+  }
+
+  .expander {
+    &::before {
+      background-color: $blue-light;
+      color: $white;
+      content: $icon-arrow-down;
+      font: $font-icon;
+      font-size: $font-size-tiny;
+      font-weight: $weight-book;
+      height: 100%;
+      left: -$space-xlg;
+      line-height: (7px * 2) + $space-lg;
+      overflow: hidden;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: $space-xlg;
+    }
+
+    &.collapsed {
+      color: $grey;
+
+      &::before {
+        @include animate-all();
+
+        background-color: $light-grey;
+        color: $white;
+        content: $icon-arrow-right;
+        font-size: $font-size-xsmall;
+      }
+
+      &:hover {
+        color: $grey;
+
+        &::before {
+          background-color: $blue-light;
+        }
+      }
+    }
+  }
+
+  .collapse,
+  .collapsing {
+    h5:first-of-type {
+      margin-top: 0;
+      padding-top: $space-sm;
+    }
+
+    > div {
+      padding-bottom: $space-lg;
+      padding-top: $space-md;
+    }
+  }
+
+  .loading-wave .rect {
+    background-color: $main-text-color;
+  }
+
+  .reset-sidebar-filters {
+    margin-top: $space-md;
+  }
+}
+
+.reset-sidebar-filters {
+  @extend .timing-animation;
+
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: normal;
+  margin-left: $space-md;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.sidebar-filters {
+  &.loading {
+    cursor: progress;
+
+    .checkbox-display {
+      opacity: 0.5;
+    }
+  }
+
+  .filter-option {
+    @extend .timing-animation;
+
+    border-radius: $radius-md;
+    display: block;
+    font: $font-medium;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding: $space-sm 0 ($space-sm - 1px) ($space-xlg + 2px);
+    position: relative;
+
+    &.light {
+      font-weight: $weight-light;
+    }
+  }
+
+  label {
+    cursor: pointer;
+
+    &.filter-option {
+      &:not(.locked):hover {
+        background: rgba($grey, .1);
+      }
+
+      &.locked {
+        cursor: not-allowed;
+
+        &:not(.selected) {
+          color: $silver;
+        }
+      }
+    }
+  }
+
+  .checkbox-with-display:disabled ~ .checkbox-display {
+    border-color: transparent;
+  }
+
+  .sidebar-indicator-type {
+    margin-left: $space-sm;
+
+    .filter-option {
+      padding-left: 2px;
+
+      &:not(.light) .checkbox-with-display:not(:checked) ~ .checkbox-display {
+        border-width: 2px;
+      }
+    }
+
+    span {
+      &.with-indicator-icon {
+        padding-left: $space-sm / 2;
+
+        &::before {
+          font: $font-icon;
+          margin-right: $space-sm;
+        }
+
+        // We are currently supporting both "Mathematics" and "Math" as subject
+        // areas, but are moving towards centralizing on "Mathematics".
+        &.with-math-indicator-icon::before,
+        &.with-mathematics-indicator-icon::before {
+          content: $icon-math;
+        }
+
+        &.with-reading-indicator-icon::before,
+        &.with-ela-indicator-icon::before {
+          content: $icon-ela;
+        }
+
+        &.with-sel-indicator-icon::before {
+          content: $icon-sel;
+        }
+
+        &.with-behavior-indicator-icon::before {
+          content: $icon-behavior;
+        }
+
+        &.with-coursework-indicator-icon::before {
+          content: $icon-academics;
+        }
+
+        &.with-attendance-indicator-icon::before {
+          content: $icon-attendance;
+        }
+      }
+    }
+
+    .checkbox-display {
+      position: initial;
+
+      // We don't want to show a sidebar checkbox for "not available", but the
+      // input still needs to be there for the UI to work correctly
+      &.not-available {
+        display: none;
+      }
+    }
+
+    label {
+      float: left;
+      margin: -1px ($checkbox-inset / 2) 0 0;
+
+      &:last-of-type {
+        margin-right: $checkbox-inset;
+      }
+    }
+
+    .checkbox-with-display:checked ~ .checkbox-display {
+      @extend .with-indicator-background;
+    }
+
+    .checkbox-with-display:not(:disabled) ~ .checkbox-display {
+      @extend .with-indicator-border;
+    }
+
+    &.with-expander {
+      @extend .filter-title-gradient;
+
+      margin-bottom: 1px;
+      position: relative;
+    }
+
+    .expander {
+      &::before {
+        background-color: $white;
+        color: $blue-light;
+        line-height: 24px;
+      }
+
+      &.collapsed {
+        &::before {
+          color: $grey;
+        }
+
+        &:hover::before {
+          background-color: $gainsboro;
+          color: $blue-light;
+        }
+      }
+    }
+  }
+
+  .sidebar-indicators-accordion {
+    &.collapse,
+    &.collapsing {
+      > div {
+        padding-top: $space-sm;
+      }
+    }
+  }
+
+  .sidebar-trend-direction {
+    .checkbox-display {
+      border-style: dotted;
+
+      &::before {
+        font-size: $font-size-xxsmall;
+      }
+
+      &.improving::before {
+        content: $icon-trend-increase;
+      }
+
+      &.declining::before {
+        content: $icon-trend-decrease;
+      }
+    }
+
+    .checkbox-with-display:checked ~ .checkbox-display {
+      background-color: $grey;
+      border-color: $grey;
+    }
+  }
+
+  .sidebar-filter-attribute {
+    .checkbox-with-display:checked ~ .checkbox-display {
+      border-color: darken($light-grey, 10%);
+    }
+  }
+}
+
+.marking-period-filters {
+  input {
+    display: none;
+  }
+
+  label {
+    span {
+      @extend .btn-toggle;
+
+      color: $grey;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: $weight-medium;
+    }
+
+    input:disabled ~ span {
+      background-color: $gainsboro;
+      color: $light-grey;
+      cursor: progress;
+    }
+
+    input:checked {
+      ~ span {
+        @extend .active;
+      }
+
+      &:disabled ~ span {
+        background-color: $silver;
+        color: $grey;
+      }
+    }
+  }
+}
+
+.sidebar-controls {
+  a {
+    @include btn($white, 1px, $font-size-xsmall, true);
+
+    color: $grey;
+    display: inline-block;
+    font-weight: $weight-medium;
+    margin-bottom: $space-sm;
+    text-align: center;
+
+    &.active {
+      background-color: $blue-light;
+      color: $white;
+    }
+  }
+}
+
+.sidebar-content .subject-area-pages {
+  margin-bottom: $space-lg * 2;
+  margin-top: -$space-lg;
+
+  input {
+    display: none;
+  }
+
+  label {
+    $arrow-height: 36px;
+    $arrow-width: 10px;
+
+    display: block;
+    margin-bottom: 0;
+
+    > span {
+      @extend .timing-animation;
+
+      border: 1px transparent solid;
+      border-left-width: 0;
+      border-radius: 0 $radius-md $radius-md 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: block;
+      font-weight: $weight-medium;
+      height: $arrow-height + 2px;
+      margin-left: -$space-xlg;
+      margin-right: -($space-lg - $arrow-width);
+      padding: $space-md $space-xlg;
+
+      &:hover {
+        border-color: $gainsboro;
+        color: $blue;
+      }
+
+      // TODO: move this class to a more general name/location
+      .with-intervention-icon {
+        &::before {
+          font-size: $font-size-medium;
+          height: $space-lg;
+          padding-right: 0;
+          position: relative;
+          top: -3px; // Positioned by hand
+          width: $space-xlg + $space-sm;
+        }
+
+        &.overview::before {
+          content: $icon-graduation;
+        }
+      }
+    }
+
+    input:disabled ~ span {
+      border-color: transparent;
+      color: $light-grey;
+      cursor: progress;
+    }
+
+    input:checked {
+      ~ span {
+        background-color: $white;
+        border-color: $gainsboro;
+        color: $blue;
+        position: relative;
+
+        @mixin arrow($width, $height) {
+          border-width: ($height / 2) 0 ($height / 2) $width;
+          right: -$width;
+          top: ($arrow-height - $height) / 2;
+        }
+
+        &::before,
+        &::after {
+          border: 0 transparent solid;
+          content: " ";
+          position: absolute;
+        }
+
+        &::before {
+          @include arrow($arrow-width, $arrow-height);
+
+          border-left-color: $gainsboro;
+        }
+
+        &::after {
+          @include arrow($arrow-width - 1px, $arrow-height - 2px);
+
+          border-left-color: $white;
+        }
+      }
+
+      &:disabled ~ span {
+        background-color: transparent;
+        color: $grey;
+
+        &::before,
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

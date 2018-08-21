@@ -1,0 +1,269 @@
+.navbar {
+  @include shadow($black, .15);
+
+  background-color: $white;
+  border: 0;
+  border-radius: 0;
+  border-top: $green 1px solid;
+  color: $grey;
+  margin-bottom: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  $logo-width: 90px;
+
+  // The navbar has two rows.
+  // The top row contains most of the content, and includes both top and bottom
+  // vertical padding.
+  // The bottom row only contains links to different sections of the app;
+  // those links are flush with the bottom of the navbar, so it doesn't have
+  // vertical padding.
+
+  .navbar-top-row {
+    height: $navbar-top-row-height;
+    padding: $navbar-top-row-padding 0;
+  }
+
+  .navbar-bottom-row {
+    // Line up the left edge of the nav link text w/ client info above
+    $logo-right-edge: $navbar-top-row-content-height + $logo-width;
+    padding-left: $logo-right-edge + 2 * $space-md;
+
+    .nav-pill {
+      display: inline-block;
+      margin: 0 $space-xlg 0 (-$space-md);
+      padding: 0 $space-md 6px;
+
+      &.active {
+        border-bottom: 3px solid $blue;
+        color: $blue;
+      }
+
+      a {
+        @extend .timing-animation;
+
+        color: inherit;
+        font: $font-bold;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  .search-form {
+    max-width: 1024px;
+  }
+
+  .panorama-logo {
+    float: left;
+    margin-left: $navbar-top-row-content-height;
+    width: $logo-width;
+  }
+
+  .client-info {
+    float: left;
+    margin-left: $space-md;
+    min-height: $navbar-top-row-content-height;
+    padding-left: $space-md;
+
+    h2 {
+      font-weight: $weight-book;
+      line-height: 30px;
+      margin-top: 2px;
+    }
+
+    .school-selector {
+      width: auto;
+    }
+
+    .last-updated-msg {
+      display: block;
+      font: $font-book;
+      font-size: $font-size-small;
+      line-height: 15px;
+      margin-top: $space-sm;
+
+      .stale-alert {
+        font-weight: $weight-bold;
+      }
+
+      .icon {
+        color: $light-grey;
+      }
+    }
+  }
+
+  .sidebar-hide {
+    @extend .timing-animation;
+
+    border-radius: $radius-sm;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: none;
+    height: $navbar-top-row-content-height;
+    margin-left: 7px;
+    position: absolute;
+    text-align: center;
+    top: $navbar-top-row-padding;
+    width: $navbar-top-row-content-height - $space-md;
+
+    &::before {
+      content: $icon-menu;
+      font: $font-icon;
+      font-size: $font-size-small;
+      line-height: $navbar-top-row-content-height;
+    }
+
+    &:hover {
+      background-color: $gainsboro;
+    }
+
+    // Interactions are reversed on small screens
+    @media(max-width: 800px) {
+      background-color: rgba($white, .1);
+
+      &.sidebar-toggled {
+        background-color: rgba($white, .3);
+      }
+    }
+  }
+
+  &.with-sidebar .sidebar-hide {
+    display: block;
+  }
+
+  .selection-controls {
+    @include animate-all(0.1s);
+
+    background-color: $purple-dark;
+    bottom: 0;
+    color: $white;
+    opacity: 0;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    z-index: -1;
+
+    .content {
+      padding: 0;
+    }
+
+    .container {
+      align-items: center;
+      display: none;
+      max-width: 1024px;
+      min-height: $navbar-top-row-height;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .selection-button {
+      @include btn($purple-light, 1px, $font-size-xsmall);
+    }
+
+    .selection-button-wh {
+      @include btn($white, 1px, $font-size-xsmall, true);
+
+      color: $purple-dark;
+
+      &.disabled {
+        background-color: $white;
+        color: $silver;
+        cursor: not-allowed;
+      }
+    }
+
+    #count {
+      margin-right: $space-md;
+    }
+
+    .notifications {
+      @extend .timing-animation;
+
+      margin-left: $space-lg;
+      opacity: 0;
+    }
+  }
+
+  &.selecting .selection-controls {
+    opacity: 1;
+    z-index: 100;
+
+    .container {
+      display: flex;
+    }
+  }
+
+  .search-container {
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100%;
+  }
+}
+
+#logout {
+  $diameter: 40px;
+  $diameter-padding: 20px;
+
+  margin-right: 0;
+
+  .user-initials {
+    @extend .timing-animation;
+
+    background-color: $gainsboro;
+    border-radius: $diameter;
+    display: block;
+    font-size: 15px;
+    height: $diameter;
+    line-height: $diameter / 2;
+    margin: (($navbar-top-row-content-height - $diameter) / 2) $space-lg 0 $space-md;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: $diameter;
+
+    &:hover {
+      background-color: $silver;
+    }
+  }
+
+  &.open .user-initials {
+    background-color: $grey;
+    color: $white;
+  }
+
+  ul {
+    background-color: $grey;
+    border: 0;
+    border-radius: 0 0 $radius-sm $radius-sm;
+    margin-top: $navbar-top-row-height - $diameter - $diameter-padding + 1px;
+    overflow: hidden;
+    padding: 0;
+
+    a {
+      color: $white;
+      padding: $space-md;
+    }
+
+    li {
+      @extend .timing-animation;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: lighten($grey, 10%);
+      }
+    }
+  }
+
+  &.two-row-navbar ul {
+    margin-top: $navbar-two-rows-height - $diameter - $diameter-padding + 1px;
+  }
+}

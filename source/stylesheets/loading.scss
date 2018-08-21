@@ -1,0 +1,44 @@
+.loading-wave {
+  $rect-count: 5;
+  $animation-duration: 1.2s;
+  $delay-range: 0.4s;
+
+  display: inline-block;
+  font-size: 0;
+  height: $font-size-small;
+  letter-spacing: initial;
+  margin-left: $space-sm;
+  text-align: right;
+  vertical-align: middle;
+  width: 20px;
+
+  .rect {
+    animation: loading-wave-stretch-delay $animation-duration infinite ease-in-out;
+    background-color: $grey;
+    display: inline-block;
+    height: 100%;
+    width: 2px;
+
+    &:not(:first-child) {
+      margin-left: 2px;
+    }
+  }
+
+  @for $i from 1 through $rect-count {
+    .rect#{$i} {
+      animation-delay: - $animation-duration + $delay-range / ($rect-count - 1) * ($i - 1);
+    }
+  }
+}
+
+@keyframes loading-wave-stretch-delay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.5);
+  }
+
+  20% {
+    transform: scaleY(1);
+  }
+}

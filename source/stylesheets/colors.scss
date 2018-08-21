@@ -1,0 +1,69 @@
+// This file contains variables that are useful in developing CSS across all
+// Panorama apps. These are just colors at first, but could include other useful
+// variables.
+
+/////////////////////////
+// Primary colors
+/////////////////////////
+
+$green:       #5abd3c;
+$green-dark:  darken($green, 13%);
+$green-light: lighten($green, 10%);
+
+$blue:       #006db0;
+$blue-dark:  darken($blue, 10%);
+$blue-light: lighten($blue, 10%);
+
+
+/////////////////////////
+// Secondary colors
+/////////////////////////
+
+$white:       #fff;
+$white-smoke: #f9f9f9;
+$gainsboro:   #f0f0f0;
+$silver:      #ddd;
+$light-grey:  #9b9b9b;
+$grey:        #4a4a4a;
+$black:       #141414;
+$white-translucent: rgba($white, 0.2);
+
+$teal:       #2ac283;
+$teal-light: lighten($teal, 10%);
+$teal-dark:  darken($teal, 10%);
+
+$light-blue:       #34bdeb;
+$light-blue-light: lighten($light-blue, 12%);
+$light-blue-dark:  darken($light-blue, 13%);
+
+$yellow:       #ffc31d;
+$yellow-light: lighten($yellow, 10%);
+$yellow-dark:  darken($yellow, 10%);
+
+$orange:       #ef401b;
+$orange-light: lighten($orange, 10%);
+$orange-dark:  darken($orange, 10%);
+
+$red:       #ef1740;
+$red-light: lighten($red, 13%);
+$red-dark:  darken($red, 13%);
+
+$purple:       #6456d6;
+$purple-light: lighten($purple, 10%);
+$purple-dark:  darken($purple, 10%);
+
+///////////////////////////
+// Functional definitions
+///////////////////////////
+
+$main-background-color: $white-smoke;
+$main-text-color: $grey;
+
+// Indicator colors, lowest to highest
+$indicator-no-data: $silver;
+$indicator-critical-color: $orange;
+$indicator-at-risk-color: $yellow;
+$indicator-on-track-color: $green-light;
+$indicator-on-track-for-graduation-color: $green-dark;
+
+$default-indicator-colors: $indicator-no-data $indicator-critical-color $indicator-at-risk-color $indicator-on-track-color $indicator-on-track-for-graduation-color;

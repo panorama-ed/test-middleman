@@ -1,0 +1,370 @@
+@import "application";
+
+$font-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+p {
+  margin: $space-sm 0;
+}
+
+body {
+  background: $white;
+  padding-top: 50px;
+}
+
+ol li {
+  font: $font-book;
+}
+
+.modal-dialog {
+  margin-top: 30px;
+}
+
+.stylist {
+  padding-bottom: $space-lg;
+}
+
+.row {
+  margin: 0;
+}
+
+.icon {
+  font-size: $font-size-large;
+}
+
+h3 {
+  font: $font-bold;
+}
+
+h3 {
+  font: $font-bold;
+}
+
+pre {
+  max-height: 200px;
+}
+
+.student-birthday-logo.list {
+  left: 3px;
+  top: -26px;
+}
+
+// Typography
+
+.well {
+  background: $white;
+  border: 0;
+  border-bottom: 1px solid $light-grey;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 10px;
+
+  .number-example {
+    th {
+      font: $font-book;
+      font-size: $font-size-large;
+      font-variant-numeric: oldstyle-nums;
+      padding: $space-sm;
+    }
+  }
+
+  &.font-weights {
+
+    p {
+      font-family: $font-monospace;
+    }
+
+    .well-margin {
+      background: $light-blue-light;
+      padding: 0;
+    }
+
+    h1 {
+      color: $grey;
+
+      &.font-light {
+        font-weight: $weight-light;
+        font-size: $font-size-xlarge;
+      }
+
+      &.font-book {
+        font-weight: $weight-book;
+        font-size: $font-size-xlarge;
+      }
+
+      &.font-medium {
+        font-weight: $weight-medium;
+        font-size: $font-size-xlarge;
+      }
+
+      &.font-bold {
+        font-weight: $weight-bold;
+        font-size: $font-size-xlarge;
+      }
+    }
+  }
+}
+
+.margin-example {
+  h1,
+  h3,
+  h6 {
+    background: $white;
+    color: $blue;
+
+    span {
+      font-family: $font-monospace;
+    }
+  }
+
+  h1 {
+    margin: $space-xlg 0;
+  }
+
+  h3 {
+    margin: $space-md 0;
+  }
+
+  h6 {
+    margin: $space-sm 0;
+  }
+}
+
+.spacer {
+  display: inline-block;
+  margin: $space-lg;
+
+  h3,
+  p {
+    margin: $space-sm 0;
+  }
+
+  h3 {
+    font-family: $font-monospace;
+  }
+
+  div {
+    background: $blue;
+    height: $space-md;
+    margin-bottom: $space-md;
+  }
+
+  .space-sm {
+    width: $space-sm;
+  }
+
+  .space-md {
+    width: $space-md;
+  }
+
+  .space-lg {
+    width: $space-lg;
+  }
+
+  .space-xlg {
+    width: $space-xlg;
+  }
+
+  .space-xxlg {
+    width: $space-xxlg;
+  }
+
+  .inc {
+    width: $inc;
+  }
+}
+
+.radius {
+  background: $blue;
+  color: $white;
+  display: inline-block;
+  font-family: $font-monospace;
+  margin: $space-lg;
+  text-align: center;
+
+  &.radius-sm {
+    border-radius: $radius-sm;
+    height: $inc * 2;
+    line-height: $inc * 2;
+    width: $inc * 2;
+  }
+
+  &.radius-md {
+    border-radius: $radius-md;
+    height: $inc * 3;
+    line-height: $inc * 3;
+    width: $inc * 3;
+  }
+
+  &.radius-lg {
+    border-radius: $radius-lg;
+    height: $inc * 4;
+    line-height: $inc * 4;
+    width: $inc * 4;
+  }
+
+  &.radius-circle {
+    border-radius: $radius-circle;
+    height: $inc * 3;
+    line-height: $inc * 3;
+    width: $inc * 3;
+  }
+}
+
+// Color styles
+
+.color-block {
+  display: inline-block;
+  margin: $space-lg $space-lg $space-lg 0;
+
+  .color {
+    border-radius: $radius-md;
+    color: $white;
+    font-family: $font-monospace;
+    font-weight: bold;
+    margin: $space-sm 0;
+    padding: $space-lg;
+    width: $inc * 5;
+  }
+
+  .green-light {
+    background: $green-light;
+  }
+
+  .green {
+    background: $green;
+  }
+
+  .green-dark {
+    background: $green-dark;
+  }
+
+  .blue-light {
+    background: $blue-light;
+  }
+
+  .blue {
+    background: $blue;
+  }
+
+  .blue-dark {
+    background: $blue-dark;
+  }
+
+  .teal-light {
+    background: $teal-light;
+  }
+
+  .teal {
+    background: $teal;
+  }
+
+  .teal-dark {
+    background: $teal-dark;
+  }
+
+  .yellow-light {
+    background: $yellow-light;
+  }
+
+  .yellow {
+    background: $yellow;
+  }
+
+  .yellow-dark {
+    background: $yellow-dark;
+  }
+
+  .orange-light {
+    background: $orange-light;
+  }
+
+  .orange {
+    background: $orange;
+  }
+
+  .orange-dark {
+    background: $orange-dark;
+  }
+
+  .red-light {
+    background: $red-light;
+  }
+
+  .red {
+    background: $red;
+  }
+
+  .red-dark {
+    background: $red-dark;
+  }
+
+  .purple-light {
+    background: $purple-light;
+  }
+
+  .purple {
+    background: $purple;
+  }
+
+  .purple-dark {
+    background: $purple-dark;
+  }
+
+  .light-blue-light {
+    background: $light-blue-light;
+  }
+
+  .light-blue {
+    background: $light-blue;
+  }
+
+  .light-blue-dark {
+    background: $light-blue-dark;
+  }
+
+  .white {
+    background: $white;
+    color: $grey;
+  }
+
+  .white-smoke {
+    background: $white-smoke;
+    color: $grey;
+  }
+
+  .gainsboro {
+    background: $gainsboro;
+    color: $grey;
+  }
+
+  .silver {
+    background: $silver;
+    color: $grey;
+  }
+
+  .light-grey {
+    background: $light-grey;
+  }
+
+  .grey {
+    background: $grey;
+  }
+
+  .black {
+    background: $black;
+  }
+}
+
+nav[data-toggle='toc'] {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  nav.affix[data-toggle='toc'] {
+    position: static;
+  }
+
+  nav[data-toggle='toc'] .nav .active .nav {
+    display: none;
+  }
+}

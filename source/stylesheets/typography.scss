@@ -1,0 +1,220 @@
+@font-face {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  src: font-url("fonts/icons.eot?g4uetw");
+  src: font-url("fonts/icons.eot?g4uetw#iefix") format("embedded-opentype"),
+       font-url("fonts/icons.ttf?g4uetw") format("truetype"),
+       font-url("fonts/icons.woff?g4uetw") format("woff"),
+       font-url("fonts/icons.svg?g4uetw#icons") format("svg");
+}
+
+$weight-light:  300;
+$weight-book:   400;
+$weight-medium: 500;
+$weight-bold:   700;
+
+$font-size-tiny: 0.75rem;
+$font-size-xxxsmall: 0.9rem;
+$font-size-xxsmall: 1rem;
+$font-size-xsmall: 1.1rem;
+$font-size-small: 1.3rem;
+$font-size-regular: 1.5rem;
+$font-size-med-reg: 1.6rem;
+$font-size-medium: 1.8rem;
+$font-size-large: 2.4rem;
+$font-size-larger: 3.0rem;
+$font-size-xlarge: 3.6rem;
+$font-size-xxlarge: 7.2rem;
+
+$line-height-paragraph: $font-size-small * 1.3;
+
+$font-family-default: "Gotham SSm A", "Gotham SSm B";
+
+// font: font-style font-variant font-weight font-size / line-height font-family
+$font-light: normal normal $weight-light $font-size-small $font-family-default, helvetica, sans-serif;
+$font-book: normal normal $weight-book $font-size-small $font-family-default, helvetica, sans-serif;
+$font-medium: normal normal $weight-medium $font-size-small $font-family-default, helvetica, sans-serif;
+$font-bold: normal normal $weight-bold $font-size-small $font-family-default, helvetica, sans-serif;
+$font-icon: normal normal normal $font-size-small "icons", sans-serif;
+
+// When inserting an icon using ::before or ::after these variables can be used e.g. (content: $icon-arrow-left;)
+
+// Miscellaneous Icons
+$icon-arrow-down:           "#";
+$icon-arrow-left:           "1";
+$icon-arrow-right:          "2";
+$icon-change-down:          "j";
+$icon-change-flat:          "k";
+$icon-change-up:            "l";
+$icon-check:                "3";
+$icon-dismiss:              "4";
+$icon-down:                 "8";
+$icon-dropdown:             "*";
+$icon-edit:                 "r";
+$icon-menu:                 "h";
+$icon-plus:                 "0";
+$icon-question:             "a";
+$icon-reload:               "w";
+$icon-search:               "5";
+$icon-sort-asc:             "t";
+$icon-sort-desc:            "q";
+$icon-trend-decrease:       "g";
+$icon-trend-increase:       "f";
+$icon-unsorted:             "y";
+$icon-up:                   "9";
+
+// Subjects
+$icon-academics:            "!";
+$icon-attendance:           "+";
+$icon-behavior:             "@";
+$icon-ela:                  "&";
+$icon-math:                 "s";
+$icon-reading:              "d";
+$icon-sel:                  "$";
+$icon-writing:              "%";
+
+// Indicator Status
+$icon-at-risk:              "o";
+$icon-college:              "u";
+$icon-critical:             "p";
+$icon-graduation:           "i";
+
+// Support Planning
+$icon-flag-empty:           "œ";
+$icon-flag-filled:          "x";
+
+// Groups
+$icon-filter:               "e";
+$icon-tag-unchecked:        "6";
+$icon-tag:                  "7";
+
+// Reports
+$icon-pdf:                  "v";
+$icon-bookmark:             ")";
+$icon-playbook:             "(";
+$icon-projects:             "z";
+$icon-reports:              "n";
+$icon-download:             "b";
+
+
+// Indicator icons, lowest to highest
+$default-indicator-icons: "" $icon-critical $icon-at-risk $icon-graduation $icon-college;
+
+body {
+  font: $font-medium;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $main-text-color;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: $grey;
+  font-style: normal;
+  font-weight: normal;
+}
+
+p {
+  color: $grey;
+  font: $font-book;
+  font-size: $font-size-small;
+  line-height: $line-height-paragraph;
+  max-width: 700px;
+}
+
+h1 {
+  color: $green;
+  font: $font-bold;
+  font-size: $font-size-large;
+}
+
+h2 {
+  @extend .standard-space;
+
+  font: $font-bold;
+  font-size: $font-size-medium;
+}
+
+h3 {
+  @extend .standard-space;
+
+  color: $grey;
+  font: $font-book;
+}
+
+h4, li {
+  color: $grey;
+  font: $font-book;
+  font-size: $font-size-small;
+}
+
+h5, h6 {
+  color: $grey;
+  font: $font-medium;
+  font-size: $font-size-xsmall;
+}
+
+b,
+strong {
+  font-weight: $weight-bold;
+}
+
+.icon {
+  font: $font-icon;
+}
+
+.no-space {
+  margin: 0;
+  padding: 0;
+}
+
+.no-top-margin {
+  margin-top: 0 !important;
+}
+
+.standard-space {
+  margin: $space-md 0;
+}
+
+.small-space {
+  margin-bottom: $space-sm;
+  margin-top: $space-sm;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-light {
+  font-weight: $weight-light;
+}
+
+.text-smaller {
+  font-size: $font-size-xsmall;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+#wootric-modal p {
+  max-width: inherit;
+}

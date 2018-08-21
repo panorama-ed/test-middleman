@@ -1,0 +1,296 @@
+// Customization styles for highstocks.js to conform better with the Panorama
+// styling guide
+
+rect.highcharts-label-box {
+  fill: $gainsboro;
+  rx: 2;
+  ry: 2;
+  stroke: $gainsboro;
+}
+
+.highcharts-range-input text {
+  transform: translate(0, 4px);
+
+  tspan {
+    font-family: $font-book;
+    font-size: $font-size-small;
+    padding: $space-sm;
+  }
+}
+
+.highcharts-range-label text {
+  transform: translate(0, 4px);
+}
+
+input.highcharts-range-selector {
+  // The important's were the only way to override highstock inline styles
+  // Will fix in the future if we have time
+  background: $gainsboro;
+  border: none !important;
+  border-radius: $radius-sm;
+  left: -1000px;
+  margin-left: 1px;
+  padding-top: 2px !important;
+  top: -1000px;
+}
+
+path.highcharts-navigator-handle.highcharts-navigator-handle-left,
+path.highcharts-navigator-handle.highcharts-navigator-handle-right {
+  d: path("M -4.5 -12.5 L 3.5 -12.5 L 3.5 30 L -4.5 30 L -4.5 -12.5 M -1.5 4 L -1.5 12 M 0.5 4 L 0.5 12");
+  stroke-width: 0.5;
+}
+
+#attendance-graph {
+  // This serves as a layout placeholder since 400px is the default height of
+  // HighStock Chart so page load/render delay would not cause a flicker.
+  min-height: 400px;
+
+  path.highcharts-label-box {
+    stroke: $silver;
+    stroke-width: 2;
+  }
+
+  .highcharts-range-label text {
+    transform: translate(-2px, 4px);
+  }
+}
+
+.birthday-headings,
+.attendance-snapshot {
+  .attendance-goals,
+  .birthday-content {
+    margin: 0;
+
+    .attendance-prompt {
+      margin-bottom: $space-md;
+
+      h2,
+      h4 {
+        display: inline-block;
+      }
+
+      h4 {
+        color: $grey;
+        font-size: $font-size-small;
+        margin-left: $space-md;
+      }
+    }
+
+    .all-goals-met-badge img {
+      margin-left: $space-md;
+      width: 160px;
+    }
+
+    .goal-info {
+      display: inline-block;
+    }
+
+    .goal-status {
+      display: inline-block;
+      font-size: $font-size-regular;
+      padding-left: $space-sm;
+
+      .achieved {
+        color: $green;
+      }
+
+      .missed {
+        color: $yellow;
+      }
+    }
+
+    .goal-snapshot {
+      h2 {
+        min-height: $space-xxlg;
+        padding-right: $space-xlg;
+      }
+    }
+
+    .goal-value {
+      .value {
+        font: $font-bold;
+        font-size: $font-size-xlarge;
+      }
+
+      padding-bottom: $space-sm;
+    }
+  }
+}
+
+.absent-students,
+.birthday-table,
+.absence-totals {
+  .header-row th {
+    border-bottom: solid 1px $silver;
+    border-top: none;
+    cursor: pointer;
+    font-weight: $weight-book;
+    vertical-align: bottom;
+  }
+
+  .student-row {
+    height: $avatar-size-sm + (2 * $space-list-row);
+
+    td {
+      border-top: solid 1px $white-smoke;
+      min-width: $inc * 2;
+      vertical-align: middle;
+    }
+  }
+}
+
+.absent-students,
+.birthday-table {
+  .student-row {
+    .student-link {
+      vertical-align: top;
+      white-space: nowrap;
+
+      span {
+        height: $space-xxlg;
+        white-space: initial;
+        display: table-cell;
+      }
+
+      .avatar {
+        position: absolute;
+      }
+
+      .name {
+        margin-left: $avatar-size-sm + $space-sm;
+      }
+
+      .has-popover.student-birthday-logo {
+        float: left;
+        left: 2px;
+        top: -27px;
+      }
+
+      .selectable-checkbox {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  .show-more-container {
+    height: $avatar-size-sm + (2 * $space-list-row);
+    text-align: center;
+
+    td {
+      border-top: solid 1px $white;
+    }
+  }
+
+  .name {
+    @include student-name();
+    display: inline-block;
+    padding-left: $space-md;
+    width: auto;
+  }
+
+  .attendance-streak {
+    &.long-streak {
+      color: $red;
+    }
+
+    .streak-number {
+      font-weight: $weight-bold;
+      font-size: $font-size-medium;
+    }
+  }
+}
+
+.indicator-level {
+  @include indicator-bubble($indicator-bubble-size)
+}
+
+.absence-totals {
+  .total-absences {
+    color: $red;
+
+    .count {
+      font: $font-bold;
+      font-size: $font-size-large;
+    }
+
+    .title {
+      font: $font-medium;
+      font-size: $font-size-medium;
+    }
+  }
+
+  .attendance-code,
+  .grade-level,
+  .grade-title {
+    border-top: 0;
+  }
+
+  .total,
+  .code-title {
+    border-top: solid 1px $white-smoke;
+  }
+
+  .aggregate-count {
+    color: $red;
+    font-weight: $weight-bold;
+    text-align: right;
+    width: 20px;
+  }
+
+  // This makes sure line-wrap indents properly
+  .attendance-code,
+  .grade-level {
+    span {
+      display: table-cell;
+    }
+  }
+
+  // deletes row border in legend table
+  .table > tbody > tr > td {
+    border-top: none;
+  }
+}
+
+.show-more-container {
+  .show-more {
+    &::before {
+      content: "Show Less";
+      display: block;
+    }
+  }
+}
+
+.abbreviated {
+  // Hide after 10th row in absent students table
+  &.absent-students .student-row:nth-child(n+11),
+  // Hide after 3rd row in birthdays table
+  &.birthday .student-row:nth-child(n+4) {
+    display: none;
+  }
+
+  .show-more-container .show-more {
+    &::before {
+      content: "Show More";
+    }
+  }
+}
+
+.birthday-table {
+  margin-bottom: -$space-sm;
+
+  .birthday-today {
+    color: $green;
+    font-weight: $weight-bold;
+  }
+
+  .student-link {
+    padding-bottom: 3px;
+  }
+}
+
+.school-dashboard {
+  h1 {
+    margin-bottom: 0;
+  }
+}

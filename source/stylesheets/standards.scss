@@ -1,0 +1,46 @@
+// Max. number of child indicators visible at once, from
+// BaseStudentsController::N_VISIBLE_INDICATOR_CHILDREN. This should be
+// updated if that constant is changed.
+$max-visible-child-indicators: 6;
+
+$radius-x-sm: 1px;
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 6px;
+$radius-xlg: 8px;
+$radius-circle: 50%;
+
+$space-sm: 5px;
+$space-md: 10px;
+$space-lg: 15px;
+$space-xlg: 20px;
+$space-xxlg: 40px;
+
+$space-list-row: $space-sm + 2px;
+$inc: 50px;
+
+$sidebar-width: 240px;
+$sidebar-width-sm: 160px;
+
+$avatar-size: 65px;
+$avatar-size-sm: 40px;
+$indicator-bubble-size: 35px;
+$indicator-bubble-size-sm: 25px;
+
+$indicator-graph-spacing: 95px;
+$indicator-graph-spacing-narrow: 80px;
+$indicator-graph-spacing-sm-sidebar: 70px;
+$indicator-graph-spacing-sm-narrow: 50px;
+$indicator-graph-spacing-sm-sidebar-narrow: 40px;
+
+$navbar-top-row-height: 75px;
+$navbar-bottom-row-height: 25px;
+$navbar-two-rows-height: $navbar-top-row-height + $navbar-bottom-row-height;
+
+$navbar-top-row-padding: $space-md;
+$navbar-top-row-content-height: $navbar-top-row-height - ($navbar-top-row-padding * 2);
+
+$footer-height: 180px;
+
+// How far in are checkboxes set from the top left container edge?
+$checkbox-inset: 4px;

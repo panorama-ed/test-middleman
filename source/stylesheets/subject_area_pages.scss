@@ -1,0 +1,163 @@
+.subject-area-hero {
+  .right-roster-panel {
+    font-size: 0;
+    text-align: right;
+
+    > div {
+      display: inline-block;
+      text-align: initial;
+    }
+  }
+
+  .indicator-summary-container {
+    padding: 0;
+  }
+
+  .indicator-summary {
+    padding-bottom: $space-sm;
+
+    .date-range {
+      font-weight: $weight-light;
+      margin-top: $space-md;
+      padding: 0 $space-md;
+      text-align: center;
+    }
+
+    &.top-level .date-range {
+      padding: 0;
+      text-align: initial;
+    }
+  }
+
+  .indicator-graph-spacing.top-level h4 {
+    background-color: $white;
+    margin-left: -$space-sm;
+    margin-right: -$space-sm;
+    padding-left: $space-sm;
+    padding-right: $space-sm;
+    top: -20.5px;
+  }
+}
+
+.progress-indicators {
+  .top-level {
+    width: 0;
+
+    h4 {
+      left: 31px; // Manually positioned to match dropdown
+      width: fit-content;
+    }
+
+    .indicator-summary-panel,
+    .expander,
+    .date-range {
+      display: none;
+    }
+  }
+
+  .top-level-selector {
+    left: $space-xlg + $space-sm;
+    top: -15px;
+    width: 175px !important;
+    z-index: 15; // Ensure dropdown appears in front of graphs
+  }
+
+  .parent-indicator-panel.expanded {
+    width: auto;
+  }
+
+  .indicator-summary {
+    $assessment-graph-width: 10px;
+
+    position: relative;
+
+    &.narrow {
+      h4 {
+        visibility: hidden;
+      }
+
+      .indicator-graph-vertical {
+        width: $assessment-graph-width;
+      }
+
+      .progress-graph {
+        @extend .indicator-graph-vertical;
+
+        left: ($indicator-graph-spacing-narrow + $assessment-graph-width) / 2;
+        margin: 0;
+        opacity: 0.25;
+        position: absolute;
+        width: $indicator-graph-spacing-narrow - $assessment-graph-width;
+      }
+
+      &.last-indicator {
+        .indicator-summary-panel {
+          position: relative;
+        }
+
+        .indicator-status-summaries {
+          display: flex;
+          left: ($indicator-graph-spacing-narrow + $assessment-graph-width) / 2;
+          position: absolute;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.sortable-table.subject-area-view {
+  .indicator-graph-spacing.has-children {
+    display: none;
+  }
+
+  @mixin progress-interstitial-gradient-from($colors, $from-index) {
+    $start-color: nth($colors, $from-index);
+
+    > .progress-interstitial.on-track-for-college-career-readiness {
+      $to-color: nth($colors, 5);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    > .progress-interstitial.on-track-for-graduation {
+      $to-color: nth($colors, 4);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    > .progress-interstitial.at-risk {
+      $to-color: nth($colors, 3);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+
+    > .progress-interstitial.critical {
+      $to-color: nth($colors, 2);
+      @include indicator-interstitial-gradient($start-color, $to-color);
+    }
+  }
+
+  .progress-interstitial {
+    bottom: $indicator-bubble-size-sm / 2;
+    height: 2px;
+    margin-left: $indicator-bubble-size-sm;
+    position: absolute;
+    width: $indicator-graph-spacing-narrow - $indicator-bubble-size-sm;
+  }
+
+  .indicator-level {
+    &.on-track-for-college-career-readiness {
+      @include progress-interstitial-gradient-from($default-indicator-colors, 5);
+    }
+
+    &.on-track-for-graduation {
+      @include progress-interstitial-gradient-from($default-indicator-colors, 4);
+    }
+
+    &.at-risk {
+      @include progress-interstitial-gradient-from($default-indicator-colors, 3);
+    }
+
+    &.critical {
+      @include progress-interstitial-gradient-from($default-indicator-colors, 2);
+    }
+  }
+}

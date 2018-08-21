@@ -1,0 +1,230 @@
+<div class="row stylist">
+  <h2>Standardized Elements</h2>
+
+  <h3>Filters</h3>
+  <p>These have a dismiss button because they can be removed</p>
+
+  <%= display_example(%Q(
+  <div class="filter-boxes">
+    <div class="filter-box">
+      <a class="remove" data-attribute="grade_level">×</a>
+      <h6>Grade Level</h6>
+      <h4>10th</h4>
+    </div>
+  </div>
+  )) %>
+
+  <h3>Attributes</h3>
+  <p>These are currently used on the student profile</p>
+
+  <%= display_example(%Q(
+  <div class="student-attributes">
+    <div class="student-attribute">
+      <h6>First Name</h6>
+      <h4>George</h4>
+    </div>
+  </div>
+  )) %>
+
+  <h3>Basic sortable table</h3>
+  <p>
+    This styling applies to tables that use the simple Sortable library, such
+    as the School Dashboard tables and the course tables on student profiles.
+    Sorting icons appear when a column heading is clicked or hovered over.
+  </p>
+
+  <%= display_example(%Q(
+    <table class="table" data-sortable>
+      <thead>
+        <tr>
+          <th data-sortable="false">Header 1</th>
+          <th class="initial-sort">Header 2</th>
+          <th>Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Some</td>
+          <td>Test</td>
+          <td>Data</td>
+        </tr>
+        <tr>
+          <td>Even</td>
+          <td>More</td>
+          <td>Data!</td>
+        </tr>
+      </tbody>
+    </table>
+  )) %>
+
+  <h3>Expanding Table</h3>
+  <p>Sometimes tables have expanding rows that reveal additional information. The content in the rows is fully customizable.</p>
+
+  <%= display_example(%Q(
+  <div class="expandable-row-table" id="sel-scores">
+    <div class="panel">
+      <div class="row header">
+        <div class="col-xs-6">
+          <h4 class="no-space with-info-icon" data-toggle="modal" data-target="#sel-topics-help">Topics</h4>
+        </div>
+        <div class="col-xs-6">
+          <h4 class="no-space with-info-icon" data-toggle="modal" data-target="#sel-results-help">
+                Student
+            said ...</h4>
+        </div>
+      </div>
+
+      <div class="row expandable-row center-align-children collapsed " role="button" data-toggle="collapse" data-parent="#sel-scores" data-target="#topic514114689829100818-suggestion" aria-expanded="false" aria-controls="topic514114689829100818-suggestion">
+        <div class="expander-icon">
+          <span class="plus">+</span>
+          <span class="minus">–</span>
+        </div>
+        <div class="col-xs-6 topic-info">
+          <div class="topic-image" style="background-image: url(//d1er3jjluu1w22.cloudfront.net/assets/sel/skill-growth-mindset-ae26dae7a46117c193901970c57d9a59904a63a715f65b06f0b54090e4af5b5a.svg);"></div>
+          <h4 class="no-space">Growth Mindset</h4>
+            <p class="topic-description">Students with a growth mindset know that if they work hard they can learn anything.</p>
+        </div>
+        <div class="col-xs-6 graph" data-scores="[{&quot;score&quot;:2.7,&quot;project_name&quot;:&quot;January&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:3.2,&quot;project_name&quot;:&quot;March&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:null},{&quot;score&quot;:null}]" data-highcharts-chart="16"><div id="highcharts-5j3j61v-68" class="highcharts-container " style="position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="426" height="90" viewBox="0 0 426 90"><desc>Created with Highstock 6.0.1</desc><defs><clipPath id="highcharts-5j3j61v-69"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath><clipPath id="highcharts-5j3j61v-71"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath></defs><rect fill="transparent" class="highcharts-background" x="0" y="0" width="426" height="90" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="16" y="15" width="385" height="60"></rect><g class="highcharts-grid highcharts-yaxis-grid "><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 75.5 L 401 75.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 60.5 L 401 60.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 45.5 L 401 45.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 30.5 L 401 30.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 14.5 L 401 14.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" x="16" y="15" width="385" height="60"></rect><g class="highcharts-axis highcharts-yaxis "><path fill="none" class="highcharts-axis-line" d="M 26 15 L 26 75"></path></g><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" clip-path="url(#highcharts-5j3j61v-71)"><path fill="rgba(100, 100, 100, 0.2)" d="M 20.625 34.5 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60" class="highcharts-area"></path><path fill="none" d="M 20.625 34.5 L 135.20833333333 27" class="highcharts-graph" stroke="#1d8cd0" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10.625 34.5 L 20.625 34.5 L 135.20833333333 27 L 145.20833333333 27" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path></g><g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(16,15) scale(1 1)"><path fill="#1d8cd0" d="M 24 34.5 A 4 4 0 1 1 23.99999800000017 34.49600000066666 Z" class="highcharts-point"></path><path fill="#1d8cd0" d="M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z" class="highcharts-point"></path></g></g><g class="highcharts-data-labels highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" opacity="1" visibility="visible"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined " style="text-shadow:none;" transform="translate(138,16)"><text x="5" style="font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">3.2</tspan><tspan x="5" y="16">3.2</tspan></text></g></g><g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="78" opacity="1"><tspan>1</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="63" opacity="1"><tspan>2</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="48" opacity="1"><tspan>3</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="33" opacity="1"><tspan>4</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="18" opacity="1"><tspan>5</tspan></text></g></svg></div></div>
+        </div>
+
+        <div id="topic514114689829100818-suggestion" class="collapse">
+          <div class="row expandable-row-detail">
+            <div class="col-xs-12">
+              <h4>
+                Suggestion for how
+                  <span class="fs-hide">Meggan</span>
+                can improve:
+              </h4>
+              <p>
+                  <span>View hard tasks as great chances to learn. When you hear yourself say “This is hard!” remind yourself that the harder something is, the more you can grow by doing it. </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row expandable-row center-align-children collapsed " role="button" data-toggle="collapse" data-parent="#sel-scores" data-target="#topic2652760373381471466-suggestion" aria-expanded="false" aria-controls="topic2652760373381471466-suggestion">
+          <div class="expander-icon">
+            <span class="plus">+</span>
+            <span class="minus">–</span>
+          </div>
+          <div class="col-xs-6 topic-info">
+            <div class="topic-image" style="background-image: url(//d1er3jjluu1w22.cloudfront.net/assets/sel/skill-self-efficacy-fda42a541bda029393d2ee491805ba0be853c1fd9075a029f119dc458ec4f9ef.svg);"></div>
+            <h4 class="no-space">Self-Efficacy</h4>
+              <p class="topic-description">Students with strong self-efficacy believe they can do a good job on their work.</p>
+          </div>
+          <div class="col-xs-6 graph" data-scores="[{&quot;score&quot;:3.0,&quot;project_name&quot;:&quot;January&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:3.2,&quot;project_name&quot;:&quot;March&quot;,&quot;strength&quot;:false,&quot;status_class&quot;:null},{&quot;score&quot;:null},{&quot;score&quot;:null}]" data-highcharts-chart="17"><div id="highcharts-5j3j61v-72" class="highcharts-container " style="position: relative; overflow: hidden; width: 426px; height: 90px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="426" height="90" viewBox="0 0 426 90"><desc>Created with Highstock 6.0.1</desc><defs><clipPath id="highcharts-5j3j61v-73"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath><clipPath id="highcharts-5j3j61v-75"><rect x="0" y="0" width="385" height="60" fill="none"></rect></clipPath></defs><rect fill="transparent" class="highcharts-background" x="0" y="0" width="426" height="90" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="16" y="15" width="385" height="60"></rect><g class="highcharts-grid highcharts-yaxis-grid "><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 75.5 L 401 75.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 60.5 L 401 60.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 45.5 L 401 45.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 30.5 L 401 30.5" opacity="1"></path><path fill="none" stroke="#e6e6e6" stroke-width="1" stroke-dasharray="1,1" class="highcharts-grid-line" d="M 16 14.5 L 401 14.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" x="16" y="15" width="385" height="60"></rect><g class="highcharts-axis highcharts-yaxis "><path fill="none" class="highcharts-axis-line" d="M 26 15 L 26 75"></path></g><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" clip-path="url(#highcharts-5j3j61v-75)"><path fill="rgba(100, 100, 100, 0.2)" d="M 20.625 30 L 135.20833333333 27 L 135.20833333333 60 L 20.625 60" class="highcharts-area"></path><path fill="none" d="M 20.625 30 L 135.20833333333 27" class="highcharts-graph" stroke="#1d8cd0" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 10.625 30 L 20.625 30 L 135.20833333333 27 L 145.20833333333 27" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path></g><g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(16,15) scale(1 1)"><path fill="#1d8cd0" d="M 24 30 A 4 4 0 1 1 23.99999800000017 29.996000000666665 Z" class="highcharts-point"></path><path fill="#1d8cd0" d="M 139 27 A 4 4 0 1 1 138.99999800000018 26.996000000666665 Z" class="highcharts-point"></path></g></g><g class="highcharts-data-labels highcharts-series-0 highcharts-area-series " transform="translate(16,15) scale(1 1)" opacity="1" visibility="visible"><g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined " style="text-shadow:none;" transform="translate(138,16)"><text x="5" style="font-size:11px;font-weight:bold;color:rgb(74, 74, 74);fill:rgb(74, 74, 74);" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">3.2</tspan><tspan x="5" y="16">3.2</tspan></text></g></g><g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="78" opacity="1"><tspan>1</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="63" opacity="1"><tspan>2</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="48" opacity="1"><tspan>3</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="33" opacity="1"><tspan>4</tspan></text><text x="11" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="18" opacity="1"><tspan>5</tspan></text></g></svg></div></div>
+        </div>
+
+        <div id="topic2652760373381471466-suggestion" class="collapse">
+          <div class="row expandable-row-detail">
+            <div class="col-xs-12">
+              <h4>
+                Suggestion for how
+                  <span class="fs-hide">Meggan</span>
+                can improve:
+              </h4>
+              <p>
+                  When you have a hard task to do, think about another time that you did a great job on something that was hard. Remember how you felt at the beginning, what you did to succeed, and how you felt after you had finished.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )) %>
+
+  <h3>Dropdowns</h3>
+  <p>Dropdowns have a consistent look and they come in two sizes.</p>
+
+  <p><b>Regular dropdowns</b>, just include the .dropdown class.</h4>
+  <%= display_example(%Q(
+    <div class="dropdown">
+      <ul class="selection" data-toggle="dropdown">
+        <li>Coursework</li>
+      </ul>
+      <ul class="dropdown-menu">
+        <li class="active">Coursework</li>
+        <li>Math</li>
+        <li>English</li>
+      </ul>
+    </div>
+  )) %>
+
+  <p><b>Large dropdowns</b>, just include the .dropdown and .dropdown-lg class.</h4>
+  <%= display_example(%Q(
+    <div class="dropdown dropdown-lg">
+      <ul class="selection" data-toggle="dropdown">
+        <li>Panorama School District</li>
+      </ul>
+      <ul class="dropdown-menu">
+        <h6 class="dropdown-header">District 1</h6>
+        <li><a href="javascript:false">client250</a></li>
+        <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">District 2</h6>
+        <li><a href="javascript:false">client5000</a></li>
+        <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">District 3</h6>
+        <li class="active"><a href="javascript:false">Panorama School District</a></li>
+      </ul>
+    </div>
+  )) %>
+
+  <h3>Student Lists</h3>
+  <p></p>
+
+  <%= display_example(%Q(
+  <div class="row" style="background: rgb(240,240,240); padding: 5px">
+    <div class="student-entry">
+      <table>
+        <tbody>
+          <tr>
+            <td class="avatar-container">
+              <div style="background-image: url(/assets/avatars/face69-f438c429463c90f0b30c90b804715881a01b73a1e1535647e23c605ca110f280.png);" class="avatar fs-hide selectable">
+                <div style="background-image: url();" class="avatar-image fs-hide"></div>
+                <div class="selectable-checkbox"><div></div></div>
+                <div class="student-birthday-logo has-popover list" style="background-image: url(/assets/party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)">
+                  <div class="popover-container">
+                    <div class="popover-content">
+                      Today is <strong>Roger's</strong> 18th birthday!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="fs-hide name" href="#">
+                <span>Roger Zhu</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="student-entry">
+      <table>
+        <tbody>
+          <tr>
+            <td class="avatar-container">
+              <div style="background-image: url(//d3c7n2rp95e49v.cloudfront.net/assets/avatars/face37-c34e8f6be5a51c6edde04b1bcf30b8048d7322cb4ca32b29f2d3095fc820e927.png);" class="avatar fs-hide selectable">
+                <div style="background-image: url();" class="avatar-image fs-hide"></div>
+                <div class="selectable-checkbox"><div></div></div>
+                <div class="student-birthday-logo has-popover list" style="background-image: url(/assets/party-hat-6bd978daa60ab1228f46cb7f5633da13bb13b5637439373c7dd471dd656e2c1d.png)">
+                  <div class="popover-container">
+                    <div class="popover-content">
+                      Today is <strong>Terrence's</strong> 18th birthday!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a class="fs-hide name" href="#">
+                <span>Terrence Fradet</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  )) %>
+</div>

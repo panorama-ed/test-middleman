@@ -1,0 +1,865 @@
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body.anon .fs-hide {
+  background-image: none !important;
+  color: transparent !important;
+  opacity: 0;
+}
+
+body {
+  background: $main-background-color;
+  color: $main-text-color;
+  display: flex;
+  flex-direction: column;
+  padding: $navbar-top-row-height 0 $footer-height;
+  position: relative;
+
+  @media (max-width: 767px) {
+    overflow-x: hidden;
+  }
+
+  &.student-art {
+    padding-top: 0;
+  }
+
+  &.two-row-navbar {
+    padding-top: $navbar-two-rows-height;
+  }
+
+  // Sidebar styles and interactions
+
+  > .content.with-sidebar {
+    @mixin sidebar-out {
+      #sidebar {
+        left: -$sidebar-width;
+      }
+
+      .scales-to-sidebar-container {
+        padding-left: 0;
+
+        .scales-to-sidebar {
+          max-width: 100%;
+        }
+      }
+    }
+
+    @mixin sidebar-in {
+      #sidebar {
+        left: 0;
+      }
+
+      .scales-to-sidebar-container {
+        padding-left: $sidebar-width;
+
+        @media (max-width: 800px) {
+          padding-left: $sidebar-width-sm;
+        }
+
+        .scales-to-sidebar {
+          max-width: 1024px;
+        }
+      }
+    }
+
+    // Sidebar visible by default
+    @include sidebar-in;
+
+    // This needs to come before the @media query below for sidebar
+    // toggling to work on narrow screens
+    &.sidebar-toggled {
+      @include sidebar-out;
+    }
+
+    // Narrow screens: sidebar hidden by default
+    @media(max-width: 800px) {
+      @include sidebar-out;
+
+      .percent {
+        white-space: nowrap;
+
+        .percent-sign {
+          font-size: $font-size-small;
+        }
+      }
+
+      // When expanding an indicator, prevent indicators from wrapping to next line
+      .indicator-graph-spacing.narrow {
+        width: $indicator-graph-spacing-sm-narrow;
+      }
+
+      // When expanding an indicator, make container for indicators smaller
+      .parent-indicator-panel.expanded {
+        width: $indicator-graph-spacing + ($max-visible-child-indicators * $indicator-graph-spacing-sm-narrow);
+      }
+
+      // Shrink sort icons in table header
+      .data-header [data-sort-by] {
+        &.active,
+        &:hover {
+          .with-sort-icon::before {
+            font-size: $font-size-xxsmall;
+            margin-left: -$radius-xlg;
+            top: 3px;
+          }
+        }
+      }
+
+      // So expander button arrows don't touch each other
+      .expander.contracted {
+        font-size: $font-size-tiny;
+      }
+
+      &.sidebar-toggled {
+        @include sidebar-in;
+
+        // Wrapping percents when sidebar in
+        .percent {
+          white-space: normal;
+        }
+
+        // Squeeze every possible pixel to enable $max-visible-child-indicators
+        // indicator graphs on narrow screens with sidebar in
+        .indicator-graph-spacing {
+          width: $indicator-graph-spacing-sm-sidebar;
+
+          &.narrow {
+            width: $indicator-graph-spacing-sm-sidebar-narrow;
+
+            // Shrink trend indicator bubbles when sidebar toggled and an indicator is expanded
+            .trend::before {
+              $smaller-trend-bubble-size: $space-lg - $radius-sm;
+
+              font-size: $font-size-tiny;
+              height: $smaller-trend-bubble-size;
+              left: -$smaller-trend-bubble-size - 1px; // 1px extra to account for border
+              line-height: $smaller-trend-bubble-size;
+              width: $smaller-trend-bubble-size;
+            }
+          }
+        }
+
+        // Show overflow ellipsis for indicator headers to avoid overlapping headers
+        .with-sort-icon:not(.no-truncate) {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: $indicator-bubble-size - $space-sm;
+        }
+
+        // Bring checkboxes and percentages closer to indicator bars
+        .indicator-summary .indicator-status-summary {
+          padding-left: $space-sm;
+        }
+
+        // Shrink indicator group panels when the sidebar is in on narrow
+        // screens. This is initially set in indicators.scss
+        .parent-indicator-panel {
+          // So indicator bars are aligned with indicator columns in table
+          min-width: $indicator-graph-spacing-sm-sidebar;
+
+          // overrides min-width defined above
+          &.sibling-expanded {
+            min-width: auto;
+          }
+
+          &.expanded {
+            width: $indicator-graph-spacing-sm-sidebar +
+              ($max-visible-child-indicators * $indicator-graph-spacing-sm-sidebar-narrow);
+
+            .top-level-selector {
+              width: $indicator-graph-spacing-sm-sidebar * 0.95;
+            }
+          }
+        }
+      }
+    }
+
+    .scales-to-sidebar-container,
+    .scales-to-sidebar {
+      @include animate-all();
+    }
+  }
+}
+
+// Bootstrap override
+textarea,
+input {
+  &:focus {
+    outline: 0 none !important;
+  }
+}
+
+a {
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.logo {
+  display: inherit;
+  margin: $space-lg auto;
+  position: relative;
+  width: 140px;
+}
+
+.full-width-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.body-container {
+  @extend .timing-animation;
+
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero,
+  .content {
+    @include scalable-content();
+  }
+
+  .hero {
+    @include shadow($grey, 0.15);
+
+    background-color: $white;
+    border-radius: 0 0 4px 4px;
+    padding: $space-lg 0;
+  }
+
+  .content {
+    padding: $space-xlg 0;
+
+    .data-header {
+      border-radius: 0 0 $radius-md $radius-md;
+      display: block;
+      font-size: 0;
+      height: $inc;
+      margin: (-$space-xlg) (-$space-lg) 0;
+      padding: 0 $space-lg 0 ($space-lg + $space-list-row);
+      text-align: right;
+
+      li {
+        @extend .timing-animation;
+        $top-margin: ($inc - 16px) / 2;
+
+        display: inline-block;
+        height: $inc - $top-margin;
+        margin-top: $top-margin;
+        position: relative;
+        text-align: left;
+        vertical-align: top;
+
+        &:hover {
+          color: $blue;
+        }
+
+        &:first-of-type {
+          float: left;
+        }
+      }
+
+      [data-sort-by] {
+        cursor: pointer;
+
+        &.indicator-graph-spacing.narrow .with-sort-icon {
+          margin: 0 $space-md;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        &:not(.active):hover .with-sort-icon::before {
+          content: $icon-sort-asc;
+          opacity: 0.3;
+        }
+
+        &.active,
+        &:hover {
+          .with-sort-icon::before {
+            font: $font-icon;
+            margin-left: -12px;
+            position: absolute;
+            top: 1px;
+          }
+
+          &.asc .with-sort-icon::before {
+            content: $icon-sort-asc;
+          }
+
+          &.desc .with-sort-icon::before {
+            content: $icon-sort-desc;
+          }
+        }
+      }
+    }
+
+    .data {
+      margin-top: 1px;
+
+      > .row {
+        padding: 0 $space-lg;
+      }
+    }
+
+    .table-controls {
+      text-align: center;
+    }
+
+    .indicator-graph-spacing {
+      &.narrow {
+        text-align: center;
+      }
+
+      &.fade,
+      &.collapsed {
+        // This generally pre-empts the indicator selection animation of student
+        // rows on rosters, which may be a good thing because animating so many
+        // elements in clunky, slow, and resource-intensive. This rule will need
+        // to change if we ever want to animate that part of the interaction
+        display: none;
+      }
+    }
+
+    .interventions-column-spacing {
+      .intervention-column {
+        float: left;
+        font-size: 0;
+        min-height: 1px;
+        width: 33%;
+      }
+
+      .intervention-types-header {
+        position: relative;
+
+        .intervention-column {
+          padding-left: $space-sm;
+        }
+
+        .with-intervention-icon::before {
+          font-size: $font-size-small;
+          height: $font-size-small;
+          margin-top: 1px;
+          padding-right: 0;
+          width: $font-size-small;
+        }
+      }
+    }
+  }
+
+  .interventions-column-spacing {
+    line-height: 15px;
+    padding-right: 30px;
+    width: 130px;
+  }
+
+  .support-plans-column-spacing {
+    width: $inc;
+  }
+}
+
+.back-link {
+  @extend .timing-animation;
+
+  color: $main-text-color;
+  font-size: 1.2rem;
+  font-weight: $weight-medium;
+  margin-bottom: $space-lg;
+
+  &::before {
+    content: $icon-arrow-left;
+    font: $font-icon;
+    font-size: $font-size-xsmall;
+    position: relative;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.list-entry {
+  background-color: $white;
+  border-radius: $radius-md;
+  color: $main-text-color;
+  display: block;
+  font: $font-medium;
+  margin: 0 0 1px;
+  padding: $space-list-row;
+  position: relative;
+  width: 100%;
+
+  .avatar-container {
+    vertical-align: top;
+    // Add 3px on top of the standard list padding between photo and name
+    width: $avatar-size-sm + $space-list-row + 3px;
+  }
+
+  .name {
+    @include student-name();
+  }
+
+  table {
+    height: $avatar-size-sm;
+    width: 100%;
+  }
+}
+
+.footer {
+  @extend .footer-gradient;
+  @extend .timing-animation;
+
+  bottom: 0;
+  box-sizing: border-box;
+  height: $footer-height;
+  padding-top: $space-xlg;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+
+  div {
+    @include scalable-content();
+  }
+
+  img {
+    margin-bottom: 0;
+  }
+
+  h6 {
+    text-align: center;
+  }
+}
+
+// A div with this class goes in between the div.row and the div.cols elements
+// that the row contains
+.equal-height-cols {
+  display: table;
+  height: 100%;
+  width: 100%;
+
+  > div {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+}
+
+.selectable {
+  cursor: pointer;
+
+  &:hover {
+    @include shadow($purple);
+  }
+
+  .selectable-checkbox {
+    @include animate-all(0.1s);
+
+    background-color: rgba($purple, 0.8);
+    border-radius: $radius-circle;
+    font: $font-icon;
+    height: 0;
+    margin: 50%;
+    position: relative;
+    width: 0;
+
+    div {
+      left: 50%;
+      position: absolute;
+      text-align: left;
+      top: 50%;
+
+      &::before {
+        color: $white;
+        content: $icon-check;
+        display: none;
+        font: $font-icon;
+        font-size: $font-size-medium;
+        margin-left: -50%;
+        margin-top: -50%;
+      }
+    }
+  }
+
+  &.selected,
+  &:hover {
+    .selectable-checkbox {
+      height: 100%;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  &.selected .selectable-checkbox div::before {
+    display: block;
+  }
+}
+
+.with-info-icon {
+  @extend .timing-animation;
+
+  cursor: pointer;
+
+  &:hover {
+    color: $blue;
+  }
+
+  &::after {
+    @extend .timing-animation;
+
+    color: $light-grey;
+    content: $icon-question;
+    font: $font-icon;
+    font-size: 0.95em;
+    left: $space-sm;
+    position: relative;
+    top: 1px;
+  }
+
+  &:hover::after {
+    color: $blue;
+  }
+}
+
+.with-support-plan-icon {
+  &::before {
+    color: $purple;
+    content: $icon-flag-empty;
+    font: $font-icon;
+    font-size: inherit;
+  }
+
+  &.completed::before {
+    content: $icon-flag-filled;
+    font-weight: $weight-bold;
+  }
+}
+
+.support-plan-icon {
+  @extend .with-support-plan-icon;
+
+  position: relative;
+
+  &::before {
+    font-size: $font-size-larger;
+    vertical-align: middle;
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-toggle[aria-expanded=false] .text-expanded {
+  display: none;
+}
+
+.text-toggle[aria-expanded=true] .text-collapsed {
+  display: none;
+}
+
+// Dropdown
+
+.dropdown {
+  $total-line-height: $space-xlg + 1px;
+
+  display: inline-block;
+  max-width: 300px;
+
+  .selection {
+    background-color: $white-smoke;
+    border: 1px $silver solid;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    display: block;
+    font: $font-book;
+    list-style: none;
+    margin: 0;
+    padding: ($space-sm / 2) $space-md ($space-sm / 2) 0;
+    text-align: initial;
+
+    &:hover li {
+      color: $blue;
+    }
+
+    li {
+      @include animate-all();
+
+      line-height: $total-line-height;
+      overflow: hidden;
+      padding: 0 $space-sm;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      a {
+        padding: 0;
+      }
+    }
+
+    &::after {
+      @include animate-all();
+
+      color: $light-grey;
+      content: $icon-dropdown;
+      font: $font-icon;
+      pointer-events: none;
+      position: absolute;
+      right: 6px; // Positioned by hand
+      top: 7px; // Positioned by hand
+    }
+  }
+
+  &.open .selection,
+  .selection:hover {
+    &::after {
+      color: $grey;
+    }
+  }
+
+  .dropdown-menu {
+    cursor: pointer;
+    max-height: 400px;
+    overflow-y: auto;
+
+    li {
+      @include animate-all();
+
+      font-size: $font-size-small;
+      line-height: $total-line-height;
+      padding: ($space-sm / 2) $space-md;
+
+      a {
+        background-color: rgba($white, 0);
+        padding: 0;
+
+        &:hover {
+          background-color: rgba($white, 0);
+        }
+      }
+
+      &:hover {
+        background-color: $gainsboro;
+
+        a {
+          @include animate-all();
+
+          color: $blue;
+        }
+      }
+
+      &.active {
+        background-color: $blue;
+        color: $white;
+
+        &:hover a {
+          color: inherit;
+        }
+      }
+    }
+
+    .dropdown-divider {
+    // These styles are from a newer version of Bootstrap
+      border-top: 1px solid $silver;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .dropdown-header {
+      color: $grey;
+      font-size: $font-size-xsmall;
+      margin: 0;
+      padding: $space-sm $space-md 0;
+    }
+  }
+
+  &.dropdown-lg {
+    .selection {
+      padding-right: $space-lg;
+
+      li {
+        font: $font-medium;
+        font-size: $font-size-regular;
+        line-height: $total-line-height + 2px;
+        padding: 0 $space-sm;
+      }
+
+      &::after {
+        right: 7px; // Positioned by hand
+        top: 8px; // Positioned by hand
+      }
+    }
+
+    .dropdown-menu li {
+      font: $font-medium;
+      font-size: $font-size-regular;
+      padding: ($space-sm + 2px) $space-md $space-sm;
+    }
+  }
+}
+
+.expandable-row {
+  @extend .timing-animation;
+  @include shadow($silver);
+
+  border: 1px solid $silver;
+  border-radius: $radius-sm;
+  padding: $space-md $space-lg;
+
+  .expander-icon {
+    $size: 25px;
+
+    background-color: $white;
+    border: 1px solid $silver;
+    border-radius: $radius-circle;
+    color: $silver;
+    float: left;
+    height: $size;
+    line-height: $size - 2px;
+    margin-left: -(15px + $size / 2);
+    text-align: center;
+    width: $size;
+
+    .plus {
+      display: none;
+    }
+
+    .minus {
+      display: block;
+    }
+  }
+
+  &.collapsed .expander-icon {
+    .plus {
+      display: block;
+    }
+
+    .minus {
+      display: none;
+    }
+  }
+
+  &:hover {
+    @include shadow($light-grey);
+
+    .expander-icon {
+      color: $blue;
+    }
+  }
+
+  &.unexpandable {
+    @include shadow-inset($silver, 1, 0, 2px);
+
+    border: 0;
+
+    &:hover {
+      background-color: initial;
+      cursor: auto;
+    }
+
+    .expander-icon {
+      display: none;
+    }
+  }
+}
+
+// Moves anchors on H1 tags down below topnav
+h1[id] {
+  // Setting width to 0 for a block element doesn't impact layout (other than
+  // line breaks, which is why white-space needs to be set), but prevents the
+  // element from overlapping any other elements horizontally. This means that,
+  // even though these elements do extend quite a bit above where they appear on
+  // the page, that extra height won't cover any other page content
+  display: block;
+  white-space: nowrap;
+  width: 0;
+
+  &::before {
+    $offset: $navbar-two-rows-height + ($space-lg * 2);
+
+    content: " ";
+    display: block;
+    height: $offset;
+    margin-top: -$offset;
+    visibility: hidden;
+  }
+}
+
+[data-sortable] {
+  th:not([data-sortable=false]) {
+    cursor: pointer;
+
+    &:not([data-sorted=true]) {
+      @extend .timing-animation;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    &[data-sorted=true],
+    &:hover {
+      &::before {
+        content: $icon-unsorted;
+        font: $font-icon;
+        margin-left: -$space-lg;
+        margin-top: 2px;
+        position: absolute;
+      }
+
+      &[data-sorted-direction=ascending]::before {
+        content: $icon-sort-asc;
+      }
+
+      &[data-sorted-direction=descending]::before {
+        content: $icon-sort-desc;
+      }
+
+      &[data-sorted=false]:hover::before {
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+.avatar,
+.avatar-image {
+  background-position: center center;
+  background-size: cover;
+  border-radius: $radius-circle;
+  display: inline-block;
+  height: $avatar-size-sm;
+  position: relative;
+  vertical-align: middle;
+  width: $avatar-size-sm;
+
+  &.avatar-image {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &.avatar-lg {
+    &,
+    .avatar-image {
+      height: $avatar-size;
+      width: $avatar-size;
+    }
+  }
+}
+
+.no-space-bottom {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

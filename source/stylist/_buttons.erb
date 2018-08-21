@@ -1,0 +1,90 @@
+<div class="row stylist">
+  <h2>Buttons & Links</h2>
+
+  <h3>Basic Links</h3>
+  <%= display_example(%Q(<a>A link</a>)) %>
+
+  <%= display_example(%Q(<a class="with-info-icon">How to understand this graph</a>)) %>
+
+  <h3>Button Colors have Meaning</h3>
+
+  <p><b>Default Button</b> is primarily implemented in modals and the login page. Used when there is already a primary button being used for a more important action. If there are multiple high importance actions, only use secondary buttons.</p>
+
+  <%= display_example(%Q(
+<button class="btn">Default Button</button>)
+  ) %>
+
+  <p><b>Primary Button</b> are used primarily in modals and the login page. Used when we want to direct the user to take a suggested action. Reserve only one primary button in view at a time.</p>
+
+  <%= display_example(%Q(
+<button class="btn btn-primary">Primary Button</button>
+)) %>
+
+  <p><b>White Button</b> are primarily used in toggles and in the Summary page in the Reports platform.</p>
+
+  <%= display_example(%Q(
+<button class="btn btn-white">White Button</button>)
+  ) %>
+
+  <p><b>Warning Button</b> are used primarily in modals. The warning button has the same rules as the primary button except that it is used to warn the user they are about to take an action that cannot be reversed.</p>
+
+  <%= display_example(%Q(
+<button class="btn btn-warning">Warning Button</button>)
+  ) %>
+
+  <h3>Button Icon Indicates Action</h3>
+
+  <h3></h3>
+  <p><b>Action Buttons</b> are used primarily for creating groups from filters or adding a student to a list. You can add an icon to this button using a Sass mixin (button-create($icon-type: "e");) and referring to the typography.scss file for glyphs.</p>
+
+  <%= display_example(%Q(
+<button class="btn add-icon">Action Button</button>)
+  ) %>
+
+  <h3>Loaders Indicate Interaction</h3>
+  <p><b>Use a Loader</b> when something does not happen instantaneously. It is always safer to add this in case performance slows down as we scale.</p>
+
+  <%= display_example(%Q(
+  <button class="btn">Large Button
+  <div class="loading-wave">
+  <div class="rect rect1"></div>
+  <div class="rect rect2"></div>
+  <div class="rect rect3"></div>
+  <div class="rect rect4"></div>
+  <div class="rect rect5"></div>
+  </div></button>)
+  ) %>
+
+  <h3>Button Size Indicates Importance</h3>
+  <p><b>Large buttons</b> are used in modals and in situations when the user must use the button to do a single action on the page. <b>Small buttons</b> are used when there are multiple user actions on a page so they don't need to call as much attention to themselves.</p>
+
+  <%= display_example(%Q(
+<button class="btn">Large Button</button>)
+  ) %>
+
+  <%= display_example(%Q(
+<button class="btn btn-small">Small Button</button>)
+  ) %>
+
+  <%= display_example(%Q(
+<button class="btn btn-xsmall">Extra Small Button</button>)
+  ) %>
+
+  <h3>Toggle Buttons Change/Select Data</h3>
+  <p><b>Toggle buttons</b> are used primarily when toggling between marking periods and school years.
+
+  <%= display_example(%Q(
+<button class="btn-toggle">Q1</button>
+<button class="btn-toggle">Q2</button>
+<button class="btn-toggle active">Q3 (current)</button>)
+  ) %>
+
+  <p><b>Toggle buttons</b> can also be used to select multiple pieces of information. Use these instead of checkboxes when the information should be very prominent.</p>
+   <%= display_example(%Q(
+  <button class="btn-toggle">2x10 relationship building</button>
+  <button class="btn-toggle active">Organization session</button>
+  <button class="btn-toggle active">Homework club</button>
+  <button class="btn-toggle">Buddy student</button>)
+  ) %>
+
+</div>

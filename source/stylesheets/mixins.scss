@@ -1,0 +1,485 @@
+@mixin placeholder-color($color: $blue-dark) {
+  &::placeholder {
+    color: $color;
+  }
+}
+
+// Layout
+
+@mixin scalable-content() {
+  @extend .timing-animation;
+
+  width: 100%;
+
+  > .container {
+    margin: 0 auto;
+    max-width: 1024px;
+    min-width: 600px;
+    width: 100%;
+  }
+}
+
+@mixin column-no-wrap() {
+  break-inside: avoid-column;         /* IE 11 */
+  display: table;                      /* Actually FF 20+ */
+  page-break-inside: avoid;           /* Theoretically FF 20+ */
+  -webkit-column-break-inside: avoid; /* Chrome, Safari */
+}
+
+// Shadows
+
+@mixin shadow($color: $grey, $opacity: .3) {
+  box-shadow: 0 2px 6px 0 rgba($color, $opacity);
+}
+
+@mixin shadow-inset($color: $grey, $opacity: .3, $voffset: 1px, $spread: 6px) {
+  box-shadow: inset 0 $voffset $spread 0 rgba($color, $opacity);
+}
+
+// Animation
+
+@mixin animate-all($speed: 0.2s) {
+  transition: all $speed ease;
+}
+
+.timing-animation {
+  @include animate-all();
+}
+
+// Buttons
+
+@mixin btn($color: $blue, $border-width: 2px, $font-size: $font-size-regular, $inverse: false) {
+  @extend .timing-animation;
+
+  $font-scale: $font-size / $font-size-regular;
+
+  background: $color;
+  border: 0;
+  border-bottom: $border-width solid darken($color, 12%);
+  border-radius: $radius-sm;
+  color: $white;
+  cursor: pointer;
+  font: $font-medium;
+  font-size: $font-size;
+  padding: ($font-scale * 12px) ($font-scale * 18px) ($font-scale * 10px);
+
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      outline-color: transparent;
+      outline-style: none;
+    }
+  }
+
+  &:hover {
+    @if $inverse {
+      background: darken($color, 10%);
+      border-bottom: $border-width solid darken(lighten($color, 12%), 10%);
+    } @else {
+      background: lighten($color, 10%);
+      border-bottom: $border-width solid lighten(darken($color, 12%), 10%);
+    }
+  }
+
+  &:focus,
+  &:active:focus,
+  &.active:focus {
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  .loading-wave .rect {
+    background-color: $white;
+  }
+}
+
+@mixin button-create($icon-type: "e") {
+  &::before {
+    content: $icon-type;
+    font: $font-icon;
+    margin-right: 6px;
+  }
+}
+
+.btn {
+  @include btn();
+}
+
+.btn-grey {
+  @include btn($silver);
+}
+
+.btn-primary,
+.btn-success {
+  @include btn($green);
+}
+
+.btn-warning {
+  @include btn($orange);
+}
+
+.btn-white {
+  @include shadow($silver);
+
+  background: $white;
+  border: 1px solid $silver;
+  border-radius: $radius-sm;
+  color: $grey;
+
+  &:hover {
+    @include shadow();
+    background: $white;
+    border: 1px solid $silver;
+    color: $grey;
+  }
+
+  &.btn-small:hover {
+    border: 1px solid $silver;
+  }
+}
+
+.btn-purple {
+  @include btn($purple);
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+.btn-small {
+  font-size: $font-size-small;
+  padding: 9px 12px 7px;
+}
+
+.btn-xsmall {
+  &,
+  &.active {
+    font-size: $font-size-xsmall;
+    padding: 7px;
+  }
+}
+
+.add-icon {
+  @include button-create();
+}
+
+// Toggle buttons
+
+.btn-toggle {
+  @extend .btn;
+  @extend .btn-white;
+  @extend .btn-small;
+
+  padding-top: 7px;
+
+  &.active {
+    @extend .btn-grey;
+    @extend .btn-small;
+    @include shadow($grey, 0);
+    @include shadow-inset($grey, .2);
+
+    border: 1px solid $light-grey;
+    color: $grey;
+    cursor: default;
+    padding-top: 7px;
+
+    &:hover {
+      background: $silver;
+      border: 1px solid $light-grey;
+    }
+  }
+}
+
+// Wells
+
+@mixin well($color: $light-grey, $opacity: .3) {
+  box-shadow: inset 0 0 8px 0 rgba($color, $opacity);
+}
+
+// Scrollbars
+
+@mixin scroll-bar($back: rgba($white, .0), $thumb: rgba($grey, .3)) {
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  // Track
+  &::-webkit-scrollbar-track {
+    background: $back;
+  }
+
+  // Handle
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+  }
+
+  // Hide scroll handle when window is inactive, Webkit only. May remove
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba($white, 0);
+  }
+}
+
+// Indicator prefabs
+
+@mixin indicator-customizations($color, $icon) {
+  &.with-indicator-border,
+  .with-indicator-border {
+    border-color: $color;
+  }
+
+  &.with-indicator-background,
+  .with-indicator-background {
+    background-color: $color;
+  }
+
+  &.with-indicator-color,
+  .with-indicator-color {
+    color: $color;
+  }
+
+  @if $icon != null {
+    .with-indicator-icon-inline::before,
+    .with-indicator-icon::before {
+      content: $icon;
+      font: $font-icon;
+    }
+
+    .with-indicator-icon::before {
+      font-size: $font-size-medium;
+      padding-right: $space-sm;
+      position: relative;
+      top: 1px;
+    }
+
+    &.no-icon {
+      .with-indicator-icon-inline,
+      .with-indicator-icon {
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin indicator-interstitial-gradient($start-color, $end-color) {
+  background: -moz-linear-gradient(right, $start-color, $end-color);
+  background: -webkit-linear-gradient(left, $start-color, $end-color);
+  background: linear-gradient(to right, $start-color, $end-color);
+
+  // IE Specific
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$start-color}", endColorstr="#{$end-color}", GradientType=1);
+}
+
+@mixin tooltip-content() {
+  @include shadow();
+
+  background-color: $white;
+  border-radius: $radius-md;
+  font-weight: lighter;
+  line-height: $line-height-paragraph;
+  overflow: hidden;
+  padding: $space-xlg;
+  text-align: left;
+
+  h3 {
+    background-color: $blue;
+    color: $white;
+    margin: (-$space-xlg) (-$space-xlg) $space-lg;
+    padding: $space-lg $space-xlg;
+  }
+}
+
+@mixin indicator-bubble($bubble-size) {
+  $trend-bubble-size: $bubble-size - $radius-xlg;
+  height: $bubble-size;
+  position: relative;
+
+  &.with-trend-spacing {
+    margin-left: $trend-bubble-size;
+  }
+
+  .bubble {
+    @extend .timing-animation;
+
+    border-radius: $radius-xlg;
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    height: $bubble-size;
+    line-height: $bubble-size;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: $bubble-size;
+
+    .value {
+      color: $white;
+      font: $font-bold;
+      font-size: $font-size-xsmall;
+      position: relative;
+      top: -1px;
+
+      &.percent::after {
+        content: "%";
+        font: $font-bold;
+        font-size: $font-size-xsmall / 3 * 2;
+      }
+    }
+  }
+
+  .trend-container {
+    .trend {
+      float: left;
+      height: $bubble-size;
+      position: relative;
+      vertical-align: middle;
+
+      &::before {
+        @extend .icon;
+        @extend .timing-animation;
+
+        border: 1px dashed;
+        border-bottom-left-radius: $radius-xlg;
+        border-top-left-radius: $radius-xlg;
+        box-sizing: border-box;
+        display: none;
+        font-size: $font-size-xxsmall;
+        height: $trend-bubble-size;
+        left: -$trend-bubble-size - 2px;
+        line-height: $trend-bubble-size;
+        padding-left: 3px;
+        position: absolute;
+        text-align: center;
+        width: $trend-bubble-size;
+      }
+    }
+
+    &.increasing {
+      .trend::before {
+        content: $icon-trend-increase;
+        display: inline-block;
+        top: $bubble-size - $trend-bubble-size;
+      }
+
+      ~ .bubble {
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &.decreasing {
+      .trend::before {
+        content: $icon-trend-decrease;
+        display: inline-block;
+        top: 0;
+      }
+
+      ~ .bubble {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
+  &.active {
+    .bubble:hover,
+    .trend:hover::before {
+      @include shadow();
+    }
+  }
+}
+
+// Gradients
+
+.footer-gradient {
+  // Permalink - use to edit this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100
+  background: -moz-linear-gradient(top, rgba($white, 0) 0%, rgba($white, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba($white, 0) 0%, rgba($white, 1) 100%);
+  background: linear-gradient(to bottom, rgba($white, 0) 0%, rgba($white, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#fff', GradientType=0);
+}
+
+.filter-title-gradient {
+  // Permalink - use to edit this gradient: http://colorzilla.com/gradient-editor/#ffffff+75,ffffff+100&1+75,0+100
+  background: -moz-linear-gradient(left, rgba($white, 0.5) 75%, rgba($white, 0) 100%);
+  background: -webkit-linear-gradient(left, rgba($white, 0.5) 75%, rgba($white, 0) 100%);
+  background: linear-gradient(to right, rgba($white, 0.5) 75%, rgba($white, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fffffff', endColorstr='#00ffffff', GradientType=1);
+}
+
+// Checkboxes
+
+.checkbox-display {
+  $size: 15px;
+
+  background-color: $white;
+  border: 1px $light-grey solid;
+  border-radius: $radius-md;
+  box-sizing: border-box;
+  color: $grey;
+  cursor: pointer;
+  display: inline-block;
+  font: $font-icon;
+  height: $size;
+  left: $checkbox-inset;
+  overflow: hidden;
+  position: absolute;
+  top: $checkbox-inset;
+  width: $size;
+
+  &::before {
+    box-sizing: border-box;
+    color: $light-grey;
+    content: " ";
+    display: inline-block;
+    font: $font-icon;
+    line-height: $size;
+    padding-right: 1px;
+    position: relative;
+    text-align: center;
+    top: -1px;
+    width: $size;
+  }
+}
+
+.checkbox-with-display {
+  display: none;
+
+  &:checked ~ .checkbox-display {
+    background-color: $blue-light;
+
+    &::before {
+      color: $white;
+      content: $icon-check;
+    }
+  }
+
+  &:disabled ~ .checkbox-display {
+    cursor: not-allowed;
+  }
+}
+
+@mixin resize-checkbox-with-display($size: 15px) {
+  &.checkbox-display {
+    height: $size;
+    width: $size;
+
+    &::before {
+      line-height: $size;
+      width: $size;
+    }
+  }
+}
+
+// Student name in a list view
+@mixin student-name() {
+  display: table;
+  height: 100%;
+  line-height: normal;
+  width: 100%;
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
